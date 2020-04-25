@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ubuntu系统Apache2部署SSL证书</title>
+    <url>/2020/04/25/Ubuntu%E7%B3%BB%E7%BB%9FApache2%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/</url>
+    <content><![CDATA[<p>本文档为您介绍了如何在Ubuntu系统以及Apache2中安装阿里云SSL证书。</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>操作系统：Ubuntu</p>
+<p>Web服务器：Apache 2</p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul>
+<li>已从<a href="https://yundunnext.console.aliyun.com/?p=cas#/overview/cn-hangzhou" target="_blank" rel="noopener">SSL证书控制台</a>下载Apache服务器证书。</li>
+<li>已安装Open SSL。</li>
+</ul>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
+<li><p>运行以下命令在apache2目录下创建ssl目录。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;etc&#x2F;apache2&#x2F;ssl</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行以下命令将下载的阿里云证书文件复制到ssl目录中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp -r YourDomainName_public.crt &#x2F;etc&#x2F;apache2&#x2F;ssl</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp -r YourDomainName_chain.crt &#x2F;etc&#x2F;apache2&#x2F;ssl</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp -r YourDomainName.key &#x2F;etc&#x2F;apache2&#x2F;ssl</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+</li>
+<li><p>运行以下命令启用SSL模块。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo a2enmod ssl</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/04/25/znDyZLWRAsv2f4t.png" alt="image.png"></p>
+<p>SSL模块启用后可执行<code>ls /etc/apache2/sites-available</code>查看目录下生成的default-ssl.conf文件。</p>
+<p><strong>说明：</strong> 443端口是网络浏览端口，主要用于HTTPS服务。SSL模块启用后会自动放行443端口。若443端口未自动放行，可执行<code>vi /etc/apache2/ports.conf</code>并添加<code>Listen 443</code>手动放行。</p>
+</li>
+<li><p>运行以下命令修改SSL配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;apache2&#x2F;sites-available&#x2F;YourDomainName-ssl.conf</span><br></pre></td></tr></table></figure>
+
+<p>在default-ssl.conf文件中找到以下参数进行修改后保存并退出。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;IfModules mod_ssl.c&gt;</span><br><span class="line">&lt;VirtualHost *:443&gt;  </span><br><span class="line">ServerName   <span class="comment">#修改为证书绑定的域名www.YourDomainName.com。</span></span><br><span class="line">SSLCertificateFile /etc/apache2/ssl/www.YourDomainName_public.crt   </span><br><span class="line"><span class="comment">#将/etc/apache2/ssl/www.YourDomainName.com_public.crt替换为证书文件路径+证书文件名。</span></span><br><span class="line">SSLCertificateKeyFile /etc/ssl/apache2/www.YourDomainName.com.key   </span><br><span class="line"><span class="comment">#将/etc/apache2/ssl/www.YourDomainName.com.key替换为证书秘钥文件路径+证书秘钥文件名。</span></span><br><span class="line">SSLCertificateChainFile /etc/apache2/ssl/www.YourDomainName.com_chain.crt  </span><br><span class="line"><span class="comment">#将/etc/apache2/ssl/www.YourDomainName.com_chain.crt替换为证书链文件路径+证书链文件名。</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/04/25/XESFU87K4QfY92A.png" alt="image.png"></p>
+<p>/sites-available：该目录存放的是可用的虚拟主机；/sites-enabled：该目录存放的是已经启用的虚拟主机。</p>
+<p><strong>说明：</strong> default-ssl.conf文件可能存放在/etc/apache2/sites-available或/etc/apache2/sites-enabled目录中。</p>
+</li>
+<li><p>运行以下命令把default-ssl.conf映射至/etc/apache2/sites-enabled文件夹中建立软链接、实现二者之间的自动关联。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ln -s &#x2F;etc&#x2F;apache2&#x2F;sites-available&#x2F;YourDomainName-ssl.conf &#x2F;etc&#x2F;apache2&#x2F;sites-enabled&#x2F;YourDomainName-ssl.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行以下命令重新加载Apache 2配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;apache2 force-reload</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/04/25/4Rn27NQuZgTDoFK.png" alt="image.png"></p>
+</li>
+<li><p>运行以下命令重启Apache 2服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;apache2 restart</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/04/25/13p6Xtfh49s8VQi.png" alt="image.png"></p>
+</li>
+</ol>
+<h2 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h2><p>Apache 2服务重启成功后，您可在浏览器中输入<a href="https://www.YourDomainName.com验证证书安装结果。浏览器地址栏显示绿色的小锁标识说明证书安装成功。" target="_blank" rel="noopener">https://www.YourDomainName.com验证证书安装结果。浏览器地址栏显示绿色的小锁标识说明证书安装成功。</a></p>
+<p><a href="https://help.aliyun.com/document_detail/102450.html?spm=a2c4g.11186623.2.16.641a5d990B7ZJl#title-8vo-dzo-1in" target="_blank" rel="noopener">原文地址</a></p>
+]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu中设置http强制重定向为https</title>
+    <url>/2020/04/25/http%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%BAhttps/</url>
+    <content><![CDATA[<h3 id="1-开启重定向"><a href="#1-开启重定向" class="headerlink" title="1.开启重定向"></a>1.开启重定向</h3><p>a2enmod rewrite</p>
+<h3 id="2-设置http端口重定向"><a href="#2-设置http端口重定向" class="headerlink" title="2.设置http端口重定向"></a>2.设置http端口重定向</h3><p>将下面这段放到要重定向的站点配置文件里面，放在&lt;\VirtualHost *:80&gt;&lt;\VirtualHost&gt; 标签内的任何位置都行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond  %&#123;HTTPS&#125; !=on</span><br><span class="line">RewriteRule  ^(.*)  https://%&#123;SERVER_NAME&#125;<span class="variable">$1</span> [L,R]</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启apach2"><a href="#重启apach2" class="headerlink" title="重启apach2"></a>重启apach2</h3><p>service apache2 restart</p>
+]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java基础知识总结（中）</title>
     <url>/2020/04/15/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%AD%EF%BC%89/</url>
     <content><![CDATA[<h2 id="面向对象与面向过程"><a href="#面向对象与面向过程" class="headerlink" title="面向对象与面向过程"></a>面向对象与面向过程</h2><ul>
@@ -1798,9 +1878,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
 <li><p>创建Git裸仓库</p>
 <p>blog.git作为远程Git仓库，Hexo在本地生成的博客静态文件可以通过push与其同步。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir ~/blog.git &amp;&amp; <span class="built_in">cd</span> ~/blog.git</span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在hooks目录下新建一个脚本文件<code>post-receive</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch hooks/post-receive</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   </span><br><span class="line">2. 在hooks目录下新建一个脚本文件&#96;post-receive&#96;</span><br><span class="line"></span><br><span class="line">   &#96;&#96;&#96; bash</span><br><span class="line">   touch hooks&#x2F;post-receive</span><br></pre></td></tr></table></figure>
 
 <p><code>post-receive</code>脚本将在blog.git仓库接收到push时执行</p>
 <p>脚本非常简单，就是删除原有的/var/www/html/blog目录，然后从blog.git仓库clone新的博客静态文件</p>
@@ -1816,7 +1894,8 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
 <h3 id="2-修改hexo配置文件"><a href="#2-修改hexo配置文件" class="headerlink" title="2.修改hexo配置文件"></a>2.修改hexo配置文件</h3><p>修改hexo根目录下的_config.yml文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'git'</span></span><br><span class="line">  repo: <span class="string">'root@服务器IP:blog.git'</span></span><br></pre></td></tr></table></figure>
 
-
+<h3 id="补充一点"><a href="#补充一点" class="headerlink" title="补充一点"></a>补充一点</h3><p>如果之前有在同一台服务器上配置过git的裸库，需要在用户目录的<code>.ssh</code>目录下，将<code>known_hosts</code>文件中的主机记录删除掉，否则可能会报错。</p>
+<img src="https://i.loli.net/2020/04/25/Nk1QSac4IE2TxRz.png" alt="image.png" style="zoom:80%;" />
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这个方法和其他复杂一点的方法区别就是，没有专门建一个git的用户用来上传，就直接用root用户上传，就自己用的话应该问题也不大🤔</p>
 ]]></content>

@@ -55,12 +55,14 @@
 <meta property="og:site_name" content="这边风景独好">
 <meta property="og:description" content="之前折腾了好久，用Rsync，ftp，stfp都试过了，都没弄成，在网上看的教程很多也是基于git的，也就是在服务器建一个git的钩子，指定一个目录作为远程仓库地址，可以通过ssh连接，然后......">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/04/25/Nk1QSac4IE2TxRz.png">
 <meta property="article:published_time" content="2020-03-01T12:10:22.000Z">
-<meta property="article:modified_time" content="2020-04-01T11:35:31.664Z">
+<meta property="article:modified_time" content="2020-04-25T09:53:43.563Z">
 <meta property="article:author" content="Steven Tan">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="服务器">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/25/Nk1QSac4IE2TxRz.png">
 
 <link rel="canonical" href="https://blog.steventan.top/2020/03/01/hexo%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
@@ -243,7 +245,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 19:35:31" itemprop="dateModified" datetime="2020-04-01T19:35:31+08:00">2020-04-01</time>
+                <time title="修改时间：2020-04-25 17:53:43" itemprop="dateModified" datetime="2020-04-25T17:53:43+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,7 +286,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>853</span>
+              <span>968</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -311,9 +313,7 @@
 <li><p>创建Git裸仓库</p>
 <p>blog.git作为远程Git仓库，Hexo在本地生成的博客静态文件可以通过push与其同步。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/blog.git &amp;&amp; <span class="built_in">cd</span> ~/blog.git</span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在hooks目录下新建一个脚本文件<code>post-receive</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch hooks/post-receive</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">2. 在hooks目录下新建一个脚本文件&#96;post-receive&#96;</span><br><span class="line"></span><br><span class="line">   &#96;&#96;&#96; bash</span><br><span class="line">   touch hooks&#x2F;post-receive</span><br></pre></td></tr></table></figure>
 
 <p><code>post-receive</code>脚本将在blog.git仓库接收到push时执行</p>
 <p>脚本非常简单，就是删除原有的/var/www/html/blog目录，然后从blog.git仓库clone新的博客静态文件</p>
@@ -329,7 +329,8 @@
 <h3 id="2-修改hexo配置文件"><a href="#2-修改hexo配置文件" class="headerlink" title="2.修改hexo配置文件"></a>2.修改hexo配置文件</h3><p>修改hexo根目录下的_config.yml文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'git'</span></span><br><span class="line">  repo: <span class="string">'root@服务器IP:blog.git'</span></span><br></pre></td></tr></table></figure>
 
-
+<h3 id="补充一点"><a href="#补充一点" class="headerlink" title="补充一点"></a>补充一点</h3><p>如果之前有在同一台服务器上配置过git的裸库，需要在用户目录的<code>.ssh</code>目录下，将<code>known_hosts</code>文件中的主机记录删除掉，否则可能会报错。</p>
+<img src="https://i.loli.net/2020/04/25/Nk1QSac4IE2TxRz.png" alt="image.png" style="zoom:80%;" />
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这个方法和其他复杂一点的方法区别就是，没有专门建一个git的用户用来上传，就直接用root用户上传，就自己用的话应该问题也不大🤔</p>
 
@@ -342,10 +343,13 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\01\在Ubuntu服务器安装mysql8\" rel="bookmark">在Ubuntu服务器上安装MySQL8</a></div>
+      <div class="popular-posts-title"><a href="\2020\04\25\Ubuntu系统Apache2部署SSL证书\" rel="bookmark">Ubuntu系统Apache2部署SSL证书</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\01\用ssh公钥配对登录服务器\" rel="bookmark">用ssh公钥配对登录服务器</a></div>
+      <div class="popular-posts-title"><a href="\2020\04\25\http重定向为https\" rel="bookmark">Ubuntu中设置http强制重定向为https</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\03\01\在Ubuntu服务器安装mysql8\" rel="bookmark">在Ubuntu服务器上安装MySQL8</a></div>
     </li>
   </ul>
 
@@ -449,7 +453,7 @@
       
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正式开始"><span class="nav-text">正式开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置Git-hooks"><span class="nav-text">1. 配置Git hooks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改hexo配置文件"><span class="nav-text">2.修改hexo配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正式开始"><span class="nav-text">正式开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置Git-hooks"><span class="nav-text">1. 配置Git hooks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改hexo配置文件"><span class="nav-text">2.修改hexo配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充一点"><span class="nav-text">补充一点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -468,7 +472,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -528,13 +532,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">47k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:53</span>
+    <span title="站点阅读时长">1:58</span>
 
   <span class="post-meta-divider">|</span>
 
