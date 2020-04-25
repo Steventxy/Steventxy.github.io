@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Java基础知识总结（中）</title>
+    <url>/2020/04/15/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%AD%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="面向对象与面向过程"><a href="#面向对象与面向过程" class="headerlink" title="面向对象与面向过程"></a>面向对象与面向过程</h2><ul>
+<li><p>面向过程(POP) 与 面向对象(OOP)</p>
+<ul>
+<li><p>二者都是一种思想，面向对象是相对于面向过程而言的。面向过程，强调的 是功能行为，以函数为最小单位，考虑怎么做。面向对象，将功能封装进对 象，强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
+</li>
+<li><p>面向对象更加强调运用人类在日常的思维逻辑中采用的思想方法与原则，如 抽象、分类、继承、聚合、多态等。</p>
+<p><em>面向对象：Object Oriented Programming</em> </p>
+<p><em>面向过程：Procedure Oriented Programming</em></p>
+</li>
+</ul>
+</li>
+<li><p>面向对象的三大特征</p>
+<ul>
+<li>封装（Encapsulation）</li>
+<li>继承（Inheritance）</li>
+<li>多态（Polymorphism）</li>
+</ul>
+<a id="more"></a>
+
+</li>
+</ul>
+<p>煮个栗子：</p>
+<img src="https://i.loli.net/2020/04/15/YxauQKcO3TyLqmM.png" alt="image.png" style="zoom: 67%;" />
+
+<!--more-->
+
+<h2 id="Java中的基本元素：类和对象"><a href="#Java中的基本元素：类和对象" class="headerlink" title="Java中的基本元素：类和对象"></a>Java中的基本元素：类和对象</h2><h3 id="类的语法格式"><a href="#类的语法格式" class="headerlink" title="类的语法格式"></a>类的语法格式</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">修饰符 <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">  属性声明;</span><br><span class="line">  方法申明;</span><br><span class="line">&#125;</span><br><span class="line">例如：</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age ; <span class="comment">//声明私有变量 age</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAge</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="comment">//声明方法showAge( )</span></span><br><span class="line">  	age = i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象的创建和使用"><a href="#对象的创建和使用" class="headerlink" title="对象的创建和使用"></a>对象的创建和使用</h3><ul>
+<li>创建对象语法：类名 对象名 = new 类名();</li>
+<li>用“对象名.对象成员”的方式就能访问对象成员</li>
+</ul>
+<p>内存解析：<img src="https://i.loli.net/2020/04/15/JD1uqrjePf5HURc.png" alt="image.png" style="zoom: 67%;" /></p>
+<h4 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h4><p>我们也可以不定义对象的句柄，而直接调用这个对象的方法。这 样的对象叫做匿名对象。 </p>
+<p>如：new Person().shout(); </p>
+<p>使用情况：如果对一个对象只需要进行一次方法调用，那么就可以使用匿名对象。 我们经常将匿名对象作为实参传递给一个方法调用。</p>
+<h3 id="类的成员"><a href="#类的成员" class="headerlink" title="类的成员"></a>类的成员</h3><h4 id="属性（field）"><a href="#属性（field）" class="headerlink" title="属性（field）"></a>属性（field）</h4><h5 id="语法格式：-修饰符-数据类型-属性名-初始化值"><a href="#语法格式：-修饰符-数据类型-属性名-初始化值" class="headerlink" title="语法格式： 修饰符 数据类型 属性名 = 初始化值 ;"></a>语法格式： 修饰符 数据类型 属性名 = 初始化值 ;</h5><ul>
+<li>说明1: 修饰符 <ul>
+<li>常用的权限修饰符有：private、缺省、protected、public </li>
+<li>其他修饰符：static、final (暂不考虑) </li>
+</ul>
+</li>
+<li>说明2：数据类型 <ul>
+<li>任何基本数据类型(如int、Boolean) 或 任何引用数据类型。 </li>
+</ul>
+</li>
+<li>说明3：属性名 <ul>
+<li>属于标识符，符合命名规则和规范即可。 </li>
+</ul>
+</li>
+</ul>
+<p>举例： public class Person{ private int age; //声明private变量 age public String name = “Lila”; //声明public变量 name }</p>
+<h5 id="变量的分类（成员变量和局部变量）"><a href="#变量的分类（成员变量和局部变量）" class="headerlink" title="变量的分类（成员变量和局部变量）"></a>变量的分类（成员变量和局部变量）</h5><ul>
+<li>在方法体外，类体内声明的变量称为成员变量。 </li>
+<li>在方法体内部声明的变量称为局部变量。</li>
+</ul>
+<p>成员变量和局部变量区别：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">成员变量</th>
+<th align="center">局部变量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">声明的位置</td>
+<td align="center">直接声明在类型中</td>
+<td align="center">方法内部、代码块内、构造器内</td>
+</tr>
+<tr>
+<td align="center">修饰符</td>
+<td align="center">private、public、static等</td>
+<td align="center">不能用权限修饰符，可以用final修饰</td>
+</tr>
+<tr>
+<td align="center">初始化值</td>
+<td align="center">有默认初始化值</td>
+<td align="center">没有默认初始化值，必须要显示赋值</td>
+</tr>
+<tr>
+<td align="center">内存加载位置</td>
+<td align="center">堆空间或静态域内</td>
+<td align="center">栈空间</td>
+</tr>
+</tbody></table>
+<h4 id="方法（method）"><a href="#方法（method）" class="headerlink" title="方法（method）"></a>方法（method）</h4><h5 id="方法的声明格式："><a href="#方法的声明格式：" class="headerlink" title="方法的声明格式："></a>方法的声明格式：</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">修饰符 返回值类型 方法名（参数类型 形参<span class="number">1</span>, 参数类型 形参<span class="number">2</span>, ….）｛</span><br><span class="line">  方法体程序代码</span><br><span class="line">  <span class="keyword">return</span> 返回值;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+
+<p>其中： 修饰符：public,缺省,private, protected等 返回值类型：</p>
+<ul>
+<li>没有返回值：void。 </li>
+<li>有返回值，声明出返回值的类型。与方法体中“return 返回值”搭配使用 方法名：属于标识符，命名时遵循标识符命名规则和规范，“见名知意” 形参列表：可以包含零个，一个或多个参数。多个参数时，中间用“,”隔开 返回值：方法在执行完毕后返还给调用它的程序的数据。</li>
+</ul>
+<h5 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h5><img src="https://i.loli.net/2020/04/16/sSNBGoyAzTU2xbp.png" alt="image.png" style="zoom: 67%;" />
+
+<h5 id="方法的重载（overload）"><a href="#方法的重载（overload）" class="headerlink" title="方法的重载（overload）"></a>方法的重载（overload）</h5><p>1.定义：在同一个类中，允许存在一个以上的同名方法，只要它们的<strong>参数个数</strong>或者<strong>参数类型</strong>不同即可。</p>
+<ul>
+<li><p>“两同一不同”:同一个类、相同方法名</p>
+</li>
+<li><p>参数列表不同：参数个数不同，参数类型不同</p>
+</li>
+</ul>
+<p>使用重载方法，可以为编程带来方便。 </p>
+<p>例如，System.out.println()方法就是典型的重载方法，其内部的声 明形式如下： </p>
+<p>public void println(byte x) </p>
+<p>public void println(short x) </p>
+<p>public void println(int x) </p>
+<p>public void println(long x) </p>
+<p>public void println(float x) </p>
+<p>public void println(double x) </p>
+<p>public void println(char x) </p>
+<p>public void println(double x) </p>
+<p>public void println()</p>
+<p>……</p>
+<h5 id="可变个数的形参"><a href="#可变个数的形参" class="headerlink" title="可变个数的形参"></a>可变个数的形参</h5><p>1.JavaSE 5.0 中提供了Varargs(variable number of arguments)机制，允许直接定 义能和多个实参相匹配的形参。从而，可以用一种更简单的方式，来传递个数可变的实参。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//JDK 5.0以前：采用数组形参来定义方法，传入多个同一类型变量 </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a ,String[] books)</span></span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//JDK5.0：采用可变个数形参来定义方法，传入多个同一类型变量 </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a ,String … books)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>2.具体使用：</p>
+<ul>
+<li><p>2.1 可变个数形参的格式：数据类型 … 变量名</p>
+</li>
+<li><p>2.2 当调用可变个数形参的方法时，传入的参数个数可以是：0个，1个,2个，。。。</p>
+</li>
+<li><p>2.3 可变个数形参的方法与本类中方法名相同，形参不同的方法之间构成重载</p>
+</li>
+<li><p>2.4 可变个数形参的方法与本类中方法名相同，形参类型也相同的数组之间不构成重载。换句话说，二者不能共存。</p>
+</li>
+<li><p>2.5 可变个数形参在方法的形参中，必须声明在末尾</p>
+</li>
+<li><p>2.6 可变个数形参在方法的形参中,最多只能声明一个可变形参。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String[] msg)</span></span>&#123;</span><br><span class="line">  System.out.println(“含字符串数组参数的test方法 <span class="string">");</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">public void test1(String book)&#123;</span></span><br><span class="line"><span class="string">	System.out.println(“****与可变形参方法构成重载的test1方法****"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">(String ... books)</span></span>&#123;</span><br><span class="line">  System.out.println(<span class="string">"****形参长度可变的test1方法****"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">TestOverload to = <span class="keyword">new</span> TestOverload();</span><br><span class="line">  <span class="comment">//下面两次调用将执行第二个test方法</span></span><br><span class="line">  to.test1();</span><br><span class="line">  to.test1(<span class="string">"aa"</span> , <span class="string">"bb"</span>);</span><br><span class="line">  <span class="comment">//下面将执行第一个test方法</span></span><br><span class="line">  to.test(<span class="keyword">new</span> String[]&#123;<span class="string">"aa"</span>&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法参数的值传递机制"><a href="#方法参数的值传递机制" class="headerlink" title="方法参数的值传递机制"></a>方法参数的值传递机制</h5><p>方法，必须由其所在类或对象调用才有意义。若方法含有参数： </p>
+<ul>
+<li>形参：方法声明时的参数</li>
+<li>实参：方法调用时实际传给形参的参数值</li>
+</ul>
+<p>Java的实参值如何传入方法呢？</p>
+<p>Java里方法的参数传递方式只有一种：<strong>值传递</strong>。 即将实际参数值的副本（复制品）传入方法内，而参数本身不受影响。</p>
+<ul>
+<li>形参是基本数据类型：将实参基本数据类型变量的“<strong>数据值</strong>”传递给形参 </li>
+<li>形参是引用数据类型：将实参引用数据类型变量的“<strong>地址值</strong>”传递给形参</li>
+</ul>
+<img src="https://i.loli.net/2020/04/16/RuJgS4FkPxGONo2.png" alt="image.png" style="zoom: 80%;" />
+
+<img src="https://i.loli.net/2020/04/16/FoCkBhuLtl5Vyjf.png" alt="image.png" style="zoom: 80%;" />
+
+<img src="https://i.loli.net/2020/04/16/1zWEMB2Iki7o6my.png" alt="image.png" style="zoom:80%;" />
+
+<img src="https://i.loli.net/2020/04/16/2ARmBoaSXKpV5Zr.png" alt="image.png" style="zoom:80%;" />
+
+<img src="https://i.loli.net/2020/04/16/XCNFBZkxrmYtuJP.png" alt="image.png" style="zoom:80%;" />
+
+<p><img src="https://i.loli.net/2020/04/16/PHC8ReFzDhMfXwj.png" alt="image.png"></p>
+<p><img src="https://i.loli.net/2020/04/16/DHXK67YzpVJeOEm.png" alt="image.png"></p>
+<h4 id="构造器（构造方法）"><a href="#构造器（构造方法）" class="headerlink" title="构造器（构造方法）"></a>构造器（构造方法）</h4><h5 id="构造器的特征"><a href="#构造器的特征" class="headerlink" title="构造器的特征"></a>构造器的特征</h5><ul>
+<li>它具有与类相同的名称 </li>
+<li>它不声明返回值类型。（与声明为void不同） </li>
+<li>不能被static、final、synchronized、abstract、native修饰，不能有 return语句返回值</li>
+</ul>
+<h5 id="构造器的作用"><a href="#构造器的作用" class="headerlink" title="构造器的作用"></a>构造器的作用</h5><ul>
+<li>创建对象</li>
+<li>给对象进行初始化</li>
+</ul>
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>根据参数不同，构造器可以分为如下两类： </p>
+<ul>
+<li>隐式无参构造器（系统默认提供） </li>
+<li>显式定义一个或多个构造器（无参、有参）</li>
+</ul>
+<p>注意：</p>
+<ol>
+<li>Java语言中，每个类都至少有一个构造器 </li>
+<li>默认构造器的修饰符与所属类的修饰符一致 </li>
+<li>一旦显式定义了构造器，则系统不再提供默认构造器 </li>
+<li>一个类可以创建多个重载的构造器 </li>
+<li>父类的构造器不可被子类继承</li>
+</ol>
+<h5 id="构造器的重载"><a href="#构造器的重载" class="headerlink" title="构造器的重载"></a>构造器的重载</h5><p>构造器重载，参数列表必须不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age, Date d)</span> </span>&#123;<span class="keyword">this</span>(name,age);…&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;…&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, Date d)</span> </span>&#123;…&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123;…&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h3><p>JavaBean是一种Java语言写成的可重用组件。</p>
+<p>所谓javaBean，是指符合如下标准的Java类： </p>
+<ul>
+<li>类是公共的 </li>
+<li>有一个无参的公共的构造器 </li>
+<li>有属性，且有对应的get、set方法</li>
+</ul>
+<p>用户可以使用JavaBean将功能、处理、值、数据库访问和其他任何可以 用Java代码创造的对象进行打包，并且其他的开发者可以通过内部的JSP 页面、Servlet、其他JavaBean、applet程序或者应用来使用这些对象。用 户可以认为JavaBean提供了一种随时随地的复制和粘贴的功能，而不用关 心任何改变。</p>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><img src="https://i.loli.net/2020/04/16/hDmlsInjw7HBKuN.png" alt="image.png" style="zoom:80%;" />
+
+
+
+<h2 id="面向对象的特征之一：封装"><a href="#面向对象的特征之一：封装" class="headerlink" title="面向对象的特征之一：封装"></a>面向对象的特征之一：封装</h2><h3 id="为什么需要封装？"><a href="#为什么需要封装？" class="headerlink" title="为什么需要封装？"></a>为什么需要封装？</h3><ul>
+<li><p>封装的作用和含义？</p>
+<ul>
+<li>我要用洗衣机，只需要按一下开关和洗涤模式就可以了。有必要了解洗衣机内 部的结构吗？有必要碰电动机吗？ </li>
+<li>我要开车，… </li>
+</ul>
+</li>
+<li><p>我们程序设计追求“高内聚，低耦合”。 </p>
+<ul>
+<li>高内聚 ：类的内部数据操作细节自己完成，不允许外部干涉； </li>
+<li>低耦合 ：仅对外暴露少量的方法用于使用。 </li>
+<li>隐藏对象内部的复杂性，只对外公开简单的接口。便于外界调用，从而提 高系统的可扩展性、可维护性。通俗的说，<strong>把该隐藏的隐藏起来，该暴露的暴露出来</strong>。这就是封装性的设计思想。</li>
+</ul>
+</li>
+</ul>
+<p>使用者对类内部定义的属性(对象的成员变量)的直接操作会导致数据的错误、混乱或安全性问题</p>
+<p>应该将legs属性保护起来， 防止乱用。 </p>
+<p>保护的方式：信息隐藏</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> legs;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">  	System.out.println(<span class="string">"Eating"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">  	System.out.println(<span class="string">"Moving."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zoo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">    Animal xb = <span class="keyword">new</span> Animal();</span><br><span class="line">    xb.legs = <span class="number">4</span>;</span><br><span class="line">    System.out.println(xb.legs);</span><br><span class="line">    xb.eat();</span><br><span class="line">    xb.move();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Java中通过将数据声明为私有的(private)，再提供公共的（public） 方法:getXxx()和setXxx()实现对该属性的操作，以实现下述目的： </p>
+<ul>
+<li>隐藏一个类中不需要对外提供的实现细节； </li>
+<li>使用者只能通过事先定制好的方法来访问数据，可以方便地加入控制逻辑， 限制对属性的不合理操作；</li>
+<li>便于修改，增强代码的可维护性；</li>
+</ul>
+<h3 id="四种权限修饰符"><a href="#四种权限修饰符" class="headerlink" title="四种权限修饰符"></a>四种权限修饰符</h3><table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th align="center">内部类</th>
+<th align="center">同一个包</th>
+<th align="center">不同的子包</th>
+<th align="center">同一个工程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">private</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">（缺省）</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">protected</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">public</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+<p>对于class的权限修饰只可以用public和default(缺省)。 </p>
+<ul>
+<li>public类可以在任意地方被访问。 </li>
+<li>default类只可以被同一个包内部的类访问。</li>
+</ul>
+<h3 id="关键字this的使用"><a href="#关键字this的使用" class="headerlink" title="关键字this的使用"></a>关键字this的使用</h3><h3 id="在Java中，this关键字比较难理解，它的作用和其词义很接近。"><a href="#在Java中，this关键字比较难理解，它的作用和其词义很接近。" class="headerlink" title="在Java中，this关键字比较难理解，它的作用和其词义很接近。"></a>在Java中，this关键字比较难理解，它的作用和其词义很接近。</h3><ul>
+<li>它在方法内部使用，即这个方法所属对象的引用； </li>
+<li>它在构造器内部使用，表示该构造器正在初始化的对象</li>
+</ul>
+<h3 id="this-可以调用类的属性、方法和构造器"><a href="#this-可以调用类的属性、方法和构造器" class="headerlink" title="this 可以调用类的属性、方法和构造器"></a>this 可以调用类的属性、方法和构造器</h3><h3 id="什么时候可以用this关键字"><a href="#什么时候可以用this关键字" class="headerlink" title="什么时候可以用this关键字"></a>什么时候可以用this关键字</h3><p>当在方法内需要用到调用该方法的对象时，就用this。 具体的：我们可以用this来区分属性和局部变量。 比如：this.name = name;</p>
+<p><strong>调用属性和方法</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123; <span class="comment">// 定义Person类</span></span><br><span class="line">  <span class="keyword">private</span> String name ;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age ;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name ;</span><br><span class="line">    <span class="keyword">this</span>.age = age ; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"姓名："</span> + name) ;</span><br><span class="line">    <span class="keyword">this</span>.speak();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span>&#123;</span><br><span class="line">  	System.out.println(“年龄：” + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>当前正在操作本方法的对 象称为当前对象</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123; <span class="comment">// 定义Person类</span></span><br><span class="line">  String name;</span><br><span class="line">  Person(String name)&#123;</span><br><span class="line">  	<span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">  	System.out.println(<span class="string">"Person类 --&gt; "</span> + <span class="keyword">this</span>.name) ; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compare</span><span class="params">(Person p)</span></span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> <span class="keyword">this</span>.name==p.name;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    Person per1 = <span class="keyword">new</span> Person(<span class="string">"张三"</span>) ;</span><br><span class="line">    Person per2 = <span class="keyword">new</span> Person(<span class="string">"李四"</span>) ;</span><br><span class="line">    per1.getInfo() ; <span class="comment">// 当前调用getInfo()方法的对象是per1</span></span><br><span class="line">    per2.getInfo() ; <span class="comment">// 当前调用getInfo()方法的对象是per2</span></span><br><span class="line">    <span class="keyword">boolean</span> b = per1.compare(per2);</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>调用构造器</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123; <span class="comment">// 定义Person类</span></span><br><span class="line">  <span class="keyword">private</span> String name ;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age ;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123; <span class="comment">// 无参构造器</span></span><br><span class="line">  	System.out.println(<span class="string">"新对象实例化"</span>) ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(); <span class="comment">// 调用本类中的无参构造器</span></span><br><span class="line">    <span class="keyword">this</span>.name = name ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name) ; <span class="comment">// 调用有一个参数的构造器</span></span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> <span class="string">"姓名："</span> + name + <span class="string">"，年龄："</span> + age ;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="面向对象的特征之二：继承"><a href="#面向对象的特征之二：继承" class="headerlink" title="面向对象的特征之二：继承"></a>面向对象的特征之二：继承</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">public</span> Date birthDate;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String school;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="为什么要有继承？"><a href="#为什么要有继承？" class="headerlink" title="为什么要有继承？"></a>为什么要有继承？</h3><ul>
+<li>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中， 那么多个类无需再定义这些属性和行为，只要继承那个类即可。</li>
+</ul>
+<ul>
+<li><p>此处的多个类称为子类(派生类)，单独的这个类称为父类(基类 或超类)。可以理解为:“子类 is a 父类”</p>
+</li>
+<li><p>类继承语法规则: class Subclass extends SuperClass{ }</p>
+</li>
+</ul>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>继承的出现减少了代码冗余，提高了代码的复用性。 </li>
+<li>继承的出现，更有利于功能的扩展。 </li>
+<li>继承的出现让类与类之间产生了关系，<strong>提供了多态的前提</strong>。</li>
+</ul>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li><p>子类继承了父类，就继承了父类的方法和属性，</p>
+<p>但是子类不能直接访问父类中私有的(private)的成员变量和方法。</p>
+</li>
+<li><p>在子类中，可以使用父类中定义的方法和属性，也可以创建新的数据和 方法。 </p>
+</li>
+<li><p>在Java 中，继承的关键字用的是“extends”，即子类不是父类的子集， 而是对父类的“扩展”。</p>
+</li>
+<li><p>Java只支持单继承和多层继承，不允许多重继承 </p>
+</li>
+<li><p>一个子类只能有一个父类 </p>
+<ul>
+<li>一个父类可以派生出多个子类 </li>
+<li>class SubDemo extends Demo{ } //ok </li>
+<li>class SubDemo extends Demo1,Demo2…//error</li>
+</ul>
+</li>
+</ol>
+<h3 id="方法的重写（override-overwrite）"><a href="#方法的重写（override-overwrite）" class="headerlink" title="方法的重写（override/overwrite）"></a>方法的重写（override/overwrite）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> <span class="string">"Name: "</span>+ name + <span class="string">"\n"</span> +<span class="string">"age: "</span>+ age;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String school;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123; <span class="comment">//重写方法</span></span><br><span class="line">  	<span class="keyword">return</span> <span class="string">"Name: "</span>+ name + <span class="string">"\nage: "</span>+ age + <span class="string">"\nschool: "</span>+ school;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    Student s1=<span class="keyword">new</span> Student();</span><br><span class="line">    s1.name=<span class="string">"Bob"</span>;</span><br><span class="line">    s1.age=<span class="number">20</span>;</span><br><span class="line">    s1.school=<span class="string">"school2"</span>;</span><br><span class="line">    System.out.println(s1.getInfo()); <span class="comment">//Name:Bob age:20 school:school2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>在子类中可以根据需要对从父类中继承来的方法进行改造，也称 为方法的重置、覆盖。在程序执行时，子类的方法将覆盖父类的方法。</p>
+<h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><ol>
+<li>子类重写的方法必须和父类被重写的方法具有<strong>相同的方法名称、参数列表</strong> </li>
+<li>子类重写的方法的返回值类型<strong>不能大于</strong>父类被重写的方法的返回值类型 </li>
+<li>子类重写的方法使用的访问权限<strong>不能小于</strong>父类被重写的方法的访问权限 <ul>
+<li>子类不能重写父类中声明为private权限的方法 </li>
+</ul>
+</li>
+<li>子类方法抛出的异常不能大于父类被重写方法的异常</li>
+</ol>
+<h5 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h5><p>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)，或者同时声明为 static的（不是重写）。因为static方法是属于类的，子类无法覆盖父类的方法。</p>
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><ul>
+<li><p><strong>在Java类中使用super来调用父类中的指定操作：</strong></p>
+<ul>
+<li>super可用于访问父类中定义的属性</li>
+<li>super可用于调用父类中定义的成员方法 </li>
+<li>super可用于在子类构造器中调用父类的构造器</li>
+</ul>
+</li>
+<li><p><strong>注意</strong></p>
+<ul>
+<li>尤其当子父类出现同名成员时，可以用super表明调用的是父类中的成员 </li>
+<li>super的追溯不仅限于直接父类 </li>
+<li>super和this的用法相像，this代表本类对象的引用，super代表父类的内存 空间的标识</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> String name = <span class="string">"张三"</span>; </span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Name: "</span> + name + <span class="string">"\nage: "</span> + age;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="keyword">protected</span> String name = <span class="string">"李四"</span>;</span><br><span class="line">   <span class="keyword">private</span> String school = <span class="string">"New Oriental"</span>;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getSchool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> school;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.getInfo() + <span class="string">"\nschool: "</span> + school;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用父类的构造器"><a href="#调用父类的构造器" class="headerlink" title="调用父类的构造器"></a>调用父类的构造器</h4><ul>
+<li>子类中所有的构造器默认都会访问父类中的<strong>空参构造器</strong> </li>
+<li>当父类中没有空参构造器时，子类的构造器必须通过this(参数列表)或者super(参数列表)语句指定调用本类或者父类中相应的 构造器。同时，只能”二选一” ，且必须放在构造器的首行</li>
+<li>如果子类构造器中既未显式调用父类或本类的构造器，且父类中又 没有无参的构造器，则编译出错</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> Date birthDate;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age, Date d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.birthDate = d;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name, age, <span class="keyword">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, Date d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name, <span class="number">30</span>, d);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name, <span class="number">30</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String school;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age, String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(name, age);</span><br><span class="line">    school = s;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(name);</span><br><span class="line">    school = s;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String s)</span> </span>&#123;<span class="comment">// 编译出错: no super(),系统将调用父类无参数的构造器。</span></span><br><span class="line">  	school = s;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子类对象的实例化过程"><a href="#子类对象的实例化过程" class="headerlink" title="子类对象的实例化过程"></a>子类对象的实例化过程</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Creature</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Creature</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	System.out.println(<span class="string">"Creature无参数的构造器"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> <span class="keyword">extends</span> <span class="title">Creature</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Animal带一个参数的构造器，该动物的name为"</span> + name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name);</span><br><span class="line">    System.out.println(<span class="string">"Animal带两个参数的构造器，其age为"</span> + age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wolf</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Wolf</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	<span class="keyword">super</span>(<span class="string">"灰太狼"</span>, <span class="number">3</span>);</span><br><span class="line">    System.out.println(<span class="string">"Wolf无参数的构造器"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  	<span class="keyword">new</span> Wolf();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="面相对性特征之三：多态"><a href="#面相对性特征之三：多态" class="headerlink" title="面相对性特征之三：多态"></a>面相对性特征之三：多态</h2><ul>
+<li><p>多态性，是面向对象中最重要的概念，在Java中的体现</p>
+<p>对象的多态性：父类的引用指向子类的对象 </p>
+<ul>
+<li>可以直接应用在抽象类和接口上</li>
+</ul>
+</li>
+<li><p>Java引用变量有两个类型：编译时类型和运行时类型。编译时类型由声明该变量时使用的类型决定，运行时类型由实际赋给该变量的对象决定。简 称：编译时，看左边；运行时，看右边。 </p>
+<ul>
+<li><p>若编译时类型和运行时类型不一致，就出现了对象的多态性(Polymorphism) </p>
+</li>
+<li><p>多态情况下， “看左边” ：看的是父类的引用（父类中不具备子类特有的方法） </p>
+<p>​                        “看右边” ：看的是子类的对象（实际运行的是子类重写父类的方法）</p>
+</li>
+</ul>
+</li>
+<li><p>对象的多态 —在Java中,子类的对象可以替代父类的对象使用 </p>
+<ul>
+<li>一个变量只能有一种确定的数据类型 </li>
+<li>一个引用类型变量可能指向(引用)多种不同类型的对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><ul>
+<li>存在继承或者实现关系</li>
+<li>有方法的重写</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Person p = <span class="keyword">new</span> Student();</span><br><span class="line">Object o = <span class="keyword">new</span> Person();<span class="comment">//Object类型的变量o，指向Person类型的对象</span></span><br><span class="line">o = <span class="keyword">new</span> Student(); <span class="comment">//Object类型的变量o，指向Student类型的对象</span></span><br></pre></td></tr></table></figure>
+
+<p>子类可看做是特殊的父类，所以父类类型的引用可以指向子类的对象：向 上转型(upcasting)。</p>
+<ul>
+<li><p>一个引用类型变量如果声明为父类的类型，但实际引用的是子类对象，</p>
+<p>那么该变量就不能再访问子类中特有的属性</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Student m = <span class="keyword">new</span> Student();</span><br><span class="line">m.school = “pku”; <span class="comment">//合法,Student类有school成员变量</span></span><br><span class="line">Person e = <span class="keyword">new</span> Student();</span><br><span class="line">e.school = “pku”; <span class="comment">//非法,Person类没有school成员变量</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>属性是在编译时确定的，编译时e为Person类型，没有school成员变量，因而编 译错误。</strong></p>
+<h3 id="虚拟方法调用"><a href="#虚拟方法调用" class="headerlink" title="虚拟方法调用"></a>虚拟方法调用</h3><p>正常的方法调用 :</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Person e = <span class="keyword">new</span> Person();</span><br><span class="line">e.getInfo();</span><br><span class="line">Student e = <span class="keyword">new</span> Student();</span><br><span class="line">e.getInfo();</span><br></pre></td></tr></table></figure>
+
+<p>虚拟方法调用(多态情况下) :</p>
+<p>子类中定义了与父类同名同参数的方法，在多态情况下，将此时父类的方法称为虚拟方法，父 类根据赋给它的不同子类对象，动态调用属于子类的该方法。这样的方法调用在编译期是无法 确定的。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Person e = <span class="keyword">new</span> Student();</span><br><span class="line">e.getInfo(); <span class="comment">//调用Student类的getInfo()方法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="instanceof-操作符"><a href="#instanceof-操作符" class="headerlink" title="instanceof 操作符"></a>instanceof 操作符</h3><p>x instanceof A：检验x是否为类A的对象，返回值为boolean型。</p>
+<ul>
+<li>要求x所属的类与类A<strong>必须是子类和父类的关系</strong>，否则编译错误</li>
+<li>如果x属于类A的子类B，x instanceof A值也为true</li>
+</ul>
+<h3 id="对象类型转换（Casting）"><a href="#对象类型转换（Casting）" class="headerlink" title="对象类型转换（Casting）"></a>对象类型转换（Casting）</h3><p>基本数据类型的Casting：</p>
+<ul>
+<li>自动类型转换：小的数据类型可以自动转换成大的数据类型 <ul>
+<li>如long g=20; double d=12.0f</li>
+</ul>
+</li>
+<li>强制类型转换：可以把大的数据类型强制转换(casting)成小的数据类型 <ul>
+<li>如 float f=(float)12.0; int a=(int)1200L</li>
+</ul>
+</li>
+</ul>
+<p>对Java对象的强制类型转换称为造型 </p>
+<ul>
+<li><p>从子类到父类的类型转换可以自动进行 </p>
+</li>
+<li><p>从父类到子类的类型转换必须通过造型(强制类型转换)实现 </p>
+</li>
+<li><p>无继承关系的引用类型间的转换是非法的 </p>
+</li>
+<li><p>在造型前可以使用instanceof操作符测试一个对象的类型</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConversionTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> d = <span class="number">13.4</span>;</span><br><span class="line">    <span class="keyword">long</span> l = (<span class="keyword">long</span>) d;<span class="comment">//基本数据类型的装换</span></span><br><span class="line">    System.out.println(l);</span><br><span class="line">    <span class="keyword">int</span> in = <span class="number">5</span>;</span><br><span class="line">    <span class="comment">// boolean b = (boolean)in;</span></span><br><span class="line">    Object obj = <span class="string">"Hello"</span>;</span><br><span class="line">    String objStr = (String) obj;</span><br><span class="line">    System.out.println(objStr);</span><br><span class="line">    Object objPri = <span class="keyword">new</span> Integer(<span class="number">5</span>);</span><br><span class="line">    <span class="comment">// 所以下面代码运行时引发ClassCastException异常</span></span><br><span class="line">    String str = (String) objPri;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(Person e)</span> </span>&#123; <span class="comment">// 设Person类中没有getschool() 方法</span></span><br><span class="line">    <span class="comment">// System.out.pritnln(e.getschool()); //非法,编译时错误</span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Student) &#123;</span><br><span class="line">      Student me = (Student) e; <span class="comment">// 将e强制转换为Student类型</span></span><br><span class="line">      System.out.pritnln(me.getschool());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Test t = <span class="keyword">new</span> Test();</span><br><span class="line">    Student m = <span class="keyword">new</span> Student();</span><br><span class="line">    t.method(m);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://i.loli.net/2020/04/24/KiTxoUjIpfJaCrN.png" alt="image.png" style="zoom:80%;" />
+
+<p>继承成员变量和方法的区别：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> count = <span class="number">10</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	System.out.println(<span class="keyword">this</span>.count);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> count = <span class="number">20</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	System.out.println(<span class="keyword">this</span>.count);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldMethodTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Sub s = <span class="keyword">new</span> Sub();</span><br><span class="line">    System.out.println(s.count);<span class="comment">//20</span></span><br><span class="line">    s.display();<span class="comment">//20</span></span><br><span class="line">    Base b = s;</span><br><span class="line">    System.out.println(b == s);<span class="comment">//true</span></span><br><span class="line">    System.out.println(b.count);<span class="comment">//10</span></span><br><span class="line">    b.display();<span class="comment">//20</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>子类继承父类</p>
+<ul>
+<li>若子类重写了父类方法，就意味着子类里定义的方法<strong>彻底覆盖了</strong>父类里的同名方法，系统将不可能把父类里的方法转移到子类中。</li>
+<li>对于实例变量则不存在这样的现象，即使子类里定义了与父类完全相同的实例变量，这个实例变量依然不可能覆盖父类中定义的实例变量。</li>
+</ul>
+<h3 id="Object类的使用"><a href="#Object类的使用" class="headerlink" title="Object类的使用"></a>Object类的使用</h3><ul>
+<li>Object类是所有Java类的根父类</li>
+<li>如果在类的声明中未使用extends关键字指明其父类，则默认父类为java.lang.Object类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">等价于：</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Object</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Object类中的主要结构</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名</th>
+<th align="left">类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">public Object()</td>
+<td align="left">构造器</td>
+<td align="left">构造器</td>
+</tr>
+<tr>
+<td align="left">public boolean equals(Object obj)</td>
+<td align="left">方法</td>
+<td align="left">对象比较</td>
+</tr>
+<tr>
+<td align="left">public int hashCode()</td>
+<td align="left">方法</td>
+<td align="left">获取Hash码</td>
+</tr>
+<tr>
+<td align="left">public Sting toString()</td>
+<td align="left">方法</td>
+<td align="left">打印对象的信息</td>
+</tr>
+</tbody></table>
+<h4 id="和equals-方法"><a href="#和equals-方法" class="headerlink" title="==和equals()方法"></a>==和equals()方法</h4><ul>
+<li>==<ul>
+<li>基本类型比较值:只要两个变量的值相等，即为true。</li>
+<li>引用类型比较引用(是否指向同一个对象)：只有指向同一个对象时，==才返回true</li>
+</ul>
+</li>
+</ul>
+<p><strong>用“==”进行比较时，符号两边的数据类型必须兼容(可自动转换的基本 数据类型除外)，否则编译出错</strong></p>
+<ul>
+<li><p>equals()方法</p>
+<p>源码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>equals()：所有类都继承了Object，也就获得了equals()方法。还可以重写。</p>
+<p>只能比较引用类型，其作用与“==”相同,比较是否指向同一个对象。</p>
+<p>格式:obj1.equals(obj2)</p>
+</li>
+<li><p>特例：当用equals()方法进行比较时，对类File、String、Date及包装类（Wrapper Class）来说，是比较类型及内容而不考虑引用的是否是同一个对 象； </p>
+<p>原因：这些类型中重写了Object中的equals()方法</p>
+</li>
+<li><p>当自定义使用equals()时，可以重写。用于比较两个对象的“内容”是否都相等。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="和equals-的区别"><a href="#和equals-的区别" class="headerlink" title="==和equals()的区别"></a>==和equals()的区别</h5><ol>
+<li>== 既可以比较基本类型也可以比较引用类型。对于基本类型就是比较值，对于引用类型就是比较内存地址。</li>
+<li>equals的话，它是属于java.lang.Object类里面的方法，如果该方法没有被重写过默认也是==，String等类的equals方法是被重写过的，而且String类在日常开发中用的比较多，久而久之，形成了equals是比较值的错误观点。</li>
+<li>具体要看自定义类里有没有重写Object的equals方法来判断。</li>
+<li>通常情况下，重写equals方法，会比较类中的相应属性的值是否都相等</li>
+</ol>
+<h4 id="toString-方法"><a href="#toString-方法" class="headerlink" title="toString()方法"></a>toString()方法</h4><ul>
+<li><p>toString()方法在Object类中定义，其返回值是String类型，返回类名和它的引用地址。</p>
+<p>源码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在进行String与其它类型数据的连接操作时，自动调用toString()方法</p>
+<p>Date now=new Date(); </p>
+<p>System.out.println(“now=”+now); 相当于 </p>
+<p>System.out.println(“now=”+now.toString());</p>
+</li>
+<li><p>可以根据需要在用户自定义类型中重写toString()方法 如String 类重写了toString()方法，返回字符串的值。</p>
+</li>
+</ul>
+<h4 id="包装类的使用"><a href="#包装类的使用" class="headerlink" title="包装类的使用"></a>包装类的使用</h4><ul>
+<li><p>针对八种基本数据类型定义相应的引用类型—包装类（封装类）</p>
+</li>
+<li><p>有了类的特点，就可以调用类中的方法，Java才是真正的面向对象</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Charater</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h5 id="基本数据类型包装成包装类的实例-—-gt-装箱"><a href="#基本数据类型包装成包装类的实例-—-gt-装箱" class="headerlink" title="基本数据类型包装成包装类的实例  —&gt;装箱"></a>基本数据类型包装成包装类的实例  —&gt;装箱</h5><ul>
+<li><p>通过包装类的构造器实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">500</span>; </span><br><span class="line">Integer t = <span class="keyword">new</span> Integer(i);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还可以通过字符串参数构造包装类对象：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Float f = <span class="keyword">new</span> Float(“<span class="number">4.56</span>”); </span><br><span class="line">Long l = <span class="keyword">new</span> Long(“asdf”); <span class="comment">//NumberFormatException</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="获得包装类对象中包装的基本类型变量-—-gt-拆箱"><a href="#获得包装类对象中包装的基本类型变量-—-gt-拆箱" class="headerlink" title="获得包装类对象中包装的基本类型变量 —&gt;拆箱"></a>获得包装类对象中包装的基本类型变量 —&gt;拆箱</h5><ul>
+<li><p>调用包装类的.xxxValue()方法：</p>
+<p> boolean b = bObj.booleanValue();</p>
+</li>
+<li><p>JDK1.5之后，支持自动装箱，自动拆箱，但类型必须匹配。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//自动装箱：基本数据类型 ---&gt;包装类</span></span><br><span class="line"><span class="keyword">int</span> num2 = <span class="number">10</span>;</span><br><span class="line">Integer in1 = num2;<span class="comment">//自动装箱</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> b1 = <span class="keyword">true</span>;</span><br><span class="line">Boolean b2 = b1;<span class="comment">//自动装箱</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自动拆箱：包装类---&gt;基本数据类型</span></span><br><span class="line">System.out.println(in1.toString());</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> num3 = in1;<span class="comment">//自动拆箱</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="字符串转换成基本数据类型"><a href="#字符串转换成基本数据类型" class="headerlink" title="字符串转换成基本数据类型"></a>字符串转换成基本数据类型</h5><ol>
+<li>通过包装类的构造器实现： int i = new Integer(“12”);</li>
+<li>通过包装类的parseXxx(String s)静态方法实现： Float f = Float.parseFloat(“12.1”);</li>
+</ol>
+<h5 id="基本数据类型转换成字符串"><a href="#基本数据类型转换成字符串" class="headerlink" title="基本数据类型转换成字符串"></a>基本数据类型转换成字符串</h5><ol>
+<li>调用字符串重载的valueOf()方法： String fstr = String.valueOf(2.34f);</li>
+<li>更直接的方式： String intStr = 5 + “”;</li>
+</ol>
+<p><img src="https://i.loli.net/2020/04/24/tS2914seKCUnAOl.png" alt="image.png"></p>
+<h4 id="包装类使用举例"><a href="#包装类使用举例" class="headerlink" title="包装类使用举例"></a>包装类使用举例</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">500</span>;</span><br><span class="line">Integer t = <span class="keyword">new</span> Integer(i);</span><br><span class="line"><span class="comment">//装箱：包装类使得一个基本数据类型的数据变成了类。</span></span><br><span class="line"><span class="comment">//有了类的特点，可以调用类中的方法。</span></span><br><span class="line">String s = t.toString(); <span class="comment">// s = “500“,t是类，有toString方法</span></span><br><span class="line">String s1 = Integer.toString(<span class="number">314</span>); <span class="comment">// s1= “314“ 将数字转换成字符串。</span></span><br><span class="line">String s2=“<span class="number">4.56</span>”;</span><br><span class="line"><span class="keyword">double</span> ds=Double.parseDouble(s2); <span class="comment">//将字符串转换成数字</span></span><br><span class="line"><span class="comment">//拆箱：将数字包装类中内容变为基本数据类型。</span></span><br><span class="line"><span class="keyword">int</span> j = t.intValue(); <span class="comment">// j = 500，intValue取出包装类中的数据</span></span><br><span class="line"><span class="comment">//包装类在实际开发中用的最多的在于字符串变为基本数据类型。</span></span><br><span class="line">String str1 = <span class="string">"30"</span> ;</span><br><span class="line">String str2 = <span class="string">"30.3"</span> ;</span><br><span class="line"><span class="keyword">int</span> x = Integer.parseInt(str1) ; <span class="comment">// 将字符串变为int型</span></span><br><span class="line"><span class="keyword">float</span> f = Float.parseFloat(str2) ; <span class="comment">// 将字符串变为int型</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h2><p>MVC是常用的设计模式之一，将整个程序分为三个层次：<strong>视图模型层，控制器层，与 数据模型层</strong>。这种将程序输入输出、数据处理，以及数据的展示分离开来的设计模式 使程序结构变的灵活而且清晰，同时也描述了程序各个对象间的通信方式，降低了程 序的耦合性。</p>
+<p>1.模型层 model 主要处理数据 </p>
+<ul>
+<li>数据对象封装 model.bean/domain </li>
+<li>数据库操作类 model.dao </li>
+<li>数据库 model.db</li>
+</ul>
+<p>2.控制层 controller 处理业务逻辑</p>
+<ul>
+<li>应用界面相关 controller.activity </li>
+<li>存放fragment controller.fragment </li>
+<li>显示列表的适配器 controller.adapter </li>
+<li>服务相关的 controller.service </li>
+<li>抽取的基类 controller.base</li>
+</ul>
+<p>3.视图层 view 显示数据</p>
+<ul>
+<li>相关工具类 view.utils </li>
+<li>自定义view view.ui</li>
+</ul>
+<h2 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a>import关键字</h2><ol>
+<li>在源文件中使用import显式的导入指定包下的类或接口 </li>
+<li>声明在包的声明和类的声明之间</li>
+<li>如果需要导入多个类或接口，那么就并列显式多个import语句即可 </li>
+<li>举例：可以使用java.util.*的方式，一次性导入util包下所有的类或接口</li>
+<li>如果导入的类或接口是java.lang包下的，或者是当前包下的，则可以省略此import语句</li>
+<li>如果在代码中使用不同包下的同名的类。那么就需要使用类的全类名的方式指明调用的 是哪个类</li>
+<li>如果已经导入java.a包下的类。那么如果需要使用a包的子包下的类的话，仍然需要导入</li>
+<li>import static组合的使用：调用指定类或接口下的静态的属性或方法</li>
+</ol>
+<h3 id="JDK中主要的包介绍"><a href="#JDK中主要的包介绍" class="headerlink" title="JDK中主要的包介绍"></a>JDK中主要的包介绍</h3><ol>
+<li><p>java.lang—-包含一些Java语言的核心类，如String、Math、Integer、 System和 Thread，提供常用功能 </p>
+</li>
+<li><p>java.net—-包含执行与网络相关的操作的类和接口。 </p>
+</li>
+<li><p>java.io —-包含能提供多种输入/输出功能的类。</p>
+</li>
+<li><p>java.util—-包含一些实用工具类，如定义系统特性、接口的集合框架类、使用与日 期日历相关的函数。</p>
+</li>
+<li><p>java.text—-包含了一些java格式化相关的类 </p>
+</li>
+<li><p>java.sql—-包含了java进行JDBC数据库编程的相关类/接口 </p>
+</li>
+<li><p>java.awt—-包含了构成抽象窗口工具集（abstract window toolkits）的多个类，这 些类被用来构建和管理应用程序的图形用户界面(GUI)。 B/S C/S</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IntelliJ Idea配置类和方法的注释模板</title>
+    <url>/2020/04/15/idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h2 id="设置类的注释模板"><a href="#设置类的注释模板" class="headerlink" title="设置类的注释模板"></a>设置类的注释模板</h2><p><img src="https://i.loli.net/2020/04/15/SZLA4oF5vn3hMyG.png" alt="image.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Author</span> $&#123;USER&#125;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Create</span> $&#123;DATE&#125; - $&#123;TIME&#125;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span> </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="设置方法的注释模板"><a href="#设置方法的注释模板" class="headerlink" title="设置方法的注释模板"></a>设置方法的注释模板</h2><ol>
+<li><p><img src="https://i.loli.net/2020/04/15/xjalmy8dg3Y5WtQ.png" alt="image.png"></p>
+<p>也可以选2，先新建一个模板组，而这里是直接选的已经有得user组，然后添加template</p>
+</li>
+<li><p>根据自己的习惯给模板取个名字，填在Abbreviation里面</p>
+<p><strong>模板里面开头是没有/的</strong>，加上斜杠如果在方法体外写注释，变量名和返回值类型获取不到显示是空白的</p>
+</li>
+<li><p>点下面的define设置模板生成的地方，选择java下面的所有，或者选everywhere也行</p>
+<p><img src="https://i.loli.net/2020/04/15/TmfWIo75LX3dqcQ.png" alt="image.png"></p>
+</li>
+<li><p>右下角的expand with是模板补全的按键，可以根据自己的习惯改一下</p>
+</li>
+<li><p>把模板贴到文本框里面之后就可以点Edit variables了</p>
+<p><img src="https://i.loli.net/2020/04/15/U8CyvX5ElThioqa.png" alt="image.png"></p>
+</li>
+<li><p>保存之后可以再一个方法前面/** + 回车就行了，这就是为什么我名字取为**</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">**</span><br><span class="line"> * <span class="meta">@Author</span> $USER$</span><br><span class="line"> * <span class="meta">@Description</span> $description$</span><br><span class="line"> * <span class="meta">@Date</span> $date$ $time$</span><br><span class="line"> * <span class="meta">@Param</span> $param$</span><br><span class="line"> * <span class="meta">@return</span> $<span class="keyword">return</span>$</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础知识总结（上）</title>
+    <url>/2020/04/14/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8A%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="Java中的注释"><a href="#Java中的注释" class="headerlink" title="Java中的注释"></a>Java中的注释</h2><ol>
+<li><p>单行注释   //</p>
+</li>
+<li><p>多行注释  /*   */</p>
+<blockquote>
+<p>单行注释和多行注释的作用：</p>
+<p>① 对所写的程序进行解释说明，增强可读性。方便自己，方便别人</p>
+<p>② 调试所写的代码</p>
+</blockquote>
+</li>
+<li><p>文档注释  /**   */</p>
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的该程序的说明文档。</p>
+<hr>
+</li>
+</ol>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ol>
+<li><p>标识符：凡是自己可以起名字的地方都叫标识符。</p>
+<p>  比如：类名、变量名、方法名、接口名、包名…</p>
+</li>
+<li><p>标识符的命名规则：–&gt; 如果不遵守如下的规则，编译不通过！</p>
+<p>① 由26个英文字母大小写，0-9 ，_或 $ 组成 </p>
+<p>②数字不可以开头。</p>
+<p>③不可以使用关键字和保留字，但能包含关键字和保留字。</p>
+<p>④Java中严格区分大小写，长度无限制。</p>
+<p>⑤标识符不能包含空格。</p>
+</li>
+<li><p>Java中的名称命名规范： —&gt;如果不遵守如下的规范，编译可以通过！</p>
+<p>包名：多单词组成时所有字母都小写：xxxyyyzzz</p>
+<p>类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz</p>
+<p>变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz</p>
+<p>常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ</p>
+</li>
+<li><p>注意1：在起名字时，为了提高阅读性，要尽量有意义，“见名知意”。</p>
+<p>注意2：java采用unicode字符集，因此标识符也可以使用汉字声明，但是不建议使用。 </p>
+<hr>
+</li>
+</ol>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li><p>变量按照数据类型来分：<br>a. 基本数据类型：</p>
+<p>​    整型：byte \ short \ int \ long</p>
+<p>​    浮点型：float \ double</p>
+<p>​    字符型：char</p>
+<p>​    布尔型：boolean</p>
+</li>
+</ol>
+<p>​        b. 引用数据类型：</p>
+<pre><code>类(class)
+
+接口(interface)
+
+数组(array)</code></pre><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">占用存储空间</th>
+<th align="center">表示数据范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">1字节=8bit</td>
+<td align="center">-128~127</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2字节</td>
+<td align="center">-2^15 ~2^15 -1</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">4字节</td>
+<td align="center">-2^31 ~2^31 -1</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">8字节</td>
+<td align="center">-2^62 ~2^62 -1</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">4字节</td>
+<td align="center">-3.403E38 ~ 3.403E38</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8字节</td>
+<td align="center">-1.798E308 ~ 1.798E308</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>java的整型常量默认为 int 型，声明long型常量须后加‘l’或‘L’</strong> </li>
+<li><strong>java程序中变量通常声明为int型，除非不足以表示较大的数，才使用long</strong></li>
+</ul>
+<p>转义字符：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\b</td>
+<td>退格符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜线</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>变量在类中声明的位置：</li>
+</ol>
+<p>​    成员变量 vs 局部变量</p>
+<h3 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h3><ol>
+<li><p>java定义变量的格式：数据类型 变量名 = 变量值;</p>
+</li>
+<li><p>说明：</p>
+<p>  ① 变量必须先声明，后使用</p>
+<p>  ② 变量都定义在其作用域内。在作用域内，它是有效的。换句话说，出了作用域，就失效了</p>
+<p>  ③ 同一个作用域内，不可以声明两个同名的变量</p>
+</li>
+</ol>
+<h3 id="运算规则"><a href="#运算规则" class="headerlink" title="运算规则"></a>运算规则</h3><p>基本数据类型之间的运算规则：</p>
+<p>前提：这里讨论只是7种基本数据类型变量间的运算。不包含boolean类型的。</p>
+<ol>
+<li><p>自动类型提升：</p>
+<p>  结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。</p>
+  <pre class="mermaid">     graph LR
+  char --> int
+  byte --> int
+  short --> int --> long --> float --> double</pre>
+
+
+
+</li>
+</ol>
+<pre><code>特别的：byte,short,char之间不会相互转换，他们三者在计算时首先转换为int类型。当byte、char、short三种类型的变量做运算时，结果为int型。</code></pre><ol start="2">
+<li><p>强制类型转换：</p>
+<p>a.需要使用强转符：()</p>
+<p>b.注意点：强制类型转换，可能导致精度损失。</p>
+</li>
+<li><p>说明：此时的容量大小指的是，表示数的范围的大和小。比如：float容量要大于long的容量</p>
+</li>
+</ol>
+<h3 id="String类型变量的使用"><a href="#String类型变量的使用" class="headerlink" title="String类型变量的使用"></a>String类型变量的使用</h3><ol>
+<li><p>String属于引用数据类型,翻译为：字符串</p>
+</li>
+<li><p>声明String类型变量时，使用一对””</p>
+</li>
+<li><p>String可以和8种基本数据类型变量做运算，且运算只能是连接运算：+</p>
+</li>
+<li><p>运算的结果仍然是String类型</p>
+<hr>
+</li>
+</ol>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p>太简单，不说了</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>介绍一个特别的：instanceof</p>
+<p>作用是检查是否是类的对象，例如： “Hello” instanceof String = true</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>&amp;—逻辑与         | —逻辑或       ！—逻辑非 </p>
+<p>&amp;&amp; —短路与     || —短路或     ^ —逻辑异或</p>
+<ul>
+<li>“&amp;”和“&amp;&amp;”的区别： <ul>
+<li>单&amp;时，左边无论真假，右边都进行运算； </li>
+<li>双&amp;时，如果左边为真，右边参与运算，如果左边为假，那么右边不参与运算。 </li>
+</ul>
+</li>
+<li>“|”和“||”的区别同理，||表示：当左边为真，右边不参与运算。</li>
+</ul>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><p>格式： (表达式1)?表达式2：表达式3；</p>
+<p>若表达式1的结果为真则执行<strong>表达式2</strong>，若为假则执行<strong>表达式3</strong></p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li><p>表达式1,表达式2,表达式3的类型可以不同，进行自动类型转换（提升）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object o1 = <span class="keyword">true</span> ? <span class="keyword">new</span> Integer(<span class="number">1</span>) : <span class="keyword">new</span> Double(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>条件表达式不能取代一般的if语句,仅当if语句中内嵌的语句为赋值语句(且两个分支都给同一变量赋值)时才能代替if语句，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(a%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">  printf(<span class="string">"even/n"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  printf(<span class="string">"odd/n"</span>);</span><br><span class="line"><span class="comment">//不能写成</span></span><br><span class="line">(a%<span class="number">2</span>==<span class="number">0</span>)?printf(<span class="string">"even/n"</span>):printf(<span class="string">"odd/n"</span>);</span><br><span class="line"><span class="comment">//但是可以写成</span></span><br><span class="line">printf(<span class="string">"%s/n"</span>,(a%<span class="number">2</span>==<span class="number">0</span>?<span class="string">"even"</span>:<span class="string">"odd"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h3 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">.    ()      {}      ;      ,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">R –&gt; L</td>
+<td align="center">++  –  ~    !()</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">*      /     %</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">&lt;&lt;  &gt;&gt;   &gt;&gt;&gt;</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">&lt;  &gt;  &lt;=  &gt;=    instanceof</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">==      !=</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">&amp;</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">^</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">&amp;&amp;</td>
+</tr>
+<tr>
+<td align="center">L –&gt; R</td>
+<td align="center">||</td>
+</tr>
+<tr>
+<td align="center">R –&gt; L</td>
+<td align="center">?    :</td>
+</tr>
+<tr>
+<td align="center">R –&gt; L</td>
+<td align="center">=    *=    /=   %=</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>数组本身是引用数据类型，而数组中的元素可以是任何数据类型，包括 基本数据类型和引用数据类型。</li>
+<li>创建数组对象会在内存中开辟一整块连续的空间，而数组名中引用的是 这块连续空间的首地址。 </li>
+<li>数组的长度一旦确定，就不能修改。 </li>
+<li>我们可以直接通过下标(或索引)的方式调用指定位置的元素，速度很快。</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h4><ol>
+<li><p>一维数组的声明</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">type <span class="keyword">var</span>[] 或 type[] <span class="keyword">var</span>；</span><br></pre></td></tr></table></figure>
+
+<p>Java语言中声明数组时不能指定其长度(数组中元素的数)， 例如： int a[5]; <strong>//非法</strong></p>
+</li>
+<li><p>初始化</p>
+<ul>
+<li><p>动态初始化：数组声明且为数组元素分配空间与赋值的操作分开进行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">3</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">9</span>;</span><br><span class="line">arr[<span class="number">2</span>] = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">String names[];</span><br><span class="line">names = <span class="keyword">new</span> String[<span class="number">3</span>];</span><br><span class="line">names[<span class="number">0</span>] = “钱学森”;</span><br><span class="line">names[<span class="number">1</span>] = “邓稼先”;</span><br><span class="line">names[<span class="number">2</span>] = “袁隆平”;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>静态初始化：在定义数组的同时就为数组元素分配空间并赋值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123; <span class="number">3</span>, <span class="number">9</span>, <span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">//或</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>&#125;;</span><br><span class="line"></span><br><span class="line">String names[] = &#123;</span><br><span class="line">“李四光”,“茅以升”,“华罗庚”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="数组元素的默认初始化值"><a href="#数组元素的默认初始化值" class="headerlink" title="数组元素的默认初始化值"></a>数组元素的默认初始化值</h3><table>
+<thead>
+<tr>
+<th align="center">数组元素类型</th>
+<th align="center">元素默认初始值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">0L</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">0.0F</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">0.0</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">0或‘\u0000’(表现为空)</td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">应用类型</td>
+<td align="center">null</td>
+</tr>
+</tbody></table>
+<h4 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h4><ol>
+<li><p>声明和初始化</p>
+<ul>
+<li><p>格式1（动态初始化）：int[][] arr = new int[3][2];</p>
+<p>定义了名称为arr的二维数组 </p>
+<p>二维数组中有3个一维数组 </p>
+<p>每一个一维数组中有2个元素 一维数组的名称分别为arr[0], arr[1], arr[2] </p>
+<p>给第一个一维数组1脚标位赋值为78写法是：arr[0][1] = 78;</p>
+</li>
+<li><p>格式2（动态初始化）：int[][] arr = new int[3][];</p>
+<p>二维数组中有3个一维数组。 </p>
+<p>每个一维数组都是默认初始化值null (注意：区别于格式1）</p>
+<p> 可以对这个三个一维数组分别进行初始化 </p>
+<p>arr[0] = new int[3]; arr[1] = new int[1]; </p>
+<p>arr[2] = new int[2]; </p>
+</li>
+</ul>
+<p><strong>注： int[][]arr = new int[][3]; //非法</strong></p>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java中看似简单实际很坑的题</title>
+    <url>/2020/04/06/Java%E4%B8%AD%E7%9C%8B%E4%BC%BC%E7%AE%80%E5%8D%95%E5%AE%9E%E9%99%85%E5%BE%88%E5%9D%91%E7%9A%84%E9%A2%98/</url>
+    <content><![CDATA[<img src="https://i.loli.net/2020/04/06/vzX5MYeyARD4kcT.png" alt="java.png" style="zoom: 67%;" />
+
+<h3 id="第一题（貌似是考察方法的参数传递）"><a href="#第一题（貌似是考察方法的参数传递）" class="headerlink" title="第一题（貌似是考察方法的参数传递）"></a>第一题（貌似是考察方法的参数传递）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">    method(a,b);<span class="comment">//在调用method()方法之后输出a = 100,b = 200</span></span><br><span class="line">    System.out.println(<span class="string">"a = "</span> + a);</span><br><span class="line">    System.out.println(<span class="string">"b = "</span> + b);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码编写处</span></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在method中直接写</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">a = <span class="number">100</span>;</span><br><span class="line">b = <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个样子会直接被别人鄙视</p>
+<p>其实这是一个脑筋急转弯的题目，直接像上面这样把一个基本数据类型的变量，作为形参传入函数，等于是直接把值赋给了函数中的实参，改变函数中的实参并不会影响主函数中a和b的值，在method()方法调用完之后，方法中的实参a和b就出栈了，此时在主函数输出的仍然是10和20。</p>
+<h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><p>机智的方法，调用完method()方法之后就直接退出程序，不让他执行主函数中的print方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  a = <span class="number">100</span>;</span><br><span class="line">  b = <span class="number">200</span>;</span><br><span class="line">  System.out.println(<span class="string">"a = "</span> + a);</span><br><span class="line">  System.out.println(<span class="string">"b = "</span> + b);</span><br><span class="line">  System.exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  PrintStream ps = <span class="keyword">new</span> PrintStream(System.out)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(String x)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"a = 10"</span>.equals(x))&#123;</span><br><span class="line">                x = <span class="string">"a = 100"</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"b = 10"</span>.equals(x))&#123;</span><br><span class="line">                x = <span class="string">"b = 200"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">super</span>.println(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    System.setOut(ps);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种方法用的是重写，当要调用println()这个方法分时候不是调用Java库中的println()方法，而是调用这里自己写的这个，就把要输出的“a = 10”替换成了”a = 100”。</p>
+<h3 id="第二题（微软面试题）"><a href="#第二题（微软面试题）" class="headerlink" title="第二题（微软面试题）"></a>第二题（微软面试题）</h3><blockquote>
+<p>定义一个int型的数组: int[] arr = new int]{12,3,3,34,56,77,432};让数组的每个位置上的值去除以首位置的元素,得到的结果,作为该位置上的新值。遍历新的数组。</p>
+</blockquote>
+<p>这个题其实很简单，但是一不小心就会出错，比如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; arr.length;i++)</span><br><span class="line">  arr[i] = arr[i]/arr[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>自己一顿操作之后以为稳了，实际上结果和原数组是一样的。这样从前面向后面遍历，数组第一个值在第一次就变成1了，之后每次除的arr[0]都是1，所以后面的值都没有发生变化。</p>
+<p>所以简单的题不要掉以轻心。</p>
+<p>正确的写法很简单也不止一种方法，可以从后向前遍历数组，也可以把数组的第一个值赋给一个临时变量，后面的数都除以这个临时变量。</p>
+<h3 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span>[] arr1 = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    System.out.println(arr1);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>&#125;;</span><br><span class="line">    System.out.println(arr2); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问输出的分别是什么？</p>
+<p>正确答案是arr1输出的是地址值，arr2输出的是abc。</p>
+<p>这其实考的是一个很细的知识点，了解过后就会感觉这个题很low，简直是在是在侮辱自己的智商，不了解的话可能就认为两个都是输出一个地址值。</p>
+<p>这里涉及到了Java中方法的重载，同一个函数名，但是传的参数个数或者参数类型不同的话，他调的方法是不一样的。</p>
+<p>第一个整型的数组，传入的是object类型，调用的是：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(Object x)</span> </span>&#123;</span><br><span class="line">  String s = String.valueOf(x);</span><br><span class="line">  <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">    print(s);</span><br><span class="line">    newLine();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二个字符型的数组，传入的是char型的数组，调用的是：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">char</span> x[])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">    print(x);</span><br><span class="line">    newLine();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h3><blockquote>
+<p> 如下两个题目输出结果相同吗？各是什么：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object o1 = <span class="keyword">true</span> ? <span class="keyword">new</span> Integer(<span class="number">1</span>) : <span class="keyword">new</span> Double(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o1);</span><br><span class="line"></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">true</span>)</span><br><span class="line">  o2 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  o2 = <span class="keyword">new</span> Double(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);</span><br></pre></td></tr></table></figure>
+
+<p>正确答案：</p>
+<p>o1输出的是1.0，o2输出的是1</p>
+<p>这个题是看似在考Object类中的方法，但是实际上，这里的三元运算符涉及到一个自动类型提升的问题</p>
+<p>(表达式1)?(表达式2):(表达式3)</p>
+<p>三元运算的最后结果是这三个表达式中的类型“最高”的一种，在计算的过程个中会有自动类型提升</p>
+<h3 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Integer i = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">  Integer j = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">  System.out.println(i == j);</span><br><span class="line">  Integer m = <span class="number">1</span>;</span><br><span class="line">  Integer n = <span class="number">1</span>;</span><br><span class="line">  System.out.println(m == n);<span class="comment">//</span></span><br><span class="line">  Integer x = <span class="number">128</span>;</span><br><span class="line">  Integer y = <span class="number">128</span>;</span><br><span class="line">  System.out.println(x == y);<span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个输出为false，第二个输出为true，第三个输出为false。</p>
+<p>Integer内部定义了IntegerCache结构，IntegerCache中定义了Integer[],保存了从-128<del>127范围的整数。如果我们使用自动装箱的方式，给Integer赋值的范围在 -128</del>127范围内时，可以直接使用数组中的元素，不用再去new了。目的：提高效率。</p>
+<p>Integer类中的源码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    <span class="comment">// high value may be configured by property</span></span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">127</span>;</span><br><span class="line">    String integerCacheHighPropValue =</span><br><span class="line">      sun.misc.VM.getSavedProperty(<span class="string">"java.lang.Integer.IntegerCache.high"</span>);</span><br><span class="line">    <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span><br><span class="line">        i = Math.max(i, <span class="number">127</span>);</span><br><span class="line">        <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></span><br><span class="line">        h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span><br><span class="line">      &#125; <span class="keyword">catch</span>( NumberFormatException nfe) &#123;</span><br><span class="line">        <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    high = h;</span><br><span class="line"></span><br><span class="line">    cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> j = low;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">      cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></span><br><span class="line">    <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>题目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯单片机按键</title>
+    <url>/2020/04/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8D%95%E7%89%87%E6%9C%BA%E6%8C%89%E9%94%AE/</url>
+    <content><![CDATA[<blockquote>
+<p>蓝桥杯这块板子有矩阵按键和独立按键，可以根据换跳帽来切换，下面简单介绍一下这两种按键的程序和基本的原理。</p>
+<p>其他51的板子原理也基本相同，下面的代码也可以参考。</p>
+</blockquote>
+<h2 id="独立按键"><a href="#独立按键" class="headerlink" title="独立按键"></a>独立按键</h2><p>相对于矩阵按键，独立按键简单很多，就只有四个按钮，判断四个按键哪个被按下的情况较为简单</p>
+<p>独立按键的写法也不止一种，这里就介绍两种</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a><strong>方法一：</strong></h3><p>实现比较简单，就是一个个判断，检测到为低电平的话就判断按键按下了。</p>
+<a id="more"></a>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//先对每个按键进行位定义</span></span><br><span class="line">sbit S7  = P3^<span class="number">0</span>;</span><br><span class="line">sbit S6  = P3^<span class="number">1</span>;</span><br><span class="line">sbit S5  = P3^<span class="number">2</span>;</span><br><span class="line">sbit S4  = P3^<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">key_scan</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">//然后逐一判断哪个按键被按下</span></span><br><span class="line">  <span class="keyword">if</span>(S4 == <span class="number">0</span>)<span class="comment">//按键按下之后会检测到低电平，所以对应引脚检测到低电平就视为按键被按下了</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);<span class="comment">//延时消抖</span></span><br><span class="line">    <span class="keyword">if</span>(S4 == <span class="number">0</span>)<span class="comment">//再次检测电平信号</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">//按键具体功能的实现</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(S5 == <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span>(S5 == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">//按键具体功能的实现</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(S6 == <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span>(S6 == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">//按键具体功能的实现</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(S7 == <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span>(S7 == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">//按键具体功能的实现</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a><strong>方法二：</strong></h3><p>检测P3口的低四位，若S4被按下，则第四位P3^3为0，所以P3&amp;0xf的值为0x07，其他三个按键也以此类推。这种方法把按键的检测程序和功能程序分开了，如果不想要按下按键后按键里面的功能一直执行的话，按键功能每次执行完要把按键的值归零，否则单片机会一直执行那个按键里面的功能。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> press_flag = <span class="number">0</span>,key_value = <span class="number">0</span>;<span class="comment">//按下标志</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">key_scan</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>((P3&amp;<span class="number">0x0f</span>) != <span class="number">0x0f</span>&amp;&amp;!press_flag)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">50</span>);</span><br><span class="line">    <span class="keyword">if</span>((P3&amp;<span class="number">0x0f</span>) != <span class="number">0x0f</span>&amp;&amp;!press_flag)</span><br><span class="line">    &#123;</span><br><span class="line">      press_flag = <span class="number">1</span>;<span class="comment">//按键被按下过后将按下标志置为1</span></span><br><span class="line">      <span class="keyword">switch</span>(P3&amp;<span class="number">0x0f</span>)<span class="comment">//按下的按键对应的为0，与0x0f相与可以判断哪个按键被按下</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x07</span>: key_value = <span class="number">4</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x0b</span>: key_value = <span class="number">5</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x0d</span>: key_value = <span class="number">6</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x0e</span>: key_value = <span class="number">7</span>; <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>((P3&amp;<span class="number">0x0f</span>) == <span class="number">0x0f</span>&amp;&amp;press_flag)<span class="comment">//当没有按键按下但是按下标志为1的时候，要将按下标志置为0</span></span><br><span class="line">    press_flag = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">key_func</span><span class="params">()</span><span class="comment">//按键的功能函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(key_value)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>: <span class="comment">/*按键具体功能*/</span> key_value = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>: <span class="comment">/*按键具体功能*/</span> key_value = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>: <span class="comment">/*按键具体功能*/</span> key_value = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>: <span class="comment">/*按键具体功能*/</span> key_value = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="矩阵按键"><a href="#矩阵按键" class="headerlink" title="矩阵按键"></a>矩阵按键</h2><p>相对于独立按键来说，矩阵按键相对是要复杂一点，这里就介绍一种方法</p>
+<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>这个方法和上面独立按键的方法2实现的思路差不多。因为51单片机的资源很有限，所以这里用了八个引脚来实现一个4×4的矩阵按键。这里对照一下原理图：</p>
+<img src="https://i.loli.net/2020/04/03/OlN6gpyH14z89KR.png" alt="image.png" style="zoom: 67%;" />
+
+<p>第一步：列扫描，先将P3的低四位置为0，高四位置为1，但是这款单片机的P36和P37被P42和P44代替了，所以P42和P44要单独位定义，然后将其置为1。初始值设置完之后就要进行检测了，因为P3的低四位为0，所以当按键按下时接到对应列的那条线会被拉到低电平P44对应的是第一列，其他参照上面的原理图以此类推。</p>
+<p>第二部：行扫描，反过来，将P3的低四位置为1，高两位以及P42和P44置为0，哪一行的按键被按下对应行的值会被置为0，这一步和上面独立按键的扫描相似。</p>
+<p>经过行和列的扫描就可以确定下来是那个一个按键被按下了，行和列就可以看成是横坐标和纵坐标，这里是先确定纵坐标，再确定横坐标，通过这样的一个坐标就可以确定被按下按键的位置。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">sfr P3 = <span class="number">0xc0</span>;</span><br><span class="line">sbit P42 = P4^<span class="number">2</span>;</span><br><span class="line">sbit P44 = P4^<span class="number">4</span>;</span><br><span class="line">sbit P34 = P3^<span class="number">4</span>;</span><br><span class="line">sbit P35 = P3^<span class="number">5</span>;</span><br><span class="line"><span class="keyword">char</span> key_value = <span class="number">0</span>,key_past = <span class="number">0</span>,key_now = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">key_scan</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  P3 = <span class="number">0xf0</span>;<span class="comment">//将低四位置为0，高四位和P42、P44置为1</span></span><br><span class="line">  P42 = <span class="number">1</span>;</span><br><span class="line">  P44 = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(P42 != <span class="number">1</span>||P44 != <span class="number">1</span>||P34 != <span class="number">1</span>||P35 != <span class="number">1</span>)<span class="comment">//如果有按键被按下对应引脚会被置为0</span></span><br><span class="line">  &#123;</span><br><span class="line">    key_past = key_now;</span><br><span class="line">    key_now = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(!(key_past == <span class="number">1</span>&amp;&amp;key_now == <span class="number">1</span>))<span class="comment">//按键的松手检测</span></span><br><span class="line">      <span class="built_in">delay</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span>((P42 != <span class="number">1</span>||P44 != <span class="number">1</span>||P34 != <span class="number">1</span>||P35 != <span class="number">1</span>)&amp;&amp;!(key_past == <span class="number">1</span>&amp;&amp;key_now == <span class="number">1</span>))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span>(P44 == <span class="number">0</span>) key_value = <span class="number">4</span>;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(P42 == <span class="number">0</span>) key_value = <span class="number">8</span>;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(P35 == <span class="number">0</span>) key_value = <span class="number">12</span>;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(P34 == <span class="number">0</span>) key_value = <span class="number">16</span>;</span><br><span class="line">      P3 = <span class="number">0x0f</span>;</span><br><span class="line">      P42 = <span class="number">0</span>;</span><br><span class="line">      P44 = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">switch</span>(P3&amp;<span class="number">0x0f</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x07</span>: key_value += <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x0b</span>: key_value += <span class="number">1</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x0d</span>: key_value += <span class="number">2</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x0e</span>: key_value += <span class="number">3</span>; <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    key_past = key_now;</span><br><span class="line">    key_now = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里没有写按键的功能函数，这个就和独立按键的第二种方法类似，传入key_value的值然后执行对应的功能函数，执行完一次之后如果不想要一直执行的话就在执行完之前将key_value的值归零。</p>
+]]></content>
+      <categories>
+        <category>备赛</category>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java标识符命名规范</title>
+    <url>/2020/03/28/Java%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<ol>
+<li>包名：多单词组合时多有字母都小写，例如：helloworld</li>
+<li>类名和接口名：多单词组合所有单词第一个字母大写，例如：HelloWorld</li>
+<li>变量名和方法名：多单词组合时，除了第一个单词其他单词的第一个字母大写，例如：helloWorld</li>
+<li>常量名：所有字母都大写，多单词组合时下划线连接，例如：HELLO_WORLD</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker的基本使用</title>
+    <url>/2020/03/28/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><img src="https://i.loli.net/2020/04/03/z6JqkpsQT2orBhE.png" alt="docker.jpg"></p>
+<blockquote>
+<p>前几天学了一下docker，一方面是记录一下这些命令，另一方面为了复习一下，所以写了下面这些！有什么问题还请指正！</p>
+</blockquote>
+<h2 id="在Linux中下载docker"><a href="#在Linux中下载docker" class="headerlink" title="在Linux中下载docker"></a>在Linux中下载docker</h2><p>CentOS</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
+
+<p>ubunte</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install docker.io</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>找不到包的话update一下</p>
+<p>CentOS<code>yum update</code></p>
+<p>Ubuntu<code>apt-get update</code></p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="更换docker镜像源"><a href="#更换docker镜像源" class="headerlink" title="更换docker镜像源"></a>更换docker镜像源</h2><p>云服务器上的一般都不用换，向阿里云应该就是从自己的仓库拉的</p>
+<p>本地虚拟机还是换一下</p>
+<p>在<code>/etc/docker/</code> 目录下修改或者新建<code>daemon.json</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://pee6w651.mirror.aliyuncs.com"</span>]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个这个是阿里云的源</p>
+<p>Docker国内其他源：</p>
+<p>Docker 官方中国区</p>
+<p><a href="https://registry.docker-cn.com" target="_blank" rel="noopener">https://registry.docker-cn.com</a></p>
+<p>网易</p>
+<p><a href="http://hub-mirror.c.163.com" target="_blank" rel="noopener">http://hub-mirror.c.163.com</a></p>
+<p>中国科技大学</p>
+<p><a href="https://docker.mirrors.ustc.edu.cn" target="_blank" rel="noopener">https://docker.mirrors.ustc.edu.cn</a></p>
+<h2 id="镜像相关的命令"><a href="#镜像相关的命令" class="headerlink" title="镜像相关的命令"></a>镜像相关的命令</h2><h3 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker search 镜像名</span><br></pre></td></tr></table></figure>
+
+<p>这个没什么好说的，就是根据你给出的镜像名列出仓库中有的相关的镜像 </p>
+<p>可以加条件 -s star数</p>
+<p>比如<code>docker search -s 50 mysql</code>就是star数在50K以上的镜像才会被列出来</p>
+<p>等于就是增加搜索的条件，还有其他的参数可以自己查</p>
+<h3 id="从仓库pull镜像"><a href="#从仓库pull镜像" class="headerlink" title="从仓库pull镜像"></a>从仓库pull镜像</h3><p>这个命令就和git的pull差不多意思，git pull拉的是代码；docker pull拉的是镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull 镜像名:版本号</span><br><span class="line">版本号不写默认就是latest，最新的</span><br></pre></td></tr></table></figure>
+
+<p>比如拉MySQL的镜像：<code>docker pull mysql</code></p>
+<h3 id="删除一个镜像"><a href="#删除一个镜像" class="headerlink" title="删除一个镜像"></a>删除一个镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rmi 镜像名或ID</span><br></pre></td></tr></table></figure>
+
+<h3 id="打包镜像"><a href="#打包镜像" class="headerlink" title="打包镜像"></a>打包镜像</h3><blockquote>
+<p>将镜像打包，方便移植到其他设备运行</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker save -o 打包后的名字.tar 镜像名</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入打包的镜像"><a href="#导入打包的镜像" class="headerlink" title="导入打包的镜像"></a>导入打包的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker load &lt; 包名 生产的镜像名</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><h3 id="由镜像创建一个容器并运行"><a href="#由镜像创建一个容器并运行" class="headerlink" title="由镜像创建一个容器并运行"></a>由镜像创建一个容器并运行</h3><p>这里就以mysql为例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -di --name=mysql -p 3306:3306 -e   MYSQL_ROOT_PASSWORD=123456 mysql --lower_case_table_names=1</span><br></pre></td></tr></table></figure>
+
+<p>mysql的参数比较多一点</p>
+<blockquote>
+<p>-d表示后台运行</p>
+<p>-i表示交互式的操作（我也不太明白什么意思，后面弄明白了再更新）</p>
+<p>–name是给生成的容器取名字</p>
+<p>-p是端口的映射，冒号前面的是宿主机的端口，后面的是容器中的端口，意思就是容器中3306的端口映射到宿主机的3306端口，直接访问宿主机的3306端口就可以访问到docker中的MySQL。如果要在宿主机直接连接MySQL，可以ip a看一下docker的在宿主机的ip，然后通过那个ip的3306端口就可以访问了</p>
+<p>MYSQL_ROOT_PASSWORD 这个是这只mysql的root用户密码</p>
+<p>–lower_case_table_names=1 这个是不区分表的大小写，当初就是应为这个才入了docker的坑，直接在服务装的MySQL打死改不了这个大小写不敏感，一个项目里面刚好有有很多表是大写，数据库里面是小写的，我就是不想改成小写（傲娇脸），然后折腾几天都没能改好，后来就考虑了docker。在Windows下运行没问题，因为Windows本来就不区分大小写，到Linux下面就区分大小写了，项目部署 好久，都没能跑起来，报错找不到表，我当时还莫名其妙，明明有这个表怎么找不到呢，后来发现了这个坑。</p>
+</blockquote>
+<p>运行Tomcat就简单些：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -dp 8080:8080 tomcat镜像ID</span><br></pre></td></tr></table></figure>
+
+<p>上面都是在后台运行的，如果想要直接在</p>
+<h3 id="停止容器的运行"><a href="#停止容器的运行" class="headerlink" title="停止容器的运行"></a>停止容器的运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop 容器名</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动创建的镜像"><a href="#启动创建的镜像" class="headerlink" title="启动创建的镜像"></a>启动创建的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker start 容器名</span><br></pre></td></tr></table></figure>
+
+<p><strong>重启就是restart啦</strong></p>
+<h3 id="进入到容器中"><a href="#进入到容器中" class="headerlink" title="进入到容器中"></a>进入到容器中</h3><blockquote>
+<p>一个容器其实就是一个小的Linux环境，但是做了很多精简，只保留了必要的部分</p>
+</blockquote>
+<p>有两种方式：</p>
+<p>第一种：<code>docker attach 容器名字或者ID</code></p>
+<p>第二种：<code>docker exec -it 容器名或ID /bin/bash</code></p>
+<p>这两个的区别，如果第一种方式进去在exit，那会退出并且停止容器的运行，第二种exit不会停止运行</p>
+<h3 id="删除一个容器"><a href="#删除一个容器" class="headerlink" title="删除一个容器"></a>删除一个容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rm 容器名或ID</span><br></pre></td></tr></table></figure>
+
+<h3 id="由容器创建一个镜像"><a href="#由容器创建一个镜像" class="headerlink" title="由容器创建一个镜像"></a>由容器创建一个镜像</h3><blockquote>
+<p>你从远程仓库拉的默认镜像，经过个性化的配置之后，就可以这样创建一个自己的镜像，然后在把镜像打包成压缩包，传到其他设备，导入之后就又可以在其他设备运行了</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit -a 这个镜像的作者 -m 提交时候的文字说明 容器名 创建的镜像名</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker ps -aq</span><br></pre></td></tr></table></figure>
+
+<p>什么都不加就只会列出当前正在运行的容器</p>
+<p>加上<code>-a</code>是列出所有的镜像，<code>-q</code>表示静默模式，只显示容器编号</p>
+<p><code>docker rm (docker ps -aq)</code>这个组合命令就是删除所有的容器</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自我反思2020.3.23</title>
+    <url>/2020/03/24/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D2020-3-23/</url>
+    <content><![CDATA[<p>&emsp;&emsp;昨天自己可能有点飘了，特别是上了操作系统之后，老师把前六周的成绩发在群里，人后发现自己是第一的时候。然后昨天下午看的操作系统的视频也不是很认真，晚上的信号与系统的视频也没认真看，现在信号与系统的课欠了好多节了，后面内容又不是那么容易，这两天一定要把进度赶上来。写这篇反思的主要原因还是昨天晚上的信号与系统的题目，一个很简单的题目自己抄错题了，做的另一个题也有问题，虽然说本来也没抱多大希望自己可以拿到这次的分，开始的心态就很随便吧，或许这也是原因之一。后来又发现自己回说说下面的一个评论，没仔细看清楚就回了，很是尴尬，还好是自己的一个比较熟的朋友。后来晚会上自己就想了很多，就觉得自己还是很差劲，还是总会犯有这些小的细节错误。</p>
+<p>总结两点：</p>
+<p>1.永远不要觉得自己已经很好，自己永远都是不够的，永远还在路上。</p>
+<p>2.不管做什么事，都不要大意，不要总是败在一些细节上面。</p>
+]]></content>
+      <tags>
+        <tag>感悟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring-boot在IDEA中的热部署</title>
+    <url>/2020/03/15/spring-boot%E5%9C%A8IDEA%E4%B8%AD%E7%9A%84%E7%83%AD%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<blockquote>
+<p>热部署用起来真的很爽，节约了开发的时间，让开发调试事半功倍，下面就来介绍一下热部署在idea中的热部署</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="开启idea的自动编译"><a href="#开启idea的自动编译" class="headerlink" title="开启idea的自动编译"></a>开启idea的自动编译</h2><p>打开顶部工具栏 File -&gt; Settings -&gt; Default Settings -&gt; Build -&gt; Compiler 然后勾选 Build project automatically </p>
+<p><img src="https://i.loli.net/2020/04/01/VHKm5DiQIF1cwTs.png" alt="image.png"></p>
+<h2 id="开启idea的热部署策略"><a href="#开启idea的热部署策略" class="headerlink" title="开启idea的热部署策略"></a>开启idea的热部署策略</h2><p>顶部菜单- &gt;Edit Configurations-&gt;SpringBoot插件-&gt;目标项目-&gt;勾选热更新</p>
+<p><img src="https://i.loli.net/2020/04/01/DFohgObmEYvM8In.png" alt="image.png"></p>
+<h2 id="在项目中添加热部署插件"><a href="#在项目中添加热部署插件" class="headerlink" title="在项目中添加热部署插件"></a>在项目中添加热部署插件</h2><p>在pom文件中加入依赖：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>配置完之后，静态文件有改变直接在浏览器中刷新就能看见效果了，不用再等待项目的重新启动了，自从用了热部署之后就在也离不开了﻿ ε≡٩(๑&gt;₃&lt;)۶</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>spring-boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git的基本使用</title>
+    <url>/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<img src="https://i.loli.net/2020/04/03/HjQNKBory3xwiJv.jpg" alt="git.jpg" style="zoom:50%;" />
+
+<blockquote>
+<p>git是一个前几年兴起的很好用的版本管理工具，用了半年多了体验还是很不错了，也是现在比较主流的版本管理工具。现在分享一下git的基操，但是最好是要理解好这些命令的作用，否则后果可能很严重（手动滑稽），我自己就有过这样的经历。另外，最好是有Linux的命令基础，没有的话理解起来很吃力。</p>
+</blockquote>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><h3 id="配置全局的邮箱和用户名"><a href="#配置全局的邮箱和用户名" class="headerlink" title="配置全局的邮箱和用户名"></a>配置全局的邮箱和用户名</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name=<span class="string">"云代码托管平台（github、gitlab或者gitee）的用户名"</span></span><br><span class="line">git config --global user.email=<span class="string">"注册的邮箱"</span></span><br></pre></td></tr></table></figure>
+
+<p>这个也可以在c盘用户的根目录下面打开<code>.gitconfig</code>文件进行配置</p>
+<a id="more"></a>
+
+<img src="https://i.loli.net/2020/04/01/mbg5o7HP3jOErcf.png" alt="image.png" style="zoom: 50%;" />
+
+<img src="https://i.loli.net/2020/04/01/Wy3QFZUBHwsOLcJ.png" alt="image.png" style="zoom: 50%;" />
+
+<p><strong>命令里面不加global就只是对当前仓库的配置</strong></p>
+<h3 id="生成ssh秘钥对"><a href="#生成ssh秘钥对" class="headerlink" title="生成ssh秘钥对"></a>生成ssh秘钥对</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -f 秘钥名称 -C <span class="string">'注册邮箱'</span></span><br></pre></td></tr></table></figure>
+
+<p>在用户根目录下会生成一个.ssh的文件夹</p>
+<p>开始里面会有两个文件,后缀是<code>.pub</code>的是公钥,另一个是私钥</p>
+<img src="https://i.loli.net/2020/04/01/FWH2QwClGYJgdpt.png" alt="image.png" style="zoom: 50%;" />
+
+<p>用记事本或者其他的编辑器打开这个文件，复制其全部内容，以GitHub为例：点击<code>new ssh key</code></p>
+<p><img src="https://i.loli.net/2020/04/01/mEh4VgXdPOrCbkx.png" alt="image.png"></p>
+<p>将其粘贴到Key的框框中，手动打码（嘿嘿嘿），然后点击add ssh key就大功告成了</p>
+<p><img src="https://i.loli.net/2020/04/01/y25IoJunEg41TXW.png" alt="image.png"></p>
+<p>然后在git bash中输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/04/01/PE3MsvfSURqHyc2.png" alt="image.png"></p>
+<p>如果是这样就表示，添加成功了（只要GitHub上没提示有问题，其实一般都没有问题，这一步可以跳过）</p>
+<h2 id="git上传GitHub的基本步骤"><a href="#git上传GitHub的基本步骤" class="headerlink" title="git上传GitHub的基本步骤"></a>git上传GitHub的基本步骤</h2><h3 id="第一步、创建一个仓库或者clone一个仓库"><a href="#第一步、创建一个仓库或者clone一个仓库" class="headerlink" title="第一步、创建一个仓库或者clone一个仓库"></a>第一步、创建一个仓库或者clone一个仓库</h3><p>从远程仓库clone项目</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 仓库地址</span><br></pre></td></tr></table></figure>
+
+<p>clone下来的项目会包含版本信息不用再初始化了，直接可以进入第二步</p>
+<p>在本地创建git仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>这个命令的作用就是初始化一个git的版本管理仓库</p>
+<p>执行完这个命令之后，git bash当前所在的文件夹下面会生成一个.git的文件夹</p>
+<p>初始化完之后就可以在这个文件夹下面写项目了，写完项目之后↓</p>
+<h3 id="第二步、将文件添加到索引中"><a href="#第二步、将文件添加到索引中" class="headerlink" title="第二步、将文件添加到索引中"></a>第二步、将文件添加到索引中</h3><p>将git bash当前所在文件夹下面的所有文件添加到索引中，除了被忽略的（gitignore又有另外一套学问，在这里不详细说了）。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p><code>.</code>表示当前文件夹下面的所有文件和文件夹，但是踩过一个坑，<strong>git不会将空文件夹加入索引</strong>，要添加就要在那个空文件夹下面随便放一个文件可以是<code>.gitignore</code></p>
+<p>可以参考对应的官方文档：<img src="https://i.loli.net/2020/04/01/QDTdRA357Sqz8Jo.png" alt="image.png"></p>
+<h3 id="第三步、将索引中的文件提交到本地的版本库"><a href="#第三步、将索引中的文件提交到本地的版本库" class="headerlink" title="第三步、将索引中的文件提交到本地的版本库"></a>第三步、将索引中的文件提交到本地的版本库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m<span class="string">'提交的信息'</span></span><br></pre></td></tr></table></figure>
+
+<p>引号里面一般是写这次提交修复了什么问题，或者增加了什么功能</p>
+<h3 id="第四步、添加远程仓库地址"><a href="#第四步、添加远程仓库地址" class="headerlink" title="第四步、添加远程仓库地址"></a>第四步、添加远程仓库地址</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add 远程仓库在本地的名字 远程仓库地址</span><br></pre></td></tr></table></figure>
+
+<p>远程仓库在本地的名字随便取什么都行，不知道取什么名字的话就origin吧</p>
+<p>远程仓库的地址打开github的页面复制 </p>
+<img src="https://i.loli.net/2020/04/01/cINP5TOfSA2Qo83.png" alt="image.png" style="zoom:50%;" />
+
+<h3 id="第五步、从远程仓库同步版本库信息"><a href="#第五步、从远程仓库同步版本库信息" class="headerlink" title="第五步、从远程仓库同步版本库信息"></a>第五步、从远程仓库同步版本库信息</h3><p><strong>如果是第一次建立仓库，远程仓库没有东西，可以跳过这步</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull 上一步自己给远程仓库取得名字 分支名</span><br></pre></td></tr></table></figure>
+
+<p>每次pull之前一定要进行前面三步（2-4步），要不然你pull之前改的代码可能就全没了，白改了</p>
+<p>这一步也最好放在改代码之前就进行，那么久可以不用进行前面三步了</p>
+<h3 id="第六步、将本地版本库的信息提交到远程仓库"><a href="#第六步、将本地版本库的信息提交到远程仓库" class="headerlink" title="第六步、将本地版本库的信息提交到远程仓库"></a>第六步、将本地版本库的信息提交到远程仓库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push 上上一步自己给远程仓库取得名字 分支名</span><br></pre></td></tr></table></figure>
+
+<p>上传到远程仓库的分支本地也一定要有，否则则会报错</p>
+<p>如果没创建分支的话，默认就只有一个master分支</p>
+<h2 id="git的版本管理"><a href="#git的版本管理" class="headerlink" title="git的版本管理"></a>git的版本管理</h2><p>查看提交过的历史信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p>回滚到之前的版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard 版本哈希值</span><br></pre></td></tr></table></figure>
+
+<p>举个栗子：</p>
+<img src="https://i.loli.net/2020/04/01/aDfrmI7inANe14X.png" alt="image.png" style="zoom:67%;" />
+
+
+
+<blockquote>
+<p>如果你看到了这里，最后再看点东西吧，新人可能会分不清GitHub和git，说一下这个问题。</p>
+<p>GitHub就是GitHub，git就是git，这是两个东西。非要说联系的话就是GitHub是基于git的云版本管理仓库，可以很多人一起用一个仓库开发，这就是多人协作，也可以把它当做代码的备份仓库，现在GitHub的私有仓库免费了，可以试试。GitHub和GitLab或者国内的gitee都是差不多的东西，都是基于git的云代码管理仓库。而git就是一个本地的版本控制软件，每次改完代码之后都可以commit提交到本地的版本库，如果哪次改错了很多东西，也改不回去了，这个时候git就派上用场了，可以用git回滚到之前commit过的一个版本。其实git还有很多其他的强大功能，留到下一篇再讲。</p>
+<p>还有什么其他问题可以发邮箱给我哦！</p>
+<p><a href="mailto:steventanxy@foxmail.com">steventanxy@foxmail.com</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>开发工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯单片机超声波模块</title>
+    <url>/2020/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8D%95%E7%89%87%E6%9C%BA%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<blockquote>
+<p>这个超声波模块的工作原理很简单，传感器像两个喇叭一样的东西，一个是负责发送超声波的，另一个负责接收超声波，根据发出到接收的时间间隔就可以算出距离了。</p>
+<p>s = v*t/2 </p>
+<p>初中物理知识哦。</p>
+</blockquote>
+<p>就不多说了直接上代码</p>
+<a id="more"></a>
+
+<p>main.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"common.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> sonic_counter = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">char</span> smgbuf[<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> distance;</span><br><span class="line">  init();</span><br><span class="line">  <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span>(sonic_counter &gt;= <span class="number">40</span>)<span class="comment">//每隔一定的时间测量一次，必须要加否则测的数据不正确</span></span><br><span class="line">    &#123;</span><br><span class="line">      distance = measure_distance();</span><br><span class="line">      sonic_counter = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    smgbuf[<span class="number">5</span>] = distance/<span class="number">100</span>;</span><br><span class="line">    smgbuf[<span class="number">6</span>] = distance%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">    smgbuf[<span class="number">7</span>] = distance%<span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer2</span><span class="params">()</span> interrupt 12<span class="comment">//定时器2（52单片机多出来的一个定时器）</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  sonic_counter++;</span><br><span class="line">  <span class="built_in">display</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>common.h</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _COMMON_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _COMMON_H_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;intrins.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"sonic.h"</span></span></span><br><span class="line"></span><br><span class="line">sfr AUXR = <span class="number">0x8e</span>;</span><br><span class="line">sfr IE2 = <span class="number">0xaf</span>;</span><br><span class="line">sfr T2H = <span class="number">0xd6</span>;</span><br><span class="line">sfr T2L = <span class="number">0xd7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_channel</span><span class="params">(<span class="keyword">char</span> channel)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_timer</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>common.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"common.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> smgw[<span class="number">8</span>] = &#123;<span class="number">0x01</span>,<span class="number">0x02</span>,<span class="number">0x04</span>,<span class="number">0x08</span>,<span class="number">0x10</span>,<span class="number">0x20</span>,<span class="number">0x40</span>,<span class="number">0x80</span>&#125;;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> smgd[] = &#123;<span class="number">0x3F</span>,<span class="number">0x06</span>,<span class="number">0x5B</span>,<span class="number">0x4F</span>,<span class="number">0x66</span>,<span class="number">0x6D</span>,<span class="number">0x7D</span>,<span class="number">0x07</span>,<span class="number">0x7F</span>,<span class="number">0x6F</span>,<span class="number">0x00</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> smgbuf[<span class="number">8</span>],num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_channel</span><span class="params">(<span class="keyword">char</span> channel)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(channel)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0x80</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xa0</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xc0</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xe0</span>; <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">    smgbuf[i] = <span class="number">10</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0xff</span>;</span><br><span class="line">  select_channel(<span class="number">4</span>);</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0x00</span>;</span><br><span class="line">  select_channel(<span class="number">5</span>);</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">  </span><br><span class="line">  init_timer();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_timer</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  AUXR = AUXR&amp;<span class="number">0x33</span>|<span class="number">0x10</span>;<span class="comment">//定时器2的配置</span></span><br><span class="line">  IE2 = <span class="number">0x04</span>;</span><br><span class="line">  T2H = <span class="number">0xf8</span>;</span><br><span class="line">  T2L = <span class="number">0x2f</span>;</span><br><span class="line">  EA = <span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  TMOD = <span class="number">0x01</span>;<span class="comment">//定时器1的配置，用于计算发送和接收之间的时间间隔</span></span><br><span class="line">  TH1 = <span class="number">0</span>;</span><br><span class="line">  TL1 = <span class="number">0</span>;</span><br><span class="line">  TR1 = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  num++;</span><br><span class="line">  <span class="keyword">if</span>(num &gt;= <span class="number">8</span>)</span><br><span class="line">    num = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0xff</span>;</span><br><span class="line">  select_channel(<span class="number">7</span>);</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0x00</span>;</span><br><span class="line">  select_channel(<span class="number">6</span>);</span><br><span class="line">  P0 = smgw[num];</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0xff</span>;</span><br><span class="line">  select_channel(<span class="number">7</span>);</span><br><span class="line">  P0 = ~smgd[smgbuf[num]];</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>sonic.h</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _SONIC_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _SONIC_H_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"common.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> somenop &#123;_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();&#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//可以参照原理图</span></span><br><span class="line">sbit tx = P1^<span class="number">0</span>;<span class="comment">//发送波传感器的引脚</span></span><br><span class="line">sbit rx = P1^<span class="number">1</span>;<span class="comment">//接收波传感器的引脚</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_wave</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">measure_distance</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>sonic.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"sonic.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_wave</span><span class="params">()</span><span class="comment">//发送超声波</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;<span class="number">8</span>;i++)<span class="comment">//发送一组超声波</span></span><br><span class="line">  &#123;</span><br><span class="line">    tx = <span class="number">1</span>;</span><br><span class="line">    somenop;somenop;somenop;somenop;somenop;somenop;somenop;somenop;</span><br><span class="line">    tx = <span class="number">0</span>;</span><br><span class="line">    somenop;somenop;somenop;somenop;somenop;somenop;somenop;somenop;</span><br><span class="line">  &#125;</span><br><span class="line">  TR1 = <span class="number">1</span>;<span class="comment">//定时器1开始计时</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">measure_distance</span><span class="params">()</span><span class="comment">//计算、测量距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> distance;</span><br><span class="line">  send_wave();<span class="comment">//先发送</span></span><br><span class="line">  <span class="keyword">while</span>(rx == <span class="number">1</span>&amp;&amp;TF1 == <span class="number">0</span>);<span class="comment">//等待接收完毕或者定时器1溢出</span></span><br><span class="line">  TR1 = <span class="number">0</span>;<span class="comment">//定时器1停止计时</span></span><br><span class="line">  <span class="keyword">if</span>(rx == <span class="number">0</span>&amp;&amp;TF1 == <span class="number">0</span>)<span class="comment">//正常量程之内</span></span><br><span class="line">  &#123;</span><br><span class="line">    distance = ((TH1&lt;&lt;<span class="number">8</span>)+TL1)*<span class="number">0.017</span>;<span class="comment">//计算距离</span></span><br><span class="line">    TH1 = <span class="number">0</span>;</span><br><span class="line">    TL1 = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> </span><br><span class="line">  &#123;</span><br><span class="line">    distance = <span class="number">999</span>;<span class="comment">//超出量程</span></span><br><span class="line">    TF1 = <span class="number">0</span>;</span><br><span class="line">    TH1 = <span class="number">0</span>;</span><br><span class="line">    TL1 = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> distance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>备赛</category>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《时生》读后感</title>
+    <url>/2020/03/13/%E6%97%B6%E7%94%9F%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<p>&emsp;&emsp;这本书也是很符合东野圭吾的风格，讲的是穿越的故事，很像我看的他的第一本书——《解忧杂货店》，但是给人的感觉却不一样。</p>
+<p>&emsp;&emsp;小说主人公是时生，也就是拓实的儿子，拓实与丽子生下的有重病的儿子。故事是以插叙的手法进描绘的，这也很符合东野圭吾的风格。从拓实和丽子结婚开始，中间插叙了他们认识之前的那些故事，时生穿越时空主要是帮助他爸爸拓实，重新认识自己的身份，放下对其生母美须子的恨意，通过这件事之后也改变了拓实为人处世的态度，让他的生活一步步走向正轨。</p>
+<p>&emsp;&emsp;最喜欢的几句原文：</p>
+<p>&emsp;&emsp;“未来不仅仅是明天，未来在人心中，只要心中有未来，人就能幸福起来，因为有人教了你母亲这个，她才将你生下来，可你看着自己们整天牢骚满腹，不思进取，你感受不到未来不能怪别人，要怪你自己，因为你是个混蛋！”</p>
+<p>&emsp;&emsp;“确信自己喜欢的人能好好地活着，即便面对死亡，也看到了未来。”</p>
+]]></content>
+      <categories>
+        <category>感悟</category>
+        <category>小说</category>
+      </categories>
+      <tags>
+        <tag>感悟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>令人心动的offer观后感</title>
+    <url>/2020/03/12/%E4%BB%A4%E4%BA%BA%E5%BF%83%E5%8A%A8%E7%9A%84offer%E8%A7%82%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<p>&emsp;&emsp;经过差不多一星期，把令人心动的offer给看完了，其实很舍不得的，不管是电视剧还是综艺或者是小说，只要有情节的，每次看完我都挺舍不得的，因为之后就看不到那些人了。在看的那段时间，或许自己心里就把他们给当成朋友了，看完一部之后就像和好友惜别，所以总是心里会有点难过。</p>
+<p>&emsp;&emsp;就不多扯了，说说自己这些天看的感受吧！</p>
+<a id="more"></a>
+
+<p>&emsp;&emsp;这八位实习生真的都十分优秀，除了李晨还要加把油，其实李晨这一个月的实习成长也是非常之快的，从第一期开始几乎算是没入律师的门，说话也结结巴巴、比较拖沓，到第二期第三期一点一点的进步，到最后一期说话都流畅很多了，可以及时get导对手的点并给予反击，成长是很大的。而且，李晨除了能力，他也有很多其他的优点，比如可爱的表情，有一期就是因为他的可爱让邓冰莹选择他为队友，在职场中让别人和自己相处的很舒适也别人选择你作为队友、同事的一个优点。然后李浩源真的是才华横溢，总是出口成章，每句从他嘴里出来的话都是金句，逻辑思维也是十分的强，还参加过诗词大会，和我这种俗人真的是比不了，写个感受都写成这样（手动滑稽）。摘记一下他在节目中说过的金句，第一次面试的时候说的：<strong>作为一只“菜鸟”，希望能得到一次宝贵的机会。我期望这里能是“菜鸟”翱翔的起点，我亦深知，若是鲲鹏，而非北海不就的道理。</strong>在最后的面试的时候说的：<strong>我有足够的积累，但是又一直在路上，所以有无限的可能。</strong>这两句真的都是非常非常的喜欢。优秀的人总是这么优秀，太喜欢浩源的才华了。何运晨也是相当的优秀，他和浩源一起配合简直是完美，两个人十分的契合，互相都能get到对方的点，知音相遇啊，好运来组合这得是完美。其他人就不一个一个说了。（感觉我在记流水账，毫无才华可言，和这些优秀的人比起来简直是无地自容）</p>
+<p>&emsp;&emsp;这部综艺真正吸引我的地方，是让我了解到从象牙塔初入社会实习的这样的一个状况是怎样的，这也是我一直都想知道的，在这部综艺中一点一滴的体现着。我是从知乎上面看到的一点小片段，当时那个片段我觉得很励志，就把名字记了下来，本来都忘这回事了，一个无聊的下午想起来了，就搜了一下，然后就一发不可收拾，一集一集的看完了，每天都看，一天不看就觉得心里空落落的，每集也都很有趣，也很励志，最后也被这些人给成功圈粉了，人格魅力啊，这真的太强了。</p>
+<p>&emsp;&emsp;看完之后也自己反省了一下，第一个，自己是不是应该多看些书，多积累些知识，什么是腹有诗书气自华，李浩源就是最好的解释了，整个人的气场都是完全不一样，我觉得这是我应该要学习的地方，还要多读书，现在应该要从读小说，到读那些无聊的书了，那些书才能真正的提升人的一个认知，就比如：乌合之众，买了放那好久没看，几次拿起来看看不下去，又给放回书架上面，这个学期静下心来把这本书给啃完，在好多地方都看到推荐这本书了。第二个是口头的表达能力，我觉得自己就是李晨吧，可能李晨都不如，表达能力太差了，有的时候说一件事都说不清楚，这也是自己需要提升的地方。第三个是人际交往的能力，这一方面现在来说我觉得自己还是可以的，比之前有很大的进步了，但还是可以继续提升。其实，我觉得人际交往和自己的自信有关，自信又和第一点提到的，自己的知识储备有关，也和第二点提到的口头表达能里有关，也是人际交往的一个基本能力吧。</p>
+]]></content>
+      <categories>
+        <category>感悟</category>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>感悟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯单片机基本模块</title>
+    <url>/2020/03/08/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<h2 id="锁存器"><a href="#锁存器" class="headerlink" title="锁存器"></a>锁存器</h2><p>蓝桥杯这款单片机是用锁存器来实现引脚的复用的，所以代码写起来很麻烦，总是要开关锁存器</p>
+<p>为了偷懒，可以用宏定义来定义每个锁存器打开的代码，也可以用函数来实现</p>
+<p><strong>用宏定义：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Y4 P2 = (P2&amp;0x1f)|0x80;  <span class="comment">//led</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Y5 P2 = (P2&amp;0x1f)|0xa0;  <span class="comment">//蜂鸣器和继电器</span></span></span><br><span class="line">P0 = <span class="number">0x40</span>; <span class="comment">//蜂鸣器</span></span><br><span class="line">P0 = <span class="number">0x10</span>；<span class="comment">//继电器</span></span><br><span class="line">#define Y6 P2 = (P2&amp;<span class="number">0x1f</span>)|<span class="number">0xc0</span>; <span class="comment">//数码管位选</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Y7 P2 = (P2&amp;0x1f)|0xe0; <span class="comment">//数码管段选</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>用函数：</strong></p>
+<a id="more"></a>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_channel</span><span class="params">(<span class="keyword">char</span> channel)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(channel)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0x80</span>; <span class="keyword">break</span>; <span class="comment">//led</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xa0</span>; <span class="keyword">break</span>; <span class="comment">//蜂鸣器和继电器</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xc0</span>; <span class="keyword">break</span>; <span class="comment">//数码管位选</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xe0</span>; <span class="keyword">break</span>; <span class="comment">//数码管段选</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数码管的显示问题"><a href="#数码管的显示问题" class="headerlink" title="数码管的显示问题"></a>数码管的显示问题</h2><p>初学者一般都是用延时来实现动态数码管的，但是当要实现的功能多起来了，用延时来实现动态数码管，数码管很容易会闪烁，整体效果就很不好了。</p>
+<p>另外一种方法可以是用定时器来扫描数码管，每隔一段时间就进入中断服务函数执行数码管的扫描，只要中断间隔的时间小于人眼的视觉暂留（大概是0.1~0.4s），就看不出来数码管会闪烁了。但是这个方法也有缺点，缺点是整个系统每隔这么短的时间就必须要进入这个中断服务函数，很容易会影响、打断其他程序的执行。现在也有解决方法就是在不能被中断打断的功能执行前关掉中断的开关，执行完之后再打开，显然这个解决方法也只是权宜之计，关掉中断的开关有的时候会影响这个计时器的计时，获得的时间就不是很准确，但是误差会很小吧，十行代码51单片机几毫秒甚至更短的时间就可以执行完。所以第二种方法算是比较好的一种方法了，相对于第一种方法来说。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> smgd[]=&#123;<span class="number">0x3F</span>,<span class="number">0x06</span>,<span class="number">0x5B</span>,<span class="number">0x4F</span>,<span class="number">0x66</span>,<span class="number">0x6D</span>,<span class="number">0x7D</span>,<span class="number">0x07</span>,<span class="number">0x7F</span>,<span class="number">0x6F</span>,<span class="number">0x00</span>&#125;;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> smgw[]=&#123;<span class="number">0x01</span>,<span class="number">0x02</span>,<span class="number">0x04</span>,<span class="number">0x08</span>,<span class="number">0x10</span>,<span class="number">0x20</span>,<span class="number">0x40</span>,<span class="number">0x80</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> smgbuf[<span class="number">8</span>],smg_num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_channel</span><span class="params">(<span class="keyword">char</span> channel)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(channel)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0x80</span>; <span class="keyword">break</span>; <span class="comment">//led</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xa0</span>; <span class="keyword">break</span>;	<span class="comment">//蜂鸣器和继电器</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xc0</span>; <span class="keyword">break</span>; <span class="comment">//数码管位选</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>: P2 = P2&amp;<span class="number">0x1f</span>|<span class="number">0xe0</span>; <span class="keyword">break</span>; <span class="comment">//数码管段选</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>  <span class="comment">//总的初始化函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; <span class="number">8</span>;i++)</span><br><span class="line">    smgbuf[i] = <span class="number">10</span>;	<span class="comment">//做初始化，上电数码管全部是熄灭的</span></span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0xff</span>;  <span class="comment">//关掉所有的LED</span></span><br><span class="line">  select_channel(<span class="number">4</span>);</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0x00</span>;  <span class="comment">//关掉继电器和蜂鸣器</span></span><br><span class="line">  select_channel(<span class="number">5</span>);</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_timer</span><span class="params">()</span>	<span class="comment">//初始化计时器</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  TMOD = <span class="number">0x01</span>;</span><br><span class="line">  TH1 = <span class="number">0xf8</span>;</span><br><span class="line">  TL1 = <span class="number">0x2f</span>;<span class="comment">//2ms</span></span><br><span class="line">  EA = <span class="number">1</span>;</span><br><span class="line">  ET1 = <span class="number">1</span>;</span><br><span class="line">  TR1 = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span>  <span class="comment">//数码管显示函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  smg_num++;</span><br><span class="line">  <span class="keyword">if</span>(smg_num &gt;= <span class="number">8</span>)</span><br><span class="line">    smg_num = <span class="number">0</span>;  <span class="comment">//从0-7循环扫描每一个数码管</span></span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0xff</span>;</span><br><span class="line">  select_channel(<span class="number">7</span>);</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;		<span class="comment">//消影</span></span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0x00</span>;</span><br><span class="line">  select_channel(<span class="number">6</span>);</span><br><span class="line">  P0 = smgw[smg_num];</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">  </span><br><span class="line">  P0 = <span class="number">0xff</span>;</span><br><span class="line">  select_channel(<span class="number">7</span>);</span><br><span class="line">  P0 = ~smgd[smgbuf[smg_num]];</span><br><span class="line">  P2&amp;= <span class="number">0x1f</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> i;</span><br><span class="line">  init();</span><br><span class="line">  init_timer();</span><br><span class="line">  <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">      smgbuf[i] = i;  <span class="comment">//数码管一次显示0-7</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer1</span><span class="params">()</span> interrupt 3</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">display</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码是直接在Typora上面写的，没有编译，应该没有很大问题（手动滑稽）</p>
+<p>这样写要改变数码管的值只要改变数组smgbuf[]中的值就行了0-9的数字是和编号一一对应的，其他的特殊符号可以自己手动加。</p>
+]]></content>
+      <categories>
+        <category>备赛</category>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统笔记--操作系统的中断</title>
+    <url>/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/</url>
+    <content><![CDATA[<h2 id="中断的概念"><a href="#中断的概念" class="headerlink" title="中断的概念"></a>中断的概念</h2><blockquote>
+<p>中断是指在计算机执行期间，系统内发生任何非寻常的或非预期的急需处理事件，使得CPU暂时中断当前正在执行的程序而转去执行相应的时间处理程序。待处理完毕后又返回原来被中断处继续执行或调度新的进程执行的过程。</p>
+</blockquote>
+<h3 id="引入目的"><a href="#引入目的" class="headerlink" title="引入目的"></a>引入目的</h3><ol>
+<li>解决CPU和I/O设备之间的并行工作问题</li>
+<li>实时实现控制</li>
+</ol>
+<h3 id="中断的作用"><a href="#中断的作用" class="headerlink" title="中断的作用"></a>中断的作用</h3><a id="more"></a>
+
+<ol>
+<li>实现CPU和I/O设备并行工作</li>
+<li>实现硬件故障处理</li>
+<li>实现人机-联系</li>
+<li>实现多道程序和分时操作</li>
+<li>实现实时处理</li>
+<li>实现应用程序和操作系统的联系</li>
+<li>实现多处理机系统中处理机之间的联系</li>
+</ol>
+<h3 id="中断的特点"><a href="#中断的特点" class="headerlink" title="中断的特点"></a>中断的特点</h3><ul>
+<li>随机性：在系统的运行过程中，中断事件随时可能出现</li>
+<li>可恢复性：完成对某一事件的中断处理程序之后，系统会返回到原程序的断点处继续执行</li>
+<li>自动性：在中断时间发生之后，进入中断、执行中断处理程序以及中断返回都是由系统自动完成的</li>
+</ul>
+<h3 id="中断在操作系统中的地位"><a href="#中断在操作系统中的地位" class="headerlink" title="中断在操作系统中的地位"></a>中断在操作系统中的地位</h3><ol>
+<li>是多道程序并发执行的推动力</li>
+<li>操作系统是由中断驱动的</li>
+</ol>
+<h2 id="中断的分类"><a href="#中断的分类" class="headerlink" title="中断的分类"></a>中断的分类</h2><pre class="mermaid">graph LR
+A[中断]-->B[外中断]
+B-->D[可屏蔽中断]
+B-->E[不可屏蔽中断]
+A-->C[内中断]
+C-->F[自愿中断]
+F-->G[系统调用]
+F-->H[缺页中断]
+F-->I[断点指令]
+F-->J[其他程序性异常]
+C-->K[强迫性中断]
+K-->O[硬件故障中断]
+K-->L[程序性中断]
+K-->M[输入输出中断]
+K-->N[外部中断]</pre>
+
+<ul>
+<li><p>内中断和外中断：中断来源是否来自计算机内部</p>
+</li>
+<li><p>外中断：来自CPU外的外部设备，通过硬件请求方式产生的强迫性中断</p>
+</li>
+<li><p>不可屏蔽中断：有就一定会执行中断</p>
+</li>
+<li><p>可屏蔽中断：在当前指令结束后，CPU根据中断允许标志位判断是否响应中断，通常用于CPU和外部设备之间的数据交换</p>
+</li>
+<li><p>强迫性中断：由随机事件和外部请求所引发的，引起强迫性中断的事件不是当前运行程序所期待的</p>
+</li>
+<li><p>自愿性中断：用户程序在使用中请求操作系统提供某种功能服务，通过执行一条访管指令，称为访管中断或陷阱，是当前运行程序所期待的，用户程序对操作系统的某种需求</p>
+</li>
+</ul>
+<h2 id="中断的响应过程"><a href="#中断的响应过程" class="headerlink" title="中断的响应过程"></a>中断的响应过程</h2><pre class="mermaid">graph TB
+A[发出中断信号]-->B[CPU完成当前指令的执行]
+B-->C[CPU发送中断答应信号]-->D[关中断]
+D-->E[CPU将PWS,PC和CS压入核心栈中]
+E-->F[将中断处理程序的入口地址送入IP和CS]
+F-->G[保存剩余的CPU状态信息]-->H[开中断]-->I[处理中断]
+I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
+
+<h3 id="简单概括"><a href="#简单概括" class="headerlink" title="简单概括"></a>简单概括</h3><ol>
+<li><p>发现中断源</p>
+</li>
+<li><p>保护和恢复现场</p>
+</li>
+<li><p>中断响应</p>
+</li>
+<li><p>保护现场和传递参数</p>
+</li>
+<li><p>执行相应的中断服务函数</p>
+</li>
+<li><p>恢复现场并退出中断</p>
+</li>
+</ol>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://i.loli.net/2020/04/01/RXkpNUiVHOa2Y48.png" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统笔记--操作系统主要类型</title>
+    <url>/2020/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%BB%E8%A6%81%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h2 id="批处理系统"><a href="#批处理系统" class="headerlink" title="批处理系统"></a>批处理系统</h2><h3 id="单道批处理系统处理流程"><a href="#单道批处理系统处理流程" class="headerlink" title="单道批处理系统处理流程"></a>单道批处理系统处理流程</h3><img src="https://i.loli.net/2020/04/01/4QMJfoxRIXGiu9C.png" alt="image.png" style="zoom:67%;" />
+
+<h3 id="多道批处理操作系统处理流程"><a href="#多道批处理操作系统处理流程" class="headerlink" title="多道批处理操作系统处理流程"></a>多道批处理操作系统处理流程</h3><a id="more"></a>
+
+<img src="https://i.loli.net/2020/04/01/shlfUxnFIu23wdZ.png" alt="image.png" style="zoom:67%;" />
+
+<h2 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h2><p><strong>工作方式：</strong></p>
+<p><img src="https://i1.100024.xyz/i/2020/03/02/12o2tfx.png" alt=""></p>
+<p>特性：</p>
+<ol>
+<li>独立性   2. 同时性   3. 交互性   4.及时性</li>
+</ol>
+<h3 id="分时操作系统和批处理操作系统的区别"><a href="#分时操作系统和批处理操作系统的区别" class="headerlink" title="分时操作系统和批处理操作系统的区别"></a>分时操作系统和批处理操作系统的区别</h3><h4 id="1-追求目标不同"><a href="#1-追求目标不同" class="headerlink" title="1.追求目标不同"></a>1.追求目标不同</h4><p>批处理操作系统一提高系统利用率和吞吐量为主要目标</p>
+<p>分时操作系统是为了满足人机交互的需求，方便用户使用</p>
+<h4 id="2-使用作业不同"><a href="#2-使用作业不同" class="headerlink" title="2.使用作业不同"></a>2.使用作业不同</h4><p>批处理操作系统适合非交互性的大型作业</p>
+<p>分时系统适合交互性的小型作业</p>
+<h4 id="3-作业的控制方式不同"><a href="#3-作业的控制方式不同" class="headerlink" title="3.作业的控制方式不同"></a>3.作业的控制方式不同</h4><p>批处理系统是由用户利用作业控制语言，书写作业用户说明书，并预先提交给系统 属于脱机工作</p>
+<p>分时系统是由用户直接从键盘敲入命令，来控制作业 属于联机工作</p>
+<h4 id="4-资源利用率不同"><a href="#4-资源利用率不同" class="headerlink" title="4.资源利用率不同"></a>4.资源利用率不同</h4><p>批处理操作系统可以合理安排不同负载的作业，使得各种资源均匀工作，利用率高</p>
+<p>分时操作系统，只有当多个终端作业使用同类型编译程序和公共子程序，且这些公共子程序是可重用代码的时候系统开销才会比较小</p>
+<h2 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h2><p><strong>主要功能和特征：</strong></p>
+<ol>
+<li>实时时钟管理</li>
+<li>过载保护</li>
+<li>高可靠性和安全性</li>
+</ol>
+<h3 id="分时操作系统和实时操作系统区别"><a href="#分时操作系统和实时操作系统区别" class="headerlink" title="分时操作系统和实时操作系统区别"></a>分时操作系统和实时操作系统区别</h3><h4 id="1-设计目标不同"><a href="#1-设计目标不同" class="headerlink" title="1.设计目标不同"></a>1.设计目标不同</h4><p>分时操作系统为用户提供一个通用的交互方式</p>
+<p>实时操作系统则是为特殊用途提供的专用操作系统</p>
+<h4 id="2-交互性强弱不同"><a href="#2-交互性强弱不同" class="headerlink" title="2.交互性强弱不同"></a>2.交互性强弱不同</h4><p>分时操作系统交互性强</p>
+<p>实时操作系统交互性弱</p>
+<h4 id="3-响应时间要求不同"><a href="#3-响应时间要求不同" class="headerlink" title="3.响应时间要求不同"></a>3.响应时间要求不同</h4><p>分时操作系统以用户能接受的响应时间为标准</p>
+<p>实时操作系统与受控对象及应用场合有关，响应时间变化范围大</p>
+<h2 id="微机操作系统"><a href="#微机操作系统" class="headerlink" title="微机操作系统"></a>微机操作系统</h2><p>1.单用户单任务（MS DOS）</p>
+<p>2.单用户多任务（Windows）</p>
+<p>3.多用户多任务</p>
+<h2 id="网络操作系统"><a href="#网络操作系统" class="headerlink" title="网络操作系统"></a>网络操作系统</h2><h3 id="工作模式："><a href="#工作模式：" class="headerlink" title="工作模式："></a>工作模式：</h3><ol>
+<li><p>客户服务器模式（client/server，C/S）模式</p>
+</li>
+<li><p>对等（Peer-to-Peer）模式</p>
+</li>
+</ol>
+<h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><ol>
+<li>网络通信</li>
+<li>资源管理</li>
+<li>网络服务（SMTP）</li>
+<li>网络管理</li>
+<li>互操作能力（NFS）</li>
+</ol>
+<h2 id="多CPU操作系统"><a href="#多CPU操作系统" class="headerlink" title="多CPU操作系统"></a>多CPU操作系统</h2><h3 id="功能：-1"><a href="#功能：-1" class="headerlink" title="功能："></a>功能：</h3><ol>
+<li>分布式进程通信</li>
+<li>分布式文件系统</li>
+<li>分布式进程迁移</li>
+<li>分布式进程同步</li>
+<li>分布式进程死锁</li>
+</ol>
+<h2 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h2><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><ol>
+<li>微型化</li>
+<li>可定制化</li>
+<li>实时性</li>
+<li>易移植性</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统笔记--操作系统的形成与发展</title>
+    <url>/2020/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%A2%E6%88%90%E4%B8%8E%E5%8F%91%E5%B1%95/</url>
+    <content><![CDATA[<h2 id="操作系统的形成时期"><a href="#操作系统的形成时期" class="headerlink" title="操作系统的形成时期"></a>操作系统的形成时期</h2><h3 id="手动操作时期"><a href="#手动操作时期" class="headerlink" title="手动操作时期"></a>手动操作时期</h3><img src="https://i.loli.net/2020/04/01/vuMCXHTLqJBOh5t.png" alt="image.png" style="zoom:80%;" />
+
+<h4 id="存在缺点"><a href="#存在缺点" class="headerlink" title="存在缺点"></a>存在缺点</h4><ol>
+<li><p>用户独占全部计算机资源</p>
+</li>
+<li><p>CPU等待人工操作</p>
+</li>
+<li><p>CPU与I/O设备串行操作</p>
+</li>
+</ol>
+<h3 id="监控程序阶段（早起批处理阶段）"><a href="#监控程序阶段（早起批处理阶段）" class="headerlink" title="监控程序阶段（早起批处理阶段）"></a>监控程序阶段（早起批处理阶段）</h3><p><img src="https://i1.100024.xyz/i/2020/03/02/10sgiaa.png" alt="单道批处理系统流程图"></p>
+<p>单道批处理系统流程图  </p>
+<a id="more"></a>
+
+<h2 id="操作系统的成熟阶段"><a href="#操作系统的成熟阶段" class="headerlink" title="操作系统的成熟阶段"></a>操作系统的成熟阶段</h2><h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><ol>
+<li>程序浮动与存储保护问题</li>
+<li>CPU的调度和管理问题</li>
+<li>其他资源的管理和调度问题</li>
+</ol>
+<h3 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h3><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ol>
+<li>人机交互</li>
+<li>共享主机</li>
+<li>便于用户上机</li>
+</ol>
+<img src="https://i.loli.net/2020/04/01/vrjo1l8dPaFKY7c.png" alt="image.png" style="zoom:67%;" />
+
+<h2 id="进一步发展时期"><a href="#进一步发展时期" class="headerlink" title="进一步发展时期"></a>进一步发展时期</h2>]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统笔记--操作系统的概述</title>
+    <url>/2020/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h3 id="计算机的组成"><a href="#计算机的组成" class="headerlink" title="计算机的组成"></a>计算机的组成</h3><p>硬件+软件</p>
+<h3 id="引入操作系统的目的"><a href="#引入操作系统的目的" class="headerlink" title="引入操作系统的目的"></a>引入操作系统的目的</h3><p>方便性、有效性、可扩充性和开放性</p>
+<h3 id="操作系统的作用"><a href="#操作系统的作用" class="headerlink" title="操作系统的作用"></a>操作系统的作用</h3><ul>
+<li>是计算机硬件和软件的管理者</li>
+<li>是用户使用计算机硬件系统的借口</li>
+<li>操作系统是扩展机/虚拟机</li>
+</ul>
+<h3 id="操作系统的定义"><a href="#操作系统的定义" class="headerlink" title="操作系统的定义"></a>操作系统的定义</h3><p>操作系统是控制和管理计算机系统的软硬件资源、合理地组织计算机工作流程，</p>
+<p>以及方便用户的程序和数据集合。</p>
+<h4 id="单道批处理系统的特征"><a href="#单道批处理系统的特征" class="headerlink" title="单道批处理系统的特征"></a>单道批处理系统的特征</h4><ol>
+<li><p>自动性:磁带上的一批作业能自动地逐个地依次运行，无需人工干预</p>
+</li>
+<li><p>顺序性:磁带上的各道作业是顺序地进入内存，各道作业的完成顺序与他们进入内存的顺序之间，在正常情况下应完全相同</p>
+</li>
+<li><p>单道性:内存中仅有一道程序运行。仅当该程序完成或发生异常情况时才换入其后继程序进入内存运行</p>
+<a id="more"></a>
+
+</li>
+</ol>
+<h3 id="操作系统的主要功能"><a href="#操作系统的主要功能" class="headerlink" title="操作系统的主要功能"></a>操作系统的主要功能</h3><ol>
+<li>处理器管理</li>
+<li>存储管理</li>
+<li>设备管理</li>
+<li>文件管理</li>
+<li>用户接口</li>
+<li>网络与通信管理</li>
+</ol>
+<h3 id="操作系统基本特征"><a href="#操作系统基本特征" class="headerlink" title="操作系统基本特征"></a>操作系统基本特征</h3><ol>
+<li><p>并发性</p>
+</li>
+<li><p>共享性</p>
+<p>a）互斥使用方式   b）同时使用方式</p>
+</li>
+<li><p>虚拟性</p>
+</li>
+<li><p>不确定性</p>
+<p>a）“走走停停的执行方式”   b）执行结果的不确定性   c）不可预测性</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Ubuntu服务器上安装MySQL8</title>
+    <url>/2020/03/01/%E5%9C%A8Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85mysql8/</url>
+    <content><![CDATA[<p>在<a href="http://dev.mysql.com/downloads/repo/apt/，下载一个mysql-apt-config_0……._all.deb，传到服务器上，用dpkg" target="_blank" rel="noopener">http://dev.mysql.com/downloads/repo/apt/，下载一个mysql-apt-config_0……._all.deb，传到服务器上，用dpkg</a> -i mysql-apt-config_0._…..all.deb安装执行，选择mysql8，OK之后回到终端窗口</p>
+<p>执行sudo apt update</p>
+<p>然后使用sudo apt install mysql-server命令，就会安装MySQL8.0</p>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo一键部署到云服务器</title>
+    <url>/2020/03/01/hexo%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><blockquote>
+<p>&emsp;&emsp;之前折腾了好久，用Rsync，ftp，stfp都试过了，都没弄成，在网上看的教程很多也是基于git的，也就是在服务器建一个git的钩子，指定一个目录作为远程仓库地址，可以通过ssh连接，然后在本地可以直接上传，最后才选择的这个方案。在成功之前踩了好多坑，配sftp的时候用百度上的坑爹教程，导致服务器都连不上，最后还是选择则了用git做仓库的方式来上传，这个教程很简单，相对于其他的同样的方法，只是不知道会不会有安全问题。</p>
+</blockquote>
+<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><h3 id="1-配置Git-hooks"><a href="#1-配置Git-hooks" class="headerlink" title="1. 配置Git hooks"></a>1. 配置Git hooks</h3><ol>
+<li><p>创建Git裸仓库</p>
+<p>blog.git作为远程Git仓库，Hexo在本地生成的博客静态文件可以通过push与其同步。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir ~/blog.git &amp;&amp; <span class="built_in">cd</span> ~/blog.git</span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在hooks目录下新建一个脚本文件<code>post-receive</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+<p><code>post-receive</code>脚本将在blog.git仓库接收到push时执行</p>
+<p>脚本非常简单，就是删除原有的/var/www/html/blog目录，然后从blog.git仓库clone新的博客静态文件</p>
+<p><code>vim hooks/post-receive</code> 将下面内容写入<code>post-receive</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"> </span><br><span class="line">rm -rf /var/www/html/blog</span><br><span class="line">git <span class="built_in">clone</span> /root/blog.git /var/www/html/blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给post-receive脚本执行权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x hooks/post-receive</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置好之后可以测试一下，就在本地clone那个远程仓库</p>
+</li>
+</ol>
+<h3 id="2-修改hexo配置文件"><a href="#2-修改hexo配置文件" class="headerlink" title="2.修改hexo配置文件"></a>2.修改hexo配置文件</h3><p>修改hexo根目录下的_config.yml文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'git'</span></span><br><span class="line">  repo: <span class="string">'root@服务器IP:blog.git'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这个方法和其他复杂一点的方法区别就是，没有专门建一个git的用户用来上传，就直接用root用户上传，就自己用的话应该问题也不大🤔</p>
+]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用ssh公钥配对登录服务器</title>
+    <url>/2020/03/01/%E7%94%A8ssh%E5%85%AC%E9%92%A5%E9%85%8D%E5%AF%B9%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<h3 id="1-生成公钥"><a href="#1-生成公钥" class="headerlink" title="1.生成公钥"></a>1.生成公钥</h3><p>ssh-keygen -t rsa -b 4096 -C “你的邮箱地址”</p>
+<p><em>-t 指定加密算法； -b 指定生成的密钥长度； -C 一句话，一般都填邮箱地址。</em></p>
+<p><em>更多参数说明可以在终端输入：ssh-keygen –help 查看</em></p>
+<h3 id="2-将公钥写入远程主机"><a href="#2-将公钥写入远程主机" class="headerlink" title="2.将公钥写入远程主机"></a>2.将公钥写入远程主机</h3><p>在自己电脑上打开用户目录下的/.ssh/id_rsa.pub公钥文件，将其中的内容粘贴到服务器的、root/.ssh/authorized_keys目录的文件里面</p>
+<h3 id="3-修改ssh配置文件，禁止密码登录，允许秘钥登录"><a href="#3-修改ssh配置文件，禁止密码登录，允许秘钥登录" class="headerlink" title="3.修改ssh配置文件，禁止密码登录，允许秘钥登录"></a>3.修改ssh配置文件，禁止密码登录，允许秘钥登录</h3><p>vim /etc/ssh/sshd_config </p>
+<p>将里面的内容修改如下所示：</p>
+<p># PubkeyAuthentication yes   中将#删除，允许秘钥登录</p>
+<p>PasswordAuthentication yes  中yes修改为no，禁止密码登录</p>
+<p><em>禁止密码登录可以防止暴力破解，虽然也没人来攻击</em></p>
+<h3 id="4-重启ssh服务"><a href="#4-重启ssh服务" class="headerlink" title="4.重启ssh服务"></a>4.重启ssh服务</h3><p>service ssh restart</p>
+]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown基本语法</title>
+    <url>/2020/02/27/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="comment">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意#和标题之间要有空格才会有效果</strong>   这简直是初学者的一大坑  </p>
+<a id="more"></a>
+
+<h4 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">*斜体1*	 _斜体2_</span><br><span class="line">**加粗1**  __加粗2__</span><br><span class="line">==强调== </span><br><span class="line">~~删除线~~</span><br><span class="line">H~2~O	（hexo要用&lt;sub&gt;&lt;/sub&gt;标签，如H&lt;sub&gt;2&lt;/sub&gt;O）</span><br><span class="line">2^10^   （hexo要用&lt;sup&gt;&lt;/sup&gt;标签，如2&lt;sup&gt;10&lt;/sup&gt;）</span><br><span class="line">&gt; 引用</span><br></pre></td></tr></table></figure>
+
+<p><strong>效果显示</strong></p>
+<p><em>斜体1</em>     <em>斜体2</em><br><strong>加粗1</strong>     <strong>加粗2</strong><br>==强调==<br><del>删除线</del></p>
+<p>H<sub>2</sub>O<br>2<sup>10</sup></p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p><strong>后面两个要在偏好里面设置，Markdown扩展语法那几个选项打上勾</strong></p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- 项目1</span><br><span class="line">  </span><br><span class="line">  - 项目2</span><br><span class="line">  </span><br><span class="line">    - 项目3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>项目1</p>
+<ul>
+<li><p>项目2</p>
+<ul>
+<li>项目3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 项目</span><br><span class="line">2. 项目</span><br><span class="line">3. 项目</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>项目</li>
+<li>项目</li>
+<li>项目</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- [ ] 计划任务</span><br><span class="line">- [x] 完成任务</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled="" type="checkbox"> 计划任务</li>
+<li><input checked="" disabled="" type="checkbox"> 完成任务 </li>
+</ul>
+<h4 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">​```c</span><br><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;c</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![](图片链接)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>今天先写到这，睡觉去了🌛 🌜</p>
+<hr>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用好学生优惠</title>
+    <url>/2020/02/27/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%A5%BD%E5%AD%A6%E7%94%9F%E4%BC%98%E6%83%A0/</url>
+    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>本文介绍的是利用学生身份可以享受到的相关学生优惠权益，但也希望各位享受权利的同时不要忘记自己的义务，不要售卖、转手自己的学生优惠资格，使得其他同学无法受益。</p>
+<p><strong>欢迎提交 issue 给我们你发现的实用资源！</strong> | 本文更新于 2019 年 05 月 12 日</p>
+<p>点击 <code>watch</code> 可以得到更新信息哟！</p>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ul>
+<li>查看、利用、转载、引用本集锦请查看 <a href="https://github.com/ivmm/Student-resources/blob/master/lisence" target="_blank" rel="noopener">License</a>。</li>
+<li>一切官方的助学资金等，请咨询学校领导、辅导员、班主任，请勿向陌生账户转账！</li>
+<li>校园借贷风险极高，请谨慎尝试。</li>
+<li>对需要出示身份证、手持身份证的资源请保持谨慎。</li>
+<li>保管好自己的学生证、身份证，不要随意丢弃。</li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>高考已经过去，你们也将迎来不同于以往的大学生活，大学或许对之前的12年管制式生活来说是解放了，不过你也知道的，解放后面是什么，脱离了父母和老师的管束以及适当的财务自主，你的生活并不会就无比精彩。</p>
+<p>让自己的大学生活过得积极而精彩：</p>
+<ol>
+<li>多参加校级、省级、国家级的比赛，你的比较对象就不会是同班同学了而是同龄人，视野更大。</li>
+<li>多上台讲讲，第一次第二次第三次可能会小心脏砰砰跳，后面真的就见怪不怪了，会自信很多。</li>
+<li>不要再默默无闻了，让老师们注意到你，都大学了上课还不敢举个手？</li>
+<li>做点义工，为社会做点贡献，工作了就真没时间了。</li>
+<li>做人做事记得留个证据，留个发票，留个单子。</li>
+<li>多向长辈们问候问候，偶尔放个长假了就去看看。</li>
+</ol>
+<p>那么就期待着9月开启你的上当受骗之旅吧，不过可能在6月买电脑买手机的时候就已经上当受骗。（逃～）</p>
+<h1 id="学生包"><a href="#学生包" class="headerlink" title="学生包"></a>学生包</h1><p>各类学生优惠项目经过许多年的发展，很多学生包已经不单单只通过 edu 邮箱验证身份了，而且使用 @edu.cn 反而会降低申请成功率。 建议使用学生证、入学通知书等有学院官方标志和日期的工具来证明自己的身份。</p>
+<ul>
+<li><strong><a href="https://education.github.com/pack" target="_blank" rel="noopener">Github 学生包</a></strong>，高质量的开发工具集合，并提供 DIgitalocean 的 50美元代金券，免费域名一枚。</li>
+<li><strong><a href="https://imagine.microsoft.com/zh-cn/catalog" target="_blank" rel="noopener">Microsoft Imagine 学生包</a></strong>，免费使用微软的开发软件，包括 Windows Server 系统，以及 Azure 学生订阅。</li>
+<li><strong><a href="https://aws.amazon.com/cn/education/awseducate/" target="_blank" rel="noopener">AWS 学生包</a></strong>，亚马逊云计算的学生包，可以获得至少 $40 的优惠和教育培训。</li>
+<li><strong><a href="http://www.autodesk.com.cn/education/home" target="_blank" rel="noopener">Autodesk 学生包</a></strong>，旗下 AutoCAD , 3DMAX , Maya 等软件，其（教育版）免费试用期可延长至三年。</li>
+<li><strong><a href="https://www.jetbrains.com/student/" target="_blank" rel="noopener">JetBrains 学生包</a></strong>，免费使用各类开发工具和集成工具。</li>
+<li><strong><a href="https://edu.google.com/products/productivity-tools/" target="_blank" rel="noopener">G Suite for Education</a></strong>，为教育用户提供的谷歌生产力工具套件（大陆不在申请区之内）。</li>
+<li><strong><a href="http://www.lindo.com/index.php?option=com_content&view=article&id=120&Itemid=45" target="_blank" rel="noopener">LINGO Educational Research License</a></strong>, LINGO 教育授权，著名线性与非线性求解器，求解优化模型的最佳选择，数学建模必备。</li>
+</ul>
+<h1 id="学生优惠"><a href="#学生优惠" class="headerlink" title="学生优惠"></a>学生优惠</h1><ul>
+<li><strong><a href="https://products.office.com/en-us/student?tab=students" target="_blank" rel="noopener">Office in Education</a></strong>，微软家提供的免费 Office 365 教育优惠，中国大多数学校无缘申请。</li>
+<li><strong><a href="https://promotion.aliyun.com/ntms/act/campus2018.html?accounttraceid=22aca9b8-8f26-44f2-b514-d97cf21a6654&userCode=oitiwrd3" target="_blank" rel="noopener">阿里云+云翼计划</a></strong>，118元/年，阿里云ECS+OSS+域名+机器学习API+Clouder认证。  24岁以下实名认证即可获得，无需验证学生身份!!</li>
+<li><strong><a href="https://www.qcloud.com/act/campus" target="_blank" rel="noopener">腾讯云+校园计划</a></strong>，10元一个月的云服务器租用，免费域名、云储存，需要抢购。</li>
+<li><strong><a href="https://developer.huaweicloud.com/campus" target="_blank" rel="noopener">华为云+云创校园计划</a></strong>，9元/月 24岁及以下免学生认证，实名认证即可购买，需要抢购。</li>
+<li><strong><a href="https://cloud.baidu.com/campaign/campus-2018/index.html" target="_blank" rel="noopener">百度云启航校园计划</a></strong>，云服务器半年124元</li>
+<li><strong><a href="http://www.apple.com/cn-k12/shop" target="_blank" rel="noopener">苹果教育商店</a></strong>，苹果设备优惠，Music和 Pro APP 优惠，暑假还会有学生优惠大促销。</li>
+<li><strong><a href="https://www.microsoftstore.com.cn/student?Icid=StoreNavi_EDU" target="_blank" rel="noopener">微软教育商店</a></strong>，9折购买微软旗下的各种硬件设备。</li>
+<li><strong><a href="http://www.onthehub.com/" target="_blank" rel="noopener">OnTheHub 教育商店</a></strong>，PD 和 VMware 的虚拟机优惠，以及更多软件优惠。</li>
+<li><strong><a href="https://www.siteground.com/student-hosting.htm" target="_blank" rel="noopener">SiteGroud 学生计划</a></strong>，WP 官方推荐的主机托管商提供 $1.99/月 高性能 CP 托管。</li>
+<li><strong><a href="https://www.spotify.com/hk-zh/student/" target="_blank" rel="noopener">Spotify 学生优惠</a></strong>，Spotify Premium学生订阅半价优惠。</li>
+<li><strong><a href="https://pantheon.io/edu" target="_blank" rel="noopener">Pantheon 学生版</a></strong>，专业高性能网站托管的学生优惠。</li>
+<li><strong><a href="http://coupon.dji.com/cn/edu" target="_blank" rel="noopener">大疆教育优惠</a></strong>，大疆产品的教育折扣。</li>
+<li><strong><a href="https://todoist.com/education" target="_blank" rel="noopener">Todoist教育优惠</a></strong>，强大的任务、思路整理工具提供半价教育优惠。</li>
+<li><strong><a href="https://setapp.com/educational-discount" target="_blank" rel="noopener">SetAPP教育优惠</a></strong>，macOS 应用合集订阅包半价优惠，非常适合MAC学生党，每月4.99刀</li>
+<li><strong><a href="http://app.eagle.cool/forum/topic/5354/%E6%88%91%E6%98%AF%E5%AD%A6%E7%94%9F%E6%88%96%E6%95%99%E5%B8%88-%E6%98%AF%E5%90%A6%E4%BA%AB%E6%9C%89%E4%BC%98%E6%83%A0%E4%BB%B7%E6%A0%BC" target="_blank" rel="noopener">Eagle教育优惠</a></strong>, Win/Mac系统，设计师图片管理工具，支持试用一个月，原价199，优惠价139，需提供身份和证件信息。优秀的本地图片管理工具，搭配学生版OneDrive进行同步管理，美滋滋。（目前已支持图片、视频、字体等类型文件的管理）</li>
+</ul>
+<h1 id="实用干货"><a href="#实用干货" class="headerlink" title="实用干货"></a>实用干货</h1><ul>
+<li><strong><a href="https://creativemarket.com/free-goods" target="_blank" rel="noopener">CreativeMarket Free Goods</a></strong>，每周免费六款设计资源，电商、前端必备。</li>
+<li><strong><a href="https://www.axure.com/edu" target="_blank" rel="noopener">Axure</a></strong>， 原型设计工具，产品、运营必备，学生、教师免费。</li>
+<li><strong><a href="https://www.adobe.com/cn/products/xd.html" target="_blank" rel="noopener">Adobe XD</a></strong>，原型设计工具，<del>没想到吧我Adobe也有免费的东西啦XD</del> 官网直接提供免费版，奋起直追Mac的Sketch，Win党难得的福利。此外Adobe还提供对XD插件设计的奖励，<a href="https://www.adobe.io/apis/creativecloud/xd.html" target="_blank" rel="noopener">可参与设计开发可供XD使用的插件</a>。</li>
+<li><strong><a href="http://education.minecraft.net/get-started" target="_blank" rel="noopener">Minecraft</a></strong>， 我的世界教育免费版 ，仅支持邮箱。</li>
+<li><strong><a href="http://www.wolfram.com/mathematica/pricing/students-individuals.php" target="_blank" rel="noopener">Mathematica</a></strong>， 现代科学计算软件，3折优惠 50刀，添加购物车后显示。</li>
+<li><strong><a href="https://www.tableau.com/zh-cn/academic" target="_blank" rel="noopener">Tableau</a></strong>， 数据可视化分析软件，对学生、教室以及教育组织提供免费使用。</li>
+</ul>
+<h1 id="推荐软件"><a href="#推荐软件" class="headerlink" title="推荐软件"></a>推荐软件</h1><ul>
+<li><strong><a href="https://cloudconvert.com/" target="_blank" rel="noopener">CloudConvert</a></strong>，转码神器，格式齐全的在线转码利器。</li>
+<li><strong><a href="https://smallpdf.com/" target="_blank" rel="noopener">Smallpdf</a></strong>，专业文档转PDF，PDF转文档神器。</li>
+<li><strong><a href="https://github.com/drew-royster/canvasFileSync" target="_blank" rel="noopener">Canvas File Sync</a></strong>，Syncs Canvas-LMS课程文件</li>
+</ul>
+<h1 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h1><ul>
+<li><strong>少数派：</strong><a href="https://sspai.com/post/39430" target="_blank" rel="noopener">在校师生福利：Apple、微软、Adobe 等产品如何通过教育优惠购买</a></li>
+<li><strong>少数派：</strong><a href="https://sspai.com/post/43533" target="_blank" rel="noopener">学生专属福利，你可能还不知道这些常用服务其实可以更便宜</a></li>
+</ul>
+<h1 id="相关推荐"><a href="#相关推荐" class="headerlink" title="相关推荐"></a>相关推荐</h1><p><strong>买电脑：</strong> 学生购买电脑多为笔记本，可关注 <a href="http://tieba.baidu.com/f?kw=%E7%AC%94%E8%AE%B0%E6%9C%AC&ie=utf-8" target="_blank" rel="noopener">笔记本吧</a><br>如果为台式可关注 显卡吧/图拉丁吧/电脑吧 等专业硬件社区，或直接关注微信公众号“笔吧评测室”，由笔记本吧吧主和吧务团队运营，质量保证。</p>
+<p><strong>如何科学提问：</strong> 《<a href="http://git.oschina.net/mifar/How-To-Ask-Questions-The-Smart-Way" target="_blank" rel="noopener">提问的智慧</a>》 《<a href="https://github.com/octowhale/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md" target="_blank" rel="noopener">别像弱智一样提问</a>》</p>
+<p><strong>搜索引擎：</strong> 为了你的身体健康、事业有成，请尽量<strong>减少使用百度</strong>的频率。</p>
+<p><strong>PPT 制作：</strong>《<a href="https://www.mf8.biz/ppt-tips/" target="_blank" rel="noopener">放 PPT 之前，请你注意这一些！</a>》</p>
+<p>原作者博客：<a href="https://www.mf8.biz/" target="_blank" rel="noopener">https://www.mf8.biz/</a></p>
+]]></content>
+      <categories>
+        <category>羊毛</category>
+      </categories>
+      <tags>
+        <tag>羊毛</tag>
+        <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>入坑hexo</title>
+    <url>/2020/02/26/%E5%85%A5%E5%9D%91hexo/</url>
+    <content><![CDATA[<p>&emsp; &emsp;经过两天的努力，终于把hexo配置好了，虽然有些地方还是不太满意，但也就只能到这里了，干不下去了，就这样用着吧。</p>
+<p>&emsp;&emsp;现在是把它放在白嫖来的阿里云的服务器上，本来是放到GitHub上的，结果发现GitHub的加载速度实在是太“感人了”，我就放弃了。这个服务器今年八月份就过期了，之后不知道这个博客会何去何从，可能会自己再买一个，可能就不会再挂到服务器上了。</p>
+<a id="more"></a>
+
+<p>&emsp;&emsp;搞这个也算是完成了自己的一个夙愿吧，本来上学期在学校就想建一个博客，奈何在学校时间有限，当时是临近期末，还要备考，看了一下大概就放弃了（当时看见还要装一大堆东西就不想搞，不知道看的谁的教程，居然还要装ruby🌚）。趁着现在这个特殊时期，待在家没太多事，就折腾了两天，弄了一下。</p>
+<p>&emsp;&emsp;现在对Markdown的语法还不是很熟，写起来不是很顺手，就上个学期搞课设的时候写了一点，排版还很丑（手动滑稽），明天抽空看一下练习一下吧，补几篇笔记。</p>
+<p>&emsp;&emsp;就到这里吧。。。。。。</p>
+<p>&emsp;&emsp;希望可以坚持写下去，不要白费两天的功夫。</p>
+]]></content>
+      <categories>
+        <category>感悟</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>感悟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sublime text3下载插件</title>
+    <url>/2020/02/26/sublime%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h5 id="1-在github上下载Package-Control的安装包"><a href="#1-在github上下载Package-Control的安装包" class="headerlink" title="1.在github上下载Package Control的安装包"></a>1.在github上下载Package Control的安装包</h5><p><a href="https://github.com/wbond/sublime_package_control" target="_blank" rel="noopener">https://github.com/wbond/sublime_package_control</a> </p>
+<h5 id="2-打开sublime存放插件的目录：在sublime菜单栏-gt-gt-首选项-gt-gt-浏览插件"><a href="#2-打开sublime存放插件的目录：在sublime菜单栏-gt-gt-首选项-gt-gt-浏览插件" class="headerlink" title="2.打开sublime存放插件的目录：在sublime菜单栏&gt;&gt;首选项&gt;&gt;浏览插件"></a>2.打开sublime存放插件的目录：在sublime菜单栏&gt;&gt;首选项&gt;&gt;浏览插件</h5><a id="more"></a>
+
+<p><img src="https://i.loli.net/2020/04/11/a8WAPmEGJtxQgB7.png" alt="20180103223719544.png"></p>
+<p>找到下载的文件，解压，将文件夹重命名为“Package Control”复制到sublime存放插件的目录</p>
+<h5 id="3-https-packagecontrol-io-这个被墙了-下载插件不下来，把下载链接改为国内的"><a href="#3-https-packagecontrol-io-这个被墙了-下载插件不下来，把下载链接改为国内的" class="headerlink" title="3.https://packagecontrol.io 这个被墙了 下载插件不下来，把下载链接改为国内的."></a>3.<code>https://packagecontrol.io</code> 这个被墙了 下载插件不下来，把下载链接改为国内的.</h5><p><img src="https://i.loli.net/2020/04/11/LGq7aPkejfiBXRz.png" alt="qwqwd.png"></p>
+<p>修改User文件下的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"bootstrapped"</span>: <span class="literal">true</span>,</span><br><span class="line"> <span class="string">"channels"</span>:</span><br><span class="line"> [</span><br><span class="line">  <span class="string">"https://erhan.in/channel_v3.json"</span></span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"in_process_packages"</span>:</span><br><span class="line"> [</span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"installed_packages"</span>:</span><br><span class="line"> [</span><br><span class="line">  <span class="string">"ChineseLocalizations"</span>,</span><br><span class="line">  <span class="string">"Package Control"</span></span><br><span class="line"> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-重启sublime-text3"><a href="#4-重启sublime-text3" class="headerlink" title="4.重启sublime text3"></a>4.重启sublime text3</h5>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+</search>
