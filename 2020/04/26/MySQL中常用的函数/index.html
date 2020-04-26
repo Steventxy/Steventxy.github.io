@@ -48,22 +48,20 @@
   };
 </script>
 
-  <meta name="description" content="中断的概念 中断是指在计算机执行期间，系统内发生任何非寻常的或非预期的急需处理事件，使得CPU暂时中断当前正在执行的程序而转去执行相应的时间处理程序。待处理完毕后又返回原来被中断处继续执行或调度新的进程执行的过程。  引入目的 解决CPU和I&#x2F;O设备之间的并行工作问题 实时实现控制  中断的作用">
+  <meta name="description" content="字符串函数 合并字符串 12concat();concat(&quot;Hello&quot;,&quot; World&quot;);#Hello world，当传入的参数又一个为null时结果为null  获取字符串的长度 1length(str);#空格也算一个字符，计算的是字节的长度，一个汉字占两个字节">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统笔记--操作系统的中断">
-<meta property="og:url" content="https://blog.steventan.top/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/index.html">
+<meta property="og:title" content="MySQL中常用的函数">
+<meta property="og:url" content="https://blog.steventan.top/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="这边风景独好">
-<meta property="og:description" content="中断的概念 中断是指在计算机执行期间，系统内发生任何非寻常的或非预期的急需处理事件，使得CPU暂时中断当前正在执行的程序而转去执行相应的时间处理程序。待处理完毕后又返回原来被中断处继续执行或调度新的进程执行的过程。  引入目的 解决CPU和I&#x2F;O设备之间的并行工作问题 实时实现控制  中断的作用">
+<meta property="og:description" content="字符串函数 合并字符串 12concat();concat(&quot;Hello&quot;,&quot; World&quot;);#Hello world，当传入的参数又一个为null时结果为null  获取字符串的长度 1length(str);#空格也算一个字符，计算的是字节的长度，一个汉字占两个字节">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/04/01/RXkpNUiVHOa2Y48.png">
-<meta property="article:published_time" content="2020-03-03T09:21:39.000Z">
-<meta property="article:modified_time" content="2020-04-01T05:21:18.504Z">
+<meta property="article:published_time" content="2020-04-26T13:52:00.000Z">
+<meta property="article:modified_time" content="2020-04-26T14:35:00.316Z">
 <meta property="article:author" content="Steven Tan">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/04/01/RXkpNUiVHOa2Y48.png">
 
-<link rel="canonical" href="https://blog.steventan.top/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/">
+<link rel="canonical" href="https://blog.steventan.top/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -75,7 +73,7 @@
   };
 </script>
 
-  <title>操作系统笔记--操作系统的中断 | 这边风景独好</title>
+  <title>MySQL中常用的函数 | 这边风景独好</title>
   
 
 
@@ -214,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.steventan.top/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/">
+    <link itemprop="mainEntityOfPage" href="https://blog.steventan.top/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/04/01/aG5eNXpOqP17MHU.png">
@@ -227,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          操作系统笔记--操作系统的中断
+          MySQL中常用的函数
         </h1>
 
         <div class="post-meta">
@@ -236,16 +234,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-03 17:21:39" itemprop="dateCreated datePublished" datetime="2020-03-03T17:21:39+08:00">2020-03-03</time>
+              <time title="创建时间：2020-04-26 21:52:00 / 修改时间：22:35:00" itemprop="dateCreated datePublished" datetime="2020-04-26T21:52:00+08:00">2020-04-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 13:21:18" itemprop="dateModified" datetime="2020-04-01T13:21:18+08:00">2020-04-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -258,14 +250,14 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/" class="post-meta-item leancloud_visitors" data-flag-title="操作系统笔记--操作系统的中断" title="阅读次数">
+            <span id="/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL中常用的函数" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -280,8 +272,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -291,14 +283,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -310,86 +302,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="中断的概念"><a href="#中断的概念" class="headerlink" title="中断的概念"></a>中断的概念</h2><blockquote>
-<p>中断是指在计算机执行期间，系统内发生任何非寻常的或非预期的急需处理事件，使得CPU暂时中断当前正在执行的程序而转去执行相应的时间处理程序。待处理完毕后又返回原来被中断处继续执行或调度新的进程执行的过程。</p>
-</blockquote>
-<h3 id="引入目的"><a href="#引入目的" class="headerlink" title="引入目的"></a>引入目的</h3><ol>
-<li>解决CPU和I/O设备之间的并行工作问题</li>
-<li>实时实现控制</li>
-</ol>
-<h3 id="中断的作用"><a href="#中断的作用" class="headerlink" title="中断的作用"></a>中断的作用</h3><a id="more"></a>
+        <h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><ol>
+<li><p>合并字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">concat();</span><br><span class="line">concat(&quot;Hello&quot;,&quot; World&quot;);#Hello world，当传入的参数又一个为null时结果为null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取字符串的长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">length(str);#空格也算一个字符，计算的是字节的长度，一个汉字占两个字节</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>实现CPU和I/O设备并行工作</li>
-<li>实现硬件故障处理</li>
-<li>实现人机-联系</li>
-<li>实现多道程序和分时操作</li>
-<li>实现实时处理</li>
-<li>实现应用程序和操作系统的联系</li>
-<li>实现多处理机系统中处理机之间的联系</li>
-</ol>
-<h3 id="中断的特点"><a href="#中断的特点" class="headerlink" title="中断的特点"></a>中断的特点</h3><ul>
-<li>随机性：在系统的运行过程中，中断事件随时可能出现</li>
-<li>可恢复性：完成对某一事件的中断处理程序之后，系统会返回到原程序的断点处继续执行</li>
-<li>自动性：在中断时间发生之后，进入中断、执行中断处理程序以及中断返回都是由系统自动完成的</li>
-</ul>
-<h3 id="中断在操作系统中的地位"><a href="#中断在操作系统中的地位" class="headerlink" title="中断在操作系统中的地位"></a>中断在操作系统中的地位</h3><ol>
-<li>是多道程序并发执行的推动力</li>
-<li>操作系统是由中断驱动的</li>
-</ol>
-<h2 id="中断的分类"><a href="#中断的分类" class="headerlink" title="中断的分类"></a>中断的分类</h2><pre class="mermaid">graph LR
-A[中断]-->B[外中断]
-B-->D[可屏蔽中断]
-B-->E[不可屏蔽中断]
-A-->C[内中断]
-C-->F[自愿中断]
-F-->G[系统调用]
-F-->H[缺页中断]
-F-->I[断点指令]
-F-->J[其他程序性异常]
-C-->K[强迫性中断]
-K-->O[硬件故障中断]
-K-->L[程序性中断]
-K-->M[输入输出中断]
-K-->N[外部中断]</pre>
+<a id="more"></a>
+</li>
+<li><p>字母大小写转换函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">upper();#将传入的字符全部转换为大写</span><br><span class="line">lower();#将传入的字符全部转换为小写</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在字符串中查找字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">locate(str1,str);# 返回str中字符串str1的开始位置</span><br><span class="line">position(str1 IN str);# 返回str中字符串str1的开始位置</span><br><span class="line">instr(str,str1); # 返回str中字符串str1的开始位置</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>截取字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">left(str,num);# 从左边截取,字符串是str,长度是num</span><br><span class="line">right(str,num);# 从右边截取,字符串是str,长度是num</span><br><span class="line">substring(str,num,len);# 字符串是str,从num位置开始,长度是len,包含num位置</span><br><span class="line">mid(str,num,len);# 字符串是str,从num位置开始,长度是len,包含num位置</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>去掉字符串首位空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ltrim(str);# 去除字符串开始的空格</span><br><span class="line">rtrim(str);# 去除字符串后面的空格</span><br><span class="line">trim(str);# 去除字符串首位的空格</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace(str1,str2,str3);# str1是原字符串，str2是需要替换的字符串，str3是替换str2的字符串</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>内中断和外中断：中断来源是否来自计算机内部</p>
-</li>
-<li><p>外中断：来自CPU外的外部设备，通过硬件请求方式产生的强迫性中断</p>
-</li>
-<li><p>不可屏蔽中断：有就一定会执行中断</p>
-</li>
-<li><p>可屏蔽中断：在当前指令结束后，CPU根据中断允许标志位判断是否响应中断，通常用于CPU和外部设备之间的数据交换</p>
-</li>
-<li><p>强迫性中断：由随机事件和外部请求所引发的，引起强迫性中断的事件不是当前运行程序所期待的</p>
-</li>
-<li><p>自愿性中断：用户程序在使用中请求操作系统提供某种功能服务，通过执行一条访管指令，称为访管中断或陷阱，是当前运行程序所期待的，用户程序对操作系统的某种需求</p>
-</li>
-</ul>
-<h2 id="中断的响应过程"><a href="#中断的响应过程" class="headerlink" title="中断的响应过程"></a>中断的响应过程</h2><pre class="mermaid">graph TB
-A[发出中断信号]-->B[CPU完成当前指令的执行]
-B-->C[CPU发送中断答应信号]-->D[关中断]
-D-->E[CPU将PWS,PC和CS压入核心栈中]
-E-->F[将中断处理程序的入口地址送入IP和CS]
-F-->G[保存剩余的CPU状态信息]-->H[开中断]-->I[处理中断]
-I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
-
-<h3 id="简单概括"><a href="#简单概括" class="headerlink" title="简单概括"></a>简单概括</h3><ol>
-<li><p>发现中断源</p>
-</li>
-<li><p>保护和恢复现场</p>
-</li>
-<li><p>中断响应</p>
-</li>
-<li><p>保护现场和传递参数</p>
-</li>
-<li><p>执行相应的中断服务函数</p>
-</li>
-<li><p>恢复现场并退出中断</p>
 </li>
 </ol>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://i.loli.net/2020/04/01/RXkpNUiVHOa2Y48.png" alt="image.png"></p>
+<h2 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h2><ol>
+<li><p>获取随机数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RAND();# 返回的数完全随机</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取整数的函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CEIL(num);# 上取整</span><br><span class="line"></span><br><span class="line">FLOOR(num);# 下取整</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>截取数值函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE(x,y);#x表示要截取的数值,y表示小数点后几位,也就是保留几位小数,是直接舍去,而不是四舍五入.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>四舍五入函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ROUND(x);</span><br><span class="line">ROUND(x,y);# 返回数值x保留到小数点后y位</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数:"></a>日期函数:</h2><ol>
+<li><p>获取当前日期和时间函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">now();# 当前日期和时间</span><br><span class="line">locatime();# 当前日期和时间</span><br><span class="line">current_timestamp();# 当前日期和时间</span><br><span class="line">SYSDTAE();# 当前日期和时间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curdate();# 当前日期</span><br><span class="line">current_date();# 当前日期</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curtime();</span><br><span class="line">current_time();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>各种方式显示日期和时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unix_timestamp(日期类型的字符串);# 将日期类型的字符串转化为整形(秒数),UNIX格式</span><br><span class="line">from_unixtime(&quot;整形&quot;);# 将整形字符串转化为日期,普通格式</span><br><span class="line">UTC_DATE();# utc日期,只有日期</span><br><span class="line">UTC_TIME();# utc时间 ,只有时间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取日期和时间各部分值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT NOW() 当前日期和时间,</span><br><span class="line">YEAR(NOW()) 年,</span><br><span class="line">QUARTER(NOW()) 季度,</span><br><span class="line">MONTH(NOW()) 月,</span><br><span class="line">WEEK(NOW())星期,</span><br><span class="line">DAYOFMONTH(NOW()) 天,</span><br><span class="line">HOUR(NOW()) 小时,</span><br><span class="line">MINUTE(NOW()) 分,</span><br><span class="line">SECOND(NOW()) 秒;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>月(参数都是日期类型的字符串)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MONTH(date);</span><br><span class="line">MONTHNAME(date);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>星期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">week(date);# 年中第几个星期</span><br><span class="line">weekofyear(date);# 年中第几个星期</span><br><span class="line">dayname(date);# 星期,英文显示</span><br><span class="line">dayofweek(date);# 星期(不理解,用下面的)</span><br><span class="line">weekday(date);# 星期,数字表示</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>天</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayofyear(date);# 年中的第几天</span><br><span class="line">dayofmonth(date);# 月中的第几天</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>EXTRACT函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">EXTRACT(YEAR from NOW()); # 年</span><br><span class="line">EXTRACT(month from NOW()); # 月</span><br><span class="line">EXTRACT(day from NOW()); # 日</span><br><span class="line">EXTRACT(hour from NOW()); # 时</span><br><span class="line">EXTRACT(minutefrom NOW()); # 分</span><br><span class="line">EXTRACT(second from NOW()); # 秒</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算日期和时间的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT NOW() 当前日期和时间,</span><br><span class="line">TO_DAYS(NOW()) 相隔天数, # 距离0000年1月1日</span><br><span class="line">FROM_DAYS(TO_DAYS(NOW())) 一段时间后日期和时间,</span><br><span class="line">DATEDIFF(NOW(),&#39;2000-12-01&#39;) 相隔天数;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>与指定日期和时间操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ADDDATE(date,n); # 计算date加上n天后的日期</span><br><span class="line">SUBDATE(date,n); # 计算date减去n天后的日期</span><br><span class="line">ADDDATE(d,INTERVAL expr type);# type的类型查看#http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;sql&#x2F;func_date_add.asp</span><br><span class="line">SUBDATE(d,INTERVAL expr type);</span><br><span class="line"># 例子</span><br><span class="line">select adddate(now(),interval &#39;2,3&#39; year_month ) &#39;2年3个月后的日期&#39;;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
     </div>
 
@@ -397,18 +384,6 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
     
     
       
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\04\15\Java基础知识总结（中）\" rel="bookmark">Java基础知识总结（中）</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\04\14\Java基础知识总结（上）\" rel="bookmark">Java基础知识总结（上）</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\02\操作系统主要类型\" rel="bookmark">操作系统笔记--操作系统主要类型</a></div>
-    </li>
-  </ul>
 
         
 
@@ -419,7 +394,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.steventan.top/2020/03/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/" title="操作系统笔记--操作系统的中断">https://blog.steventan.top/2020/03/03/操作系统的中断/</a>
+    <a href="https://blog.steventan.top/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/" title="MySQL中常用的函数">https://blog.steventan.top/2020/04/26/MySQL中常用的函数/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -431,7 +406,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
           </div>
 
         
@@ -440,13 +415,10 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%BB%E8%A6%81%E7%B1%BB%E5%9E%8B/" rel="prev" title="操作系统笔记--操作系统主要类型">
-      <i class="fa fa-chevron-left"></i> 操作系统笔记--操作系统主要类型
+    <a href="/2020/04/25/Ubuntu%E7%B3%BB%E7%BB%9FApache2%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/" rel="prev" title="Ubuntu系统Apache2部署SSL证书">
+      <i class="fa fa-chevron-left"></i> Ubuntu系统Apache2部署SSL证书
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/08/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9D%97/" rel="next" title="蓝桥杯单片机基本模块">
-      蓝桥杯单片机基本模块 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -509,7 +481,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
       
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#中断的概念"><span class="nav-text">中断的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入目的"><span class="nav-text">引入目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断的作用"><span class="nav-text">中断的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断的特点"><span class="nav-text">中断的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断在操作系统中的地位"><span class="nav-text">中断在操作系统中的地位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断的分类"><span class="nav-text">中断的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断的响应过程"><span class="nav-text">中断的响应过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单概括"><span class="nav-text">简单概括</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用"><span class="nav-text">系统调用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串函数"><span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值函数"><span class="nav-text">数值函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期函数"><span class="nav-text">日期函数:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
