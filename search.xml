@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>tset</title>
+    <url>/2020/04/27/tset/</url>
+    <content><![CDATA[<p><img src="https://blog.steventan.top/img/test.png" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>MySQL中常用的函数</title>
     <url>/2020/04/26/MySQL%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><ol>
