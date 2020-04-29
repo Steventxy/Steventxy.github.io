@@ -12,6 +12,8 @@
 <h2 id="windows批处理bat脚本"><a href="#windows批处理bat脚本" class="headerlink" title="windows批处理bat脚本"></a>windows批处理bat脚本</h2><p>主文件</p>
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> .\clean.bat</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 清理完毕</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> .\copyd.bat</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 图片复制完毕</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> .\push.bat</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 编译、部署完毕</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <p>clean.bat</p>
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> 开始清理</span><br><span class="line"></span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 

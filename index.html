@@ -235,7 +235,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-29 20:47:12 / 修改时间：21:10:10" itemprop="dateCreated datePublished" datetime="2020-04-29T20:47:12+08:00">2020-04-29</time>
+              <time title="创建时间：2020-04-29 20:47:12 / 修改时间：21:11:39" itemprop="dateCreated datePublished" datetime="2020-04-29T20:47:12+08:00">2020-04-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,20 +291,14 @@
 </blockquote>
 <h2 id="windows批处理bat脚本"><a href="#windows批处理bat脚本" class="headerlink" title="windows批处理bat脚本"></a>windows批处理bat脚本</h2><p>主文件</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> .\clean.bat</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 清理完毕</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> .\copyd.bat</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 图片复制完毕</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> .\push.bat</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 编译、部署完毕</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-
-<p>clean.bat</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 开始清理</span><br><span class="line"></span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-
-<p>copyd.bat</p>
-<p>这个名字取成copyd主要是怕和系统的关键字或者保留字冲突</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 开始复制图片</span><br><span class="line"></span><br><span class="line"><span class="built_in">xcopy</span> E:\TanXY\Pictures\typora .\source\images\ /e /y</span><br></pre></td></tr></table></figure>
-
-<p>push.bat</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 开始编译部署</span><br><span class="line"></span><br><span class="line">hexo generate -d</span><br></pre></td></tr></table></figure>
-
-<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> !/bin/sh</span></span><br><span class="line">cp -r E:/TanXY/Pictures/typora/* ./source/images/</span><br><span class="line"><span class="meta">#</span><span class="bash"> -r表示递归</span></span><br><span class="line">echo -e "\e[40;33m图片复制完毕\e[0m"</span><br><span class="line">hexo clean</span><br><span class="line">echo -e "\e[40;33m清理完毕\e[0m"</span><br><span class="line">hexo g -d</span><br><span class="line">echo -e "\e[40;33m编译部署完毕\e[0m"</span><br><span class="line"><span class="meta">#</span><span class="bash"> -e是设置输出的颜色这里40代表黑色的背景，33是黄色字体。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 格式是\e[背景颜色;字体颜色m显示的内容\e[0m</span></span><br><span class="line"><span class="meta">#</span><span class="bash">不过不想搞得这么花里胡哨就直接忽略吧（滑稽）</span></span><br><span class="line"></span><br><span class="line">read -s -n 1 -p "按任意键退出 ... "</span><br><span class="line"><span class="meta">#</span><span class="bash"> -s输内容入不显示出来  -n指定参数个数，这里是1个  -p提示语句</span></span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/29/%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2hexo/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
