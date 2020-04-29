@@ -115,7 +115,7 @@
 <li><p>运行以下命令启用SSL模块。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo a2enmod ssl</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/04/25/znDyZLWRAsv2f4t.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/Ubuntu%E7%B3%BB%E7%BB%9FApache2%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/znDyZLWRAsv2f4t.png" alt="image.png"></p>
 <p>SSL模块启用后可执行<code>ls /etc/apache2/sites-available</code>查看目录下生成的default-ssl.conf文件。</p>
 <p><strong>说明：</strong> 443端口是网络浏览端口，主要用于HTTPS服务。SSL模块启用后会自动放行443端口。若443端口未自动放行，可执行<code>vi /etc/apache2/ports.conf</code>并添加<code>Listen 443</code>手动放行。</p>
 </li>
@@ -125,7 +125,7 @@
 <p>在default-ssl.conf文件中找到以下参数进行修改后保存并退出。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;IfModules mod_ssl.c&gt;</span><br><span class="line">&lt;VirtualHost *:443&gt;  </span><br><span class="line">ServerName   <span class="comment">#修改为证书绑定的域名www.YourDomainName.com。</span></span><br><span class="line">SSLCertificateFile /etc/apache2/ssl/www.YourDomainName_public.crt   </span><br><span class="line"><span class="comment">#将/etc/apache2/ssl/www.YourDomainName.com_public.crt替换为证书文件路径+证书文件名。</span></span><br><span class="line">SSLCertificateKeyFile /etc/ssl/apache2/www.YourDomainName.com.key   </span><br><span class="line"><span class="comment">#将/etc/apache2/ssl/www.YourDomainName.com.key替换为证书秘钥文件路径+证书秘钥文件名。</span></span><br><span class="line">SSLCertificateChainFile /etc/apache2/ssl/www.YourDomainName.com_chain.crt  </span><br><span class="line"><span class="comment">#将/etc/apache2/ssl/www.YourDomainName.com_chain.crt替换为证书链文件路径+证书链文件名。</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/04/25/XESFU87K4QfY92A.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/Ubuntu%E7%B3%BB%E7%BB%9FApache2%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/XESFU87K4QfY92A.png" alt="image.png"></p>
 <p>/sites-available：该目录存放的是可用的虚拟主机；/sites-enabled：该目录存放的是已经启用的虚拟主机。</p>
 <p><strong>说明：</strong> default-ssl.conf文件可能存放在/etc/apache2/sites-available或/etc/apache2/sites-enabled目录中。</p>
 </li>
@@ -135,12 +135,12 @@
 <li><p>运行以下命令重新加载Apache 2配置文件。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;apache2 force-reload</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/04/25/4Rn27NQuZgTDoFK.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/Ubuntu%E7%B3%BB%E7%BB%9FApache2%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/4Rn27NQuZgTDoFK.png" alt="image.png"></p>
 </li>
 <li><p>运行以下命令重启Apache 2服务。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;apache2 restart</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/04/25/13p6Xtfh49s8VQi.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/Ubuntu%E7%B3%BB%E7%BB%9FApache2%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/13p6Xtfh49s8VQi.png" alt="image.png"></p>
 </li>
 </ol>
 <h2 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h2><p>Apache 2服务重启成功后，您可在浏览器中输入<a href="https://www.YourDomainName.com验证证书安装结果。浏览器地址栏显示绿色的小锁标识说明证书安装成功。" target="_blank" rel="noopener">https://www.YourDomainName.com验证证书安装结果。浏览器地址栏显示绿色的小锁标识说明证书安装成功。</a></p>
@@ -194,7 +194,7 @@
 </li>
 </ul>
 <p>煮个栗子：</p>
-<img src="https://i.loli.net/2020/04/15/YxauQKcO3TyLqmM.png" alt="image.png" style="zoom: 67%;" />
+<img src="https://blog.steventan.top/images/Java基础知识总结（中）/YxauQKcO3TyLqmM.png" alt="image.png" style="zoom: 67%;" />
 
 <!--more-->
 
@@ -204,7 +204,7 @@
 <li>创建对象语法：类名 对象名 = new 类名();</li>
 <li>用“对象名.对象成员”的方式就能访问对象成员</li>
 </ul>
-<p>内存解析：<img src="https://i.loli.net/2020/04/15/JD1uqrjePf5HURc.png" alt="image.png" style="zoom: 67%;" /></p>
+<p>内存解析：<img src="https://blog.steventan.top/images/Java基础知识总结（中）/JD1uqrjePf5HURc.png" alt="image.png" style="zoom: 67%;" /></p>
 <h4 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h4><p>我们也可以不定义对象的句柄，而直接调用这个对象的方法。这 样的对象叫做匿名对象。 </p>
 <p>如：new Person().shout(); </p>
 <p>使用情况：如果对一个对象只需要进行一次方法调用，那么就可以使用匿名对象。 我们经常将匿名对象作为实参传递给一个方法调用。</p>
@@ -265,7 +265,7 @@
 <li>没有返回值：void。 </li>
 <li>有返回值，声明出返回值的类型。与方法体中“return 返回值”搭配使用 方法名：属于标识符，命名时遵循标识符命名规则和规范，“见名知意” 形参列表：可以包含零个，一个或多个参数。多个参数时，中间用“,”隔开 返回值：方法在执行完毕后返还给调用它的程序的数据。</li>
 </ul>
-<h5 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h5><img src="https://i.loli.net/2020/04/16/sSNBGoyAzTU2xbp.png" alt="image.png" style="zoom: 67%;" />
+<h5 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h5><img src="https://blog.steventan.top/images/Java基础知识总结（中）/sSNBGoyAzTU2xbp.png" alt="image.png" style="zoom: 67%;" />
 
 <h5 id="方法的重载（overload）"><a href="#方法的重载（overload）" class="headerlink" title="方法的重载（overload）"></a>方法的重载（overload）</h5><p>1.定义：在同一个类中，允许存在一个以上的同名方法，只要它们的<strong>参数个数</strong>或者<strong>参数类型</strong>不同即可。</p>
 <ul>
@@ -317,18 +317,18 @@
 <li>形参是基本数据类型：将实参基本数据类型变量的“<strong>数据值</strong>”传递给形参 </li>
 <li>形参是引用数据类型：将实参引用数据类型变量的“<strong>地址值</strong>”传递给形参</li>
 </ul>
-<img src="https://i.loli.net/2020/04/16/RuJgS4FkPxGONo2.png" alt="image.png" style="zoom: 80%;" />
+<img src="https://blog.steventan.top/images/Java基础知识总结（中）/RuJgS4FkPxGONo2.png" alt="image.png" style="zoom: 80%;" />
 
-<img src="https://i.loli.net/2020/04/16/FoCkBhuLtl5Vyjf.png" alt="image.png" style="zoom: 80%;" />
+<img src="https://blog.steventan.top/images/Java基础知识总结（中）/FoCkBhuLtl5Vyjf.png" alt="image.png" style="zoom: 80%;" />
 
-<img src="https://i.loli.net/2020/04/16/1zWEMB2Iki7o6my.png" alt="image.png" style="zoom:80%;" />
+<img src="https://blog.steventan.top/images/Java基础知识总结（中）/1zWEMB2Iki7o6my.png" alt="image.png" style="zoom:80%;" />
 
-<img src="https://i.loli.net/2020/04/16/2ARmBoaSXKpV5Zr.png" alt="image.png" style="zoom:80%;" />
+<img src="https://blog.steventan.top/images/Java基础知识总结（中）/2ARmBoaSXKpV5Zr.png" alt="image.png" style="zoom:80%;" />
 
 <img src="https://i.loli.net/2020/04/16/XCNFBZkxrmYtuJP.png" alt="image.png" style="zoom:80%;" />
 
-<p><img src="https://i.loli.net/2020/04/16/PHC8ReFzDhMfXwj.png" alt="image.png"></p>
-<p><img src="https://i.loli.net/2020/04/16/DHXK67YzpVJeOEm.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%AD%EF%BC%89/PHC8ReFzDhMfXwj.png" alt=""></p>
+<p><img src="https://blog.steventan.top/images/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%AD%EF%BC%89/DHXK67YzpVJeOEm.webp" alt=""></p>
 <h4 id="构造器（构造方法）"><a href="#构造器（构造方法）" class="headerlink" title="构造器（构造方法）"></a>构造器（构造方法）</h4><h5 id="构造器的特征"><a href="#构造器的特征" class="headerlink" title="构造器的特征"></a>构造器的特征</h5><ul>
 <li>它具有与类相同的名称 </li>
 <li>它不声明返回值类型。（与声明为void不同） </li>
@@ -362,7 +362,7 @@
 <li>有属性，且有对应的get、set方法</li>
 </ul>
 <p>用户可以使用JavaBean将功能、处理、值、数据库访问和其他任何可以 用Java代码创造的对象进行打包，并且其他的开发者可以通过内部的JSP 页面、Servlet、其他JavaBean、applet程序或者应用来使用这些对象。用 户可以认为JavaBean提供了一种随时随地的复制和粘贴的功能，而不用关 心任何改变。</p>
-<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><img src="https://i.loli.net/2020/04/16/hDmlsInjw7HBKuN.png" alt="image.png" style="zoom:80%;" />
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><img src="https://blog.steventan.top/images/Java基础知识总结（中）/hDmlsInjw7HBKuN.png" alt="image.png" style="zoom:80%;" />
 
 
 
@@ -603,7 +603,7 @@
 
 
 
-<img src="https://i.loli.net/2020/04/24/KiTxoUjIpfJaCrN.png" alt="image.png" style="zoom:80%;" />
+<img src="https://blog.steventan.top/images/Java基础知识总结（中）/KiTxoUjIpfJaCrN.png" alt="image.png" style="zoom:80%;" />
 
 <p>继承成员变量和方法的区别：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> count = <span class="number">10</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	System.out.println(<span class="keyword">this</span>.count);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> count = <span class="number">20</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	System.out.println(<span class="keyword">this</span>.count);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldMethodTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Sub s = <span class="keyword">new</span> Sub();</span><br><span class="line">    System.out.println(s.count);<span class="comment">//20</span></span><br><span class="line">    s.display();<span class="comment">//20</span></span><br><span class="line">    Base b = s;</span><br><span class="line">    System.out.println(b == s);<span class="comment">//true</span></span><br><span class="line">    System.out.println(b.count);<span class="comment">//10</span></span><br><span class="line">    b.display();<span class="comment">//20</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -766,7 +766,7 @@
 <li>调用字符串重载的valueOf()方法： String fstr = String.valueOf(2.34f);</li>
 <li>更直接的方式： String intStr = 5 + “”;</li>
 </ol>
-<p><img src="https://i.loli.net/2020/04/24/tS2914seKCUnAOl.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%AD%EF%BC%89/tS2914seKCUnAOl.png" alt=""></p>
 <h4 id="包装类使用举例"><a href="#包装类使用举例" class="headerlink" title="包装类使用举例"></a>包装类使用举例</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">500</span>;</span><br><span class="line">Integer t = <span class="keyword">new</span> Integer(i);</span><br><span class="line"><span class="comment">//装箱：包装类使得一个基本数据类型的数据变成了类。</span></span><br><span class="line"><span class="comment">//有了类的特点，可以调用类中的方法。</span></span><br><span class="line">String s = t.toString(); <span class="comment">// s = “500“,t是类，有toString方法</span></span><br><span class="line">String s1 = Integer.toString(<span class="number">314</span>); <span class="comment">// s1= “314“ 将数字转换成字符串。</span></span><br><span class="line">String s2=“<span class="number">4.56</span>”;</span><br><span class="line"><span class="keyword">double</span> ds=Double.parseDouble(s2); <span class="comment">//将字符串转换成数字</span></span><br><span class="line"><span class="comment">//拆箱：将数字包装类中内容变为基本数据类型。</span></span><br><span class="line"><span class="keyword">int</span> j = t.intValue(); <span class="comment">// j = 500，intValue取出包装类中的数据</span></span><br><span class="line"><span class="comment">//包装类在实际开发中用的最多的在于字符串变为基本数据类型。</span></span><br><span class="line">String str1 = <span class="string">"30"</span> ;</span><br><span class="line">String str2 = <span class="string">"30.3"</span> ;</span><br><span class="line"><span class="keyword">int</span> x = Integer.parseInt(str1) ; <span class="comment">// 将字符串变为int型</span></span><br><span class="line"><span class="keyword">float</span> f = Float.parseFloat(str2) ; <span class="comment">// 将字符串变为int型</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h2><p>MVC是常用的设计模式之一，将整个程序分为三个层次：<strong>视图模型层，控制器层，与 数据模型层</strong>。这种将程序输入输出、数据处理，以及数据的展示分离开来的设计模式 使程序结构变的灵活而且清晰，同时也描述了程序各个对象间的通信方式，降低了程 序的耦合性。</p>
@@ -828,25 +828,25 @@
   <entry>
     <title>IntelliJ Idea配置类和方法的注释模板</title>
     <url>/2020/04/15/idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h2 id="设置类的注释模板"><a href="#设置类的注释模板" class="headerlink" title="设置类的注释模板"></a>设置类的注释模板</h2><p><img src="https://i.loli.net/2020/04/15/SZLA4oF5vn3hMyG.png" alt="image.png"></p>
+    <content><![CDATA[<h2 id="设置类的注释模板"><a href="#设置类的注释模板" class="headerlink" title="设置类的注释模板"></a>设置类的注释模板</h2><p><img src="https://blog.steventan.top/images/idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF/SZLA4oF5vn3hMyG.png" alt="image.png"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Author</span> $&#123;USER&#125;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Create</span> $&#123;DATE&#125; - $&#123;TIME&#125;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span> </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
 <h2 id="设置方法的注释模板"><a href="#设置方法的注释模板" class="headerlink" title="设置方法的注释模板"></a>设置方法的注释模板</h2><ol>
-<li><p><img src="https://i.loli.net/2020/04/15/xjalmy8dg3Y5WtQ.png" alt="image.png"></p>
+<li><p><img src="https://blog.steventan.top/images/idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF/xjalmy8dg3Y5WtQ.png" alt="image.png"></p>
 <p>也可以选2，先新建一个模板组，而这里是直接选的已经有得user组，然后添加template</p>
 </li>
 <li><p>根据自己的习惯给模板取个名字，填在Abbreviation里面</p>
 <p><strong>模板里面开头是没有/的</strong>，加上斜杠如果在方法体外写注释，变量名和返回值类型获取不到显示是空白的</p>
 </li>
 <li><p>点下面的define设置模板生成的地方，选择java下面的所有，或者选everywhere也行</p>
-<p><img src="https://i.loli.net/2020/04/15/TmfWIo75LX3dqcQ.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF/TmfWIo75LX3dqcQ.png" alt="image.png"></p>
 </li>
 <li><p>右下角的expand with是模板补全的按键，可以根据自己的习惯改一下</p>
 </li>
 <li><p>把模板贴到文本框里面之后就可以点Edit variables了</p>
-<p><img src="https://i.loli.net/2020/04/15/U8CyvX5ElThioqa.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF/U8CyvX5ElThioqa.png" alt="image.png"></p>
 </li>
 <li><p>保存之后可以再一个方法前面/** + 回车就行了，这就是为什么我名字取为**</p>
 </li>
@@ -1227,7 +1227,7 @@
   <entry>
     <title>Java中看似简单实际很坑的题</title>
     <url>/2020/04/06/Java%E4%B8%AD%E7%9C%8B%E4%BC%BC%E7%AE%80%E5%8D%95%E5%AE%9E%E9%99%85%E5%BE%88%E5%9D%91%E7%9A%84%E9%A2%98/</url>
-    <content><![CDATA[<img src="https://i.loli.net/2020/04/06/vzX5MYeyARD4kcT.png" alt="java.png" style="zoom: 67%;" />
+    <content><![CDATA[<img src="https://blog.steventan.top/images/Java中看似简单实际很坑的题/vzX5MYeyARD4kcT.png" alt="java.png" style="zoom: 67%;" />
 
 <h3 id="第一题（貌似是考察方法的参数传递）"><a href="#第一题（貌似是考察方法的参数传递）" class="headerlink" title="第一题（貌似是考察方法的参数传递）"></a>第一题（貌似是考察方法的参数传递）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">    method(a,b);<span class="comment">//在调用method()方法之后输出a = 100,b = 200</span></span><br><span class="line">    System.out.println(<span class="string">"a = "</span> + a);</span><br><span class="line">    System.out.println(<span class="string">"b = "</span> + b);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码编写处</span></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1313,7 +1313,7 @@
 
 <h2 id="矩阵按键"><a href="#矩阵按键" class="headerlink" title="矩阵按键"></a>矩阵按键</h2><p>相对于独立按键来说，矩阵按键相对是要复杂一点，这里就介绍一种方法</p>
 <h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>这个方法和上面独立按键的方法2实现的思路差不多。因为51单片机的资源很有限，所以这里用了八个引脚来实现一个4×4的矩阵按键。这里对照一下原理图：</p>
-<img src="https://i.loli.net/2020/04/03/OlN6gpyH14z89KR.png" alt="image.png" style="zoom: 67%;" />
+<img src="https://blog.steventan.top/images/蓝桥杯单片机按键/OlN6gpyH14z89KR.png" alt="image.png" style="zoom: 67%;" />
 
 <p>第一步：列扫描，先将P3的低四位置为0，高四位置为1，但是这款单片机的P36和P37被P42和P44代替了，所以P42和P44要单独位定义，然后将其置为1。初始值设置完之后就要进行检测了，因为P3的低四位为0，所以当按键按下时接到对应列的那条线会被拉到低电平P44对应的是第一列，其他参照上面的原理图以此类推。</p>
 <p>第二部：行扫描，反过来，将P3的低四位置为1，高两位以及P42和P44置为0，哪一行的按键被按下对应行的值会被置为0，这一步和上面独立按键的扫描相似。</p>
@@ -1351,7 +1351,7 @@
   <entry>
     <title>docker的基本使用</title>
     <url>/2020/03/28/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p><img src="https://i.loli.net/2020/04/03/z6JqkpsQT2orBhE.png" alt="docker.jpg"></p>
+    <content><![CDATA[<p><img src="https://blog.steventan.top/images/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/z6JqkpsQT2orBhE.png" alt="docker.jpg"></p>
 <blockquote>
 <p>前几天学了一下docker，一方面是记录一下这些命令，另一方面为了复习一下，所以写了下面这些！有什么问题还请指正！</p>
 </blockquote>
@@ -1484,7 +1484,7 @@
   <entry>
     <title>git的基本使用</title>
     <url>/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<img src="https://i.loli.net/2020/04/03/HjQNKBory3xwiJv.jpg" alt="git.jpg" style="zoom:50%;" />
+    <content><![CDATA[<img src="https://blog.steventan.top/images/git的基本使用/HjQNKBory3xwiJv.jpg" alt="git.jpg" style="zoom:50%;" />
 
 <blockquote>
 <p>git是一个前几年兴起的很好用的版本管理工具，用了半年多了体验还是很不错了，也是现在比较主流的版本管理工具。现在分享一下git的基操，但是最好是要理解好这些命令的作用，否则后果可能很严重（手动滑稽），我自己就有过这样的经历。另外，最好是有Linux的命令基础，没有的话理解起来很吃力。</p>
@@ -1494,25 +1494,25 @@
 <p>这个也可以在c盘用户的根目录下面打开<code>.gitconfig</code>文件进行配置</p>
 <a id="more"></a>
 
-<img src="https://i.loli.net/2020/04/01/mbg5o7HP3jOErcf.png" alt="image.png" style="zoom: 50%;" />
+<img src="https://blog.steventan.top/images/git的基本使用/mbg5o7HP3jOErcf.png" alt="image.png" style="zoom: 50%;" />
 
-<img src="https://i.loli.net/2020/04/01/Wy3QFZUBHwsOLcJ.png" alt="image.png" style="zoom: 50%;" />
+<img src="https://blog.steventan.top/images/git的基本使用/Wy3QFZUBHwsOLcJ.png" alt="image.png" style="zoom: 50%;" />
 
 <p><strong>命令里面不加global就只是对当前仓库的配置</strong></p>
 <h3 id="生成ssh秘钥对"><a href="#生成ssh秘钥对" class="headerlink" title="生成ssh秘钥对"></a>生成ssh秘钥对</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -f 秘钥名称 -C <span class="string">'注册邮箱'</span></span><br></pre></td></tr></table></figure>
 
 <p>在用户根目录下会生成一个.ssh的文件夹</p>
 <p>开始里面会有两个文件,后缀是<code>.pub</code>的是公钥,另一个是私钥</p>
-<img src="https://i.loli.net/2020/04/01/FWH2QwClGYJgdpt.png" alt="image.png" style="zoom: 50%;" />
+<img src="https://blog.steventan.top/images/git的基本使用/FWH2QwClGYJgdpt.png" alt="image.png" style="zoom: 50%;" />
 
 <p>用记事本或者其他的编辑器打开这个文件，复制其全部内容，以GitHub为例：点击<code>new ssh key</code></p>
-<p><img src="https://i.loli.net/2020/04/01/mEh4VgXdPOrCbkx.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mEh4VgXdPOrCbkx.png" alt=""></p>
 <p>将其粘贴到Key的框框中，手动打码（嘿嘿嘿），然后点击add ssh key就大功告成了</p>
-<p><img src="https://i.loli.net/2020/04/01/y25IoJunEg41TXW.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/y25IoJunEg41TXW.png" alt=""></p>
 <p>然后在git bash中输入</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/04/01/PE3MsvfSURqHyc2.png" alt="image.png"></p>
+<p><img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/PE3MsvfSURqHyc2.png" alt=""></p>
 <p>如果是这样就表示，添加成功了（只要GitHub上没提示有问题，其实一般都没有问题，这一步可以跳过）</p>
 <h2 id="git上传GitHub的基本步骤"><a href="#git上传GitHub的基本步骤" class="headerlink" title="git上传GitHub的基本步骤"></a>git上传GitHub的基本步骤</h2><h3 id="第一步、创建一个仓库或者clone一个仓库"><a href="#第一步、创建一个仓库或者clone一个仓库" class="headerlink" title="第一步、创建一个仓库或者clone一个仓库"></a>第一步、创建一个仓库或者clone一个仓库</h3><p>从远程仓库clone项目</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 仓库地址</span><br></pre></td></tr></table></figure>
@@ -1528,7 +1528,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 
 <p><code>.</code>表示当前文件夹下面的所有文件和文件夹，但是踩过一个坑，<strong>git不会将空文件夹加入索引</strong>，要添加就要在那个空文件夹下面随便放一个文件可以是<code>.gitignore</code></p>
-<p>可以参考对应的官方文档：<img src="https://i.loli.net/2020/04/01/QDTdRA357Sqz8Jo.png" alt="image.png"></p>
+<p>可以参考对应的官方文档：<img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/QDTdRA357Sqz8Jo.png" alt=""></p>
 <h3 id="第三步、将索引中的文件提交到本地的版本库"><a href="#第三步、将索引中的文件提交到本地的版本库" class="headerlink" title="第三步、将索引中的文件提交到本地的版本库"></a>第三步、将索引中的文件提交到本地的版本库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m<span class="string">'提交的信息'</span></span><br></pre></td></tr></table></figure>
 
 <p>引号里面一般是写这次提交修复了什么问题，或者增加了什么功能</p>
@@ -1536,7 +1536,7 @@
 
 <p>远程仓库在本地的名字随便取什么都行，不知道取什么名字的话就origin吧</p>
 <p>远程仓库的地址打开github的页面复制 </p>
-<img src="https://i.loli.net/2020/04/01/cINP5TOfSA2Qo83.png" alt="image.png" style="zoom:50%;" />
+<img src="https://blog.steventan.top/images/git的基本使用/cINP5TOfSA2Qo83.png" alt="image.png" style="zoom:50%;" />
 
 <h3 id="第五步、从远程仓库同步版本库信息"><a href="#第五步、从远程仓库同步版本库信息" class="headerlink" title="第五步、从远程仓库同步版本库信息"></a>第五步、从远程仓库同步版本库信息</h3><p><strong>如果是第一次建立仓库，远程仓库没有东西，可以跳过这步</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull 上一步自己给远程仓库取得名字 分支名</span><br></pre></td></tr></table></figure>
@@ -1554,7 +1554,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard 版本哈希值</span><br></pre></td></tr></table></figure>
 
 <p>举个栗子：</p>
-<img src="https://i.loli.net/2020/04/01/aDfrmI7inANe14X.png" alt="image.png" style="zoom:67%;" />
+<img src="https://blog.steventan.top/images/git的基本使用/aDfrmI7inANe14X.png" alt="image.png" style="zoom:67%;" />
 
 
 
@@ -1757,7 +1757,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
 <li><p>恢复现场并退出中断</p>
 </li>
 </ol>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://i.loli.net/2020/04/01/RXkpNUiVHOa2Y48.png" alt="image.png"></p>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://blog.steventan.top/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%AD%E6%96%AD/RXkpNUiVHOa2Y48.png" alt=""></p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -1843,7 +1843,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
   <entry>
     <title>操作系统--操作系统的形成与发展</title>
     <url>/2020/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%A2%E6%88%90%E4%B8%8E%E5%8F%91%E5%B1%95/</url>
-    <content><![CDATA[<h2 id="操作系统的形成时期"><a href="#操作系统的形成时期" class="headerlink" title="操作系统的形成时期"></a>操作系统的形成时期</h2><h3 id="手动操作时期"><a href="#手动操作时期" class="headerlink" title="手动操作时期"></a>手动操作时期</h3><img src="https://i.loli.net/2020/04/01/vuMCXHTLqJBOh5t.png" alt="image.png" style="zoom:80%;" />
+    <content><![CDATA[<h2 id="操作系统的形成时期"><a href="#操作系统的形成时期" class="headerlink" title="操作系统的形成时期"></a>操作系统的形成时期</h2><h3 id="手动操作时期"><a href="#手动操作时期" class="headerlink" title="手动操作时期"></a>手动操作时期</h3><img src="https://blog.steventan.top/images/操作系统的形成与发展/vuMCXHTLqJBOh5t.png" alt="image.png" style="zoom:80%;" />
 
 <h4 id="存在缺点"><a href="#存在缺点" class="headerlink" title="存在缺点"></a>存在缺点</h4><ol>
 <li><p>用户独占全部计算机资源</p>
@@ -1853,7 +1853,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
 <li><p>CPU与I/O设备串行操作</p>
 </li>
 </ol>
-<h3 id="监控程序阶段（早起批处理阶段）"><a href="#监控程序阶段（早起批处理阶段）" class="headerlink" title="监控程序阶段（早起批处理阶段）"></a>监控程序阶段（早起批处理阶段）</h3><img src="https://i.loli.net/2020/04/01/4QMJfoxRIXGiu9C.png" alt="单道批处理系统流程图" style="zoom:67%;" />
+<h3 id="监控程序阶段（早起批处理阶段）"><a href="#监控程序阶段（早起批处理阶段）" class="headerlink" title="监控程序阶段（早起批处理阶段）"></a>监控程序阶段（早起批处理阶段）</h3><img src="https://blog.steventan.top/images/操作系统的形成与发展/4QMJfoxRIXGiu9C.png" alt="单道批处理系统流程图" style="zoom:67%;" />
 
 <p>单道批处理系统流程图  </p>
 <a id="more"></a>
@@ -1868,7 +1868,7 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
 <li>共享主机</li>
 <li>便于用户上机</li>
 </ol>
-<img src="https://i.loli.net/2020/04/01/vrjo1l8dPaFKY7c.png" alt="image.png" style="zoom:67%;" />
+<img src="https://blog.steventan.top/images/操作系统的形成与发展/vrjo1l8dPaFKY7c.png" alt="image.png" style="zoom:67%;" />
 
 <h2 id="进一步发展时期"><a href="#进一步发展时期" class="headerlink" title="进一步发展时期"></a>进一步发展时期</h2>]]></content>
       <categories>
@@ -2073,7 +2073,8 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
   <entry>
     <title>如何利用好学生优惠</title>
     <url>/2020/02/27/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%A5%BD%E5%AD%A6%E7%94%9F%E4%BC%98%E6%83%A0/</url>
-    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>本文介绍的是利用学生身份可以享受到的相关学生优惠权益，但也希望各位享受权利的同时不要忘记自己的义务，不要售卖、转手自己的学生优惠资格，使得其他同学无法受益。</p>
+    <content><![CDATA[<p><img src="https://blog.steventan.top/images/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%A5%BD%E5%AD%A6%E7%94%9F%E4%BC%98%E6%83%A0/loq428.png" alt=" loq428.png"></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>本文介绍的是利用学生身份可以享受到的相关学生优惠权益，但也希望各位享受权利的同时不要忘记自己的义务，不要售卖、转手自己的学生优惠资格，使得其他同学无法受益。</p>
 <p><strong>欢迎提交 issue 给我们你发现的实用资源！</strong> | 本文更新于 2019 年 05 月 12 日</p>
 <p>点击 <code>watch</code> 可以得到更新信息哟！</p>
 <h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ul>
