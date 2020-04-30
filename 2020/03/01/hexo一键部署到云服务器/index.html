@@ -59,8 +59,8 @@
 <meta property="article:published_time" content="2020-03-01T12:10:22.000Z">
 <meta property="article:modified_time" content="2020-04-25T09:53:43.563Z">
 <meta property="article:author" content="Steven Tan">
-<meta property="article:tag" content="hexo">
 <meta property="article:tag" content="服务器">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/04/25/Nk1QSac4IE2TxRz.png">
 
@@ -380,8 +380,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
               <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"><i class="fa fa-tag"></i> 服务器</a>
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
           </div>
 
         
@@ -680,10 +680,11 @@ if (document.querySelectorAll('pre.mermaid').length) {
       selfSetIcon("https://blog.steventan.top/images/failure.ico");
       clearTimeout(titleTime);
     } else {
+      selfSetIcon("/images/favicon-32x32-next.png");
       document.title = "φ(>ω<*) 咦！又好了！ | " + OriginTitile;
       titleTime = setTimeout(function() {
         document.title = OriginTitile;
-        selfSetIcon("/images/favicon-32x32-next.png");
+        
       }, 2000);
     }
   });

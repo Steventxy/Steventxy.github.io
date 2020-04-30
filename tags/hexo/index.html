@@ -541,10 +541,11 @@ if (document.querySelectorAll('pre.mermaid').length) {
       selfSetIcon("https://blog.steventan.top/images/failure.ico");
       clearTimeout(titleTime);
     } else {
+      selfSetIcon("/images/favicon-32x32-next.png");
       document.title = "φ(>ω<*) 咦！又好了！ | " + OriginTitile;
       titleTime = setTimeout(function() {
         document.title = OriginTitile;
-        selfSetIcon("/images/favicon-32x32-next.png");
+        
       }, 2000);
     }
   });
