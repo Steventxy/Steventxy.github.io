@@ -523,12 +523,12 @@ if (document.querySelectorAll('pre.mermaid').length) {
 	}
   document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
-      document.title = "(●—●)喔噢，崩溃了~ | " + OriginTitile;
+      document.title = "(●—●)喔噢，崩溃了~|" + OriginTitile;
       selfSetIcon("https://blog.steventan.top/images/failure.ico");
       clearTimeout(titleTime);
     } else {
       selfSetIcon("/images/avatar.png");
-      document.title = "φ(>ω<*) 咦！又好了！ | " + OriginTitile;
+      document.title = "φ(>ω<*) 咦！又好了！|" + OriginTitile;
       titleTime = setTimeout(function() {
         document.title = OriginTitile;
         
