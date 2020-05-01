@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.steventan.top/about/pages/stack.html</loc>
+    
+    <lastmod>2020-05-01T14:10:49.368Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.steventan.top/about/pages/study.html</loc>
     
     <lastmod>2020-05-01T08:36:31.283Z</lastmod>
@@ -194,13 +201,6 @@
     <loc>https://blog.steventan.top/2020/03/13/%E6%97%B6%E7%94%9F%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
     
     <lastmod>2020-04-23T03:43:21.460Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.steventan.top/about/pages/stack.html</loc>
-    
-    <lastmod>2020-04-22T06:14:50.112Z</lastmod>
     
   </url>
   
