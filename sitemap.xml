@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.steventan.top/about/pages/study.html</loc>
+    
+    <lastmod>2020-05-01T08:36:31.283Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.steventan.top/about/pages/index.html</loc>
     
     <lastmod>2020-04-30T12:45:52.737Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>https://blog.steventan.top/about/index.html</loc>
     
     <lastmod>2020-04-23T12:45:58.379Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.steventan.top/about/pages/study.html</loc>
-    
-    <lastmod>2020-04-23T12:41:03.389Z</lastmod>
     
   </url>
   

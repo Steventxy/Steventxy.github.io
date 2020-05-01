@@ -985,6 +985,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
 <script>
   var OriginTitile = document.title;
   var titleTime;
+  //换网站的logo
   function selfSetIcon(url){
 		var links = document.getElementsByTagName('link') 
 		for (var i = 0; i < links.length; i++) { 
@@ -1000,6 +1001,7 @@ if (document.querySelectorAll('pre.mermaid').length) {
 			}
 		}
 	}
+  
   document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
       document.title = "(●—●)喔噢，崩溃了~|" + OriginTitile;
