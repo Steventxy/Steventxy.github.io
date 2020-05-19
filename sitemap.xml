@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.steventan.top/2020/04/06/Java%E4%B8%AD%E7%9C%8B%E4%BC%BC%E7%AE%80%E5%8D%95%E5%AE%9E%E9%99%85%E5%BE%88%E5%9D%91%E7%9A%84%E9%A2%98/</loc>
+    
+    <lastmod>2020-05-19T15:36:22.889Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.steventan.top/2020/05/17/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
     
     <lastmod>2020-05-18T15:48:31.898Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://blog.steventan.top/2020/05/06/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8B%EF%BC%89/</loc>
     
     <lastmod>2020-05-12T12:51:34.494Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.steventan.top/2020/04/06/Java%E4%B8%AD%E7%9C%8B%E4%BC%BC%E7%AE%80%E5%8D%95%E5%AE%9E%E9%99%85%E5%BE%88%E5%9D%91%E7%9A%84%E9%A2%98/</loc>
-    
-    <lastmod>2020-05-06T13:03:41.156Z</lastmod>
     
   </url>
   
