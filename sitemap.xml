@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.steventan.top/2020/03/28/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2020-06-12T06:17:59.208Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.steventan.top/2020/06/06/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/</loc>
     
     <lastmod>2020-06-07T15:37:47.314Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>https://blog.steventan.top/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2020-04-29T07:14:42.115Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.steventan.top/2020/03/28/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2020-04-29T07:10:15.459Z</lastmod>
     
   </url>
   

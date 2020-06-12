@@ -2920,12 +2920,9 @@ short --> int --> long --> float --> double</pre>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="更换docker镜像源"><a href="#更换docker镜像源" class="headerlink" title="更换docker镜像源"></a>更换docker镜像源</h2><p>云服务器上的一般都不用换，向阿里云应该就是从自己的仓库拉的</p>
-<p>本地虚拟机还是换一下</p>
-<p>在<code>/etc/docker/</code> 目录下修改或者新建<code>daemon.json</code>文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://pee6w651.mirror.aliyuncs.com"</span>]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更换docker镜像源"><a href="#更换docker镜像源" class="headerlink" title="更换docker镜像源"></a>更换docker镜像源</h2><p>在<code>/etc/docker/</code> 目录下修改或者新建<code>daemon.json</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面这个这个是阿里云的源</p>
 <p>Docker国内其他源：</p>
 <p>Docker 官方中国区</p>
 <p><a href="https://registry.docker-cn.com" target="_blank" rel="noopener">https://registry.docker-cn.com</a></p>
@@ -2933,6 +2930,7 @@ short --> int --> long --> float --> double</pre>
 <p><a href="http://hub-mirror.c.163.com" target="_blank" rel="noopener">http://hub-mirror.c.163.com</a></p>
 <p>中国科技大学</p>
 <p><a href="https://docker.mirrors.ustc.edu.cn" target="_blank" rel="noopener">https://docker.mirrors.ustc.edu.cn</a></p>
+<p>阿里云的源需要注册，我没有去折腾</p>
 <h2 id="镜像相关的命令"><a href="#镜像相关的命令" class="headerlink" title="镜像相关的命令"></a>镜像相关的命令</h2><h3 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker search 镜像名</span><br></pre></td></tr></table></figure>
 
 <p>这个没什么好说的，就是根据你给出的镜像名列出仓库中有的相关的镜像 </p>
