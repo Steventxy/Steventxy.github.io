@@ -3,14 +3,166 @@
   <entry>
     <title>Java基础之集合框架</title>
     <url>/2020/06/16/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</url>
-    <content><![CDATA[<h1 id="Java-集合框架概述"><a href="#Java-集合框架概述" class="headerlink" title="Java 集合框架概述"></a>Java 集合框架概述</h1>]]></content>
+    <content><![CDATA[<h1 id="Java-集合框架概述"><a href="#Java-集合框架概述" class="headerlink" title="Java 集合框架概述"></a>Java 集合框架概述</h1><blockquote>
+<p>一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。</p>
+</blockquote>
+<ul>
+<li><p>数组在内存中存储方面的特点：</p>
+<p>​    数组初始化之后，长度就确定了，不能更改了</p>
+<p>​    数组声明的类型，就决定了元素初始化时候的类型</p>
+</li>
+<li><p>数组在存储方面的弊端：</p>
+<p>​    数组初始化之后，长度就不能改变了，不便于扩展</p>
+<p>​    数组中提供的属性和方法较少，不便于进行增删改查插入等操作，且效率不高。数组无法直接获取存储元素的个数</p>
+<p>​    数组存储的数据是有序的，可以重复的，存储的特点单一</p>
+</li>
+</ul>
+<p>Java 集合类可以用于存储数量不等的多个对象，还可用于保存具有映射关系的关联数组。</p>
+<p>Java 集合可分为 Collection 和 Map 两种体系 ：</p>
+<p>Collection接口：单列数据，定义了存取一组对象的方法的集合 </p>
+<p>​    List：元素有序、可重复的集合 </p>
+<p>​    Set：元素无序、不可重复的集合 </p>
+<p>Map接口：双列数据，保存具有映射关系“key-value对”的集合</p>
+<p>Collection接口继承树：</p>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200617143455167.png" alt="image-20200617143455167" style="zoom:67%;" />
+
+<p>Map接口继承树：</p>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200617143554774.png" alt="image-20200617143554774" style="zoom:67%;" />
+
+<h1 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ol>
+<li>Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。</li>
+<li>JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)实现。</li>
+<li>在 Java5 之前，Java 集合会丢失容器中所有对象的数据类型，把所有对象都 当成 Object 类型处理；从 JDK 5.0 增加了泛型以后，Java 集合可以记住容器中对象的数据类型。</li>
+</ol>
+<h2 id="Collection接口中的方法"><a href="#Collection接口中的方法" class="headerlink" title="Collection接口中的方法"></a>Collection接口中的方法</h2><ol>
+<li><p>添加</p>
+<p>add(Object obj)</p>
+<p>addAll(Collection coll)</p>
+</li>
+<li><p>获取有效元素的个数</p>
+<p>int size()</p>
+</li>
+<li><p>清空集合</p>
+<p>void clear()</p>
+</li>
+<li><p>判断是否为空</p>
+<p>boolean isEmpty()</p>
+</li>
+<li><p>判断是否包含某个元素</p>
+<p>boolean contains(Object obj)   是通过元素的equals方法来判断是否是同一个对象</p>
+<p>boolean contains(Collection coll)   也是调用元素的equals方法来比较的。拿两个集合的元素挨个比较。</p>
+</li>
+<li><p>删除</p>
+<p>boolean remove(Object obj)   通过元素的equals方法判断是否存在该元素，再将其删除，但是只会删除找到的第一个匹配的元素</p>
+<p>boolean removeAll(Collection coll)   取两个集合的差集</p>
+</li>
+<li><p>取两个集合的交集</p>
+<p>boolean retainAll(Collection c)   把交集的结果存在当前集合中，c不会改变</p>
+</li>
+<li><p>集合是否相等</p>
+<p>boolean equals(Object obj)</p>
+</li>
+<li><p>转换成对象数组</p>
+<p>Object[] toArray()</p>
+</li>
+<li><p>获取集合对象的哈希值</p>
+<p>hashCode()</p>
+</li>
+<li><p>遍历</p>
+<p>iterator()  返回迭代器对象，用于遍历集合</p>
+</li>
+</ol>
+<h3 id="Iterator迭代器接口"><a href="#Iterator迭代器接口" class="headerlink" title="Iterator迭代器接口"></a>Iterator迭代器接口</h3><ul>
+<li><p>Iterator对象称为迭代器(设计模式的一种)，主要用于遍历 Collection 集合中的元素。 </p>
+</li>
+<li><p>GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。类似于“公交车上的售票员”、“火车上的乘务员”、“空姐”。 </p>
+</li>
+<li><p>Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了 Iterator接口的对象。 </p>
+</li>
+<li><p>Iterator 仅用于遍历集合，Iterator 本身并不提供承装对象的能力。如果需要创建Iterator 对象，则必须有一个被迭代的集合。 </p>
+</li>
+<li><p>集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</p>
+</li>
+</ul>
+<h4 id="Iterator接口中的方法"><a href="#Iterator接口中的方法" class="headerlink" title="Iterator接口中的方法"></a>Iterator接口中的方法</h4><p>Collection集合常用下图所示方法遍历:</p>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200617152119103.png" alt="image-20200617152119103" style="zoom:67%;" />
+
+<ol>
+<li>boolean hasNext()  判断迭代器是否还有下一个元素</li>
+<li>next()  将迭代器的指针移向下一个元素</li>
+<li>remove()  移除一个元素</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>在调用next()方法之前，若果不用hasNext()进行检测，则可能会出现NoSuchElementException异常</li>
+<li>Iterator删除集合的元素，是在遍历过程中通过迭代器对象的remove方法删除，而不是集合对象的remove()方法。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Iterator iter = coll.iterator();<span class="comment">//回到起点</span></span><br><span class="line"><span class="keyword">while</span>(iter.hasNext())&#123;</span><br><span class="line">  Object obj = iter.next();</span><br><span class="line">  <span class="keyword">if</span>(obj.equals(<span class="string">"Tom"</span>))&#123;</span><br><span class="line">    iter.remove();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了上面这种用迭代器遍历集合的方法，还可以用foreach（又叫增强for循环）来遍历</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(Object obj: coll)&#123;</span><br><span class="line">  System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者直接用Collection中的forEach()方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">coll.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Collection子接口：List接口"><a href="#Collection子接口：List接口" class="headerlink" title="Collection子接口：List接口"></a>Collection子接口：List接口</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>List集合类中元素有序、可以重复，集合中每个元素都有其对应的顺序索引，每个元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号存取容器中的元素。List接口的实现类常用的有：ArrayList、LinkedList和Vector。</p>
+<h3 id="List接口中的方法"><a href="#List接口中的方法" class="headerlink" title="List接口中的方法"></a>List接口中的方法</h3><p>List除了从Collection集合继承的方法外，List 集合里添加了一些根据索引来操作集合元素的方法。</p>
+<ul>
+<li>void add(int index, Object elem)  在index位置插入elem元素</li>
+<li>boolean addAll(int index, Collection eles)  从index位置开始将eles中的所有元素添加进来</li>
+<li>Object get(int index)  获取指定index位置的元素</li>
+<li>int indexOf(Object obj)  返回obj在集合中首次出现的位置</li>
+<li>int lastIndexOf(Object obj)  返回obj在当前集合中末次出现的位置</li>
+<li>Object remove(int index)  移除指定index位置的元素，并返回此元素</li>
+<li>Object set(int index, Object elem):设置指定index位置的元素为elem</li>
+<li>List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex位置的子集合</li>
+</ul>
+<h4 id="List的主要实现类：ArrayList"><a href="#List的主要实现类：ArrayList" class="headerlink" title="List的主要实现类：ArrayList"></a>List的主要实现类：ArrayList</h4><p>ArrayList的底层还是通过数组来实现的</p>
+<p>在JDK1.7中ArrayList像饿汉式，在创建List对象的时候就直接创建了一个初始容量为10的数组；</p>
+<p>在JDK1.8中ArrayList像懒汉式，创建对象的时候创建一个长度为0的数组，当添加第一个元素的时候再创建一个容量为10的数组。</p>
+<p>注意：Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合</p>
+<h4 id="List实现类之二：LinkedList"><a href="#List实现类之二：LinkedList" class="headerlink" title="List实现类之二：LinkedList"></a>List实现类之二：LinkedList</h4><p>因为LinkedList底层是用链表实现的，所以插入和删除的效率比ArrayList要搞，对于频繁的插入和删除，建议使用LinkedList。</p>
+<p>LinkedList中的方法：</p>
+<ul>
+<li><p>void addFirst(Object obj) </p>
+</li>
+<li><p>void addLast(Object obj) </p>
+</li>
+<li><p>Object getFirst() </p>
+</li>
+<li><p>Object getLast() </p>
+</li>
+<li><p>Object removeFirst() </p>
+</li>
+<li><p>Object removeLast()</p>
+</li>
+</ul>
+<p>具体的底层实现：</p>
+<p>LinkedList底层是用双向链表实现的，内部定义了Node类型的first和last，用于记录首末元素。同时定义内部类Node，作为LinkedList保存数据的基本结构，Node除了保存数据还定义了两个变量：</p>
+<ul>
+<li>prev变量记录前一个元素的位置</li>
+<li>next变量记录下一个元素的位置</li>
+</ul>
+<p>源码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">  E item;</span><br><span class="line">  Node&lt;E&gt; next;</span><br><span class="line">  Node&lt;E&gt; prev;</span><br><span class="line">  Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">    <span class="keyword">this</span>.item = element;</span><br><span class="line">    <span class="keyword">this</span>.next = next;</span><br><span class="line">    <span class="keyword">this</span>.prev = prev;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200617204129667.png" alt="image-20200617204129667" style="zoom:67%;" />
+
+<h4 id="List-实现类之三：Vector"><a href="#List-实现类之三：Vector" class="headerlink" title="List 实现类之三：Vector"></a>List 实现类之三：Vector</h4><p>Vector 是一个古老的集合，JDK1.0就有了。大多数操作与ArrayList相同，区别之处在于Vector是线程安全的。</p>
+<p>新增方法:</p>
+<p>void addElement(Object obj) </p>
+<p>void insertElementAt(Object obj,int index) </p>
+<p>void setElementAt(Object obj,int index) </p>
+<p>void removeElement(Object obj) </p>
+<p>void removeAllElements()</p>
+]]></content>
       <categories>
         <category>学习笔记</category>
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -55,8 +207,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -498,8 +650,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -912,8 +1064,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1562,8 +1714,8 @@ d --> e(通过 对象.属性 或 对象.方法 给属性赋值)</pre>
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1597,8 +1749,8 @@ d --> e(通过 对象.属性 或 对象.方法 给属性赋值)</pre>
         <category>建站</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
         <tag>hexo</tag>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -2422,8 +2574,8 @@ d --> e(通过 对象.属性 或 对象.方法 给属性赋值)</pre>
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -2821,8 +2973,8 @@ short --> int --> long --> float --> double</pre>
         <category>java</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>Java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -3591,8 +3743,8 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
         <category>建站</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
         <tag>hexo</tag>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
