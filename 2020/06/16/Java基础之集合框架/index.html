@@ -59,11 +59,15 @@
 <meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200617143554774.png">
 <meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200617152119103.png">
 <meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200617204129667.png">
+<meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200618104823685.png">
+<meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200618105842213.png">
+<meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200618110742069.png">
+<meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200618153453173.png">
 <meta property="article:published_time" content="2020-06-16T07:42:10.000Z">
-<meta property="article:modified_time" content="2020-06-17T14:20:27.510Z">
+<meta property="article:modified_time" content="2020-06-18T07:35:05.545Z">
 <meta property="article:author" content="Steven Tan">
-<meta property="article:tag" content="Java">
 <meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="e:/TanXY/Pictures/typora/Java基础之集合框架/image-20200617143455167.png">
 
@@ -248,7 +252,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-17 22:20:27" itemprop="dateModified" datetime="2020-06-17T22:20:27+08:00">2020-06-17</time>
+                <time title="修改时间：2020-06-18 15:35:05" itemprop="dateModified" datetime="2020-06-18T15:35:05+08:00">2020-06-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,14 +299,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>6.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>17 分钟</span>
             </span>
 
         </div>
@@ -334,6 +338,8 @@
 <p>​    List：元素有序、可重复的集合 </p>
 <p>​    Set：元素无序、不可重复的集合 </p>
 <p>Map接口：双列数据，保存具有映射关系“key-value对”的集合</p>
+<a id="more"></a>
+
 <p>Collection接口继承树：</p>
 <img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200617143455167.png" alt="image-20200617143455167" style="zoom:67%;" />
 
@@ -428,11 +434,11 @@
 <li>Object set(int index, Object elem):设置指定index位置的元素为elem</li>
 <li>List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex位置的子集合</li>
 </ul>
-<h4 id="List的主要实现类：ArrayList"><a href="#List的主要实现类：ArrayList" class="headerlink" title="List的主要实现类：ArrayList"></a>List的主要实现类：ArrayList</h4><p>ArrayList的底层还是通过数组来实现的</p>
+<h3 id="List的主要实现类：ArrayList"><a href="#List的主要实现类：ArrayList" class="headerlink" title="List的主要实现类：ArrayList"></a>List的主要实现类：ArrayList</h3><p>ArrayList的底层还是通过数组来实现的</p>
 <p>在JDK1.7中ArrayList像饿汉式，在创建List对象的时候就直接创建了一个初始容量为10的数组；</p>
 <p>在JDK1.8中ArrayList像懒汉式，创建对象的时候创建一个长度为0的数组，当添加第一个元素的时候再创建一个容量为10的数组。</p>
 <p>注意：Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合</p>
-<h4 id="List实现类之二：LinkedList"><a href="#List实现类之二：LinkedList" class="headerlink" title="List实现类之二：LinkedList"></a>List实现类之二：LinkedList</h4><p>因为LinkedList底层是用链表实现的，所以插入和删除的效率比ArrayList要搞，对于频繁的插入和删除，建议使用LinkedList。</p>
+<h3 id="List实现类之二：LinkedList"><a href="#List实现类之二：LinkedList" class="headerlink" title="List实现类之二：LinkedList"></a>List实现类之二：LinkedList</h3><p>因为LinkedList底层是用链表实现的，所以插入和删除的效率比ArrayList要搞，对于频繁的插入和删除，建议使用LinkedList。</p>
 <p>LinkedList中的方法：</p>
 <ul>
 <li><p>void addFirst(Object obj) </p>
@@ -459,14 +465,86 @@
 
 <img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200617204129667.png" alt="image-20200617204129667" style="zoom:67%;" />
 
-<h4 id="List-实现类之三：Vector"><a href="#List-实现类之三：Vector" class="headerlink" title="List 实现类之三：Vector"></a>List 实现类之三：Vector</h4><p>Vector 是一个古老的集合，JDK1.0就有了。大多数操作与ArrayList相同，区别之处在于Vector是线程安全的。</p>
+<h3 id="List-实现类之三：Vector"><a href="#List-实现类之三：Vector" class="headerlink" title="List 实现类之三：Vector"></a>List 实现类之三：Vector</h3><p>Vector 是一个古老的集合，JDK1.0就有了。大多数操作与ArrayList相同，区别之处在于Vector是线程安全的。</p>
 <p>新增方法:</p>
 <p>void addElement(Object obj) </p>
 <p>void insertElementAt(Object obj,int index) </p>
 <p>void setElementAt(Object obj,int index) </p>
 <p>void removeElement(Object obj) </p>
 <p>void removeAllElements()</p>
+<h3 id="ArrayList-LinkedList-Vector的异同"><a href="#ArrayList-LinkedList-Vector的异同" class="headerlink" title="ArrayList/LinkedList/Vector的异同"></a>ArrayList/LinkedList/Vector的异同</h3><ul>
+<li><p>ArrayList和LinkedList的异同 </p>
+<p>二者都线程不安全，相对线程安全的Vector，执行效率高。此外，ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。对于新增和删除操作add(特指插入)和remove，LinkedList比较占优势，因为ArrayList要移动数据。</p>
+</li>
+<li><p>ArrayList和Vector的区别</p>
+<p>Vector和ArrayList几乎是完全相同的,唯一的区别在于Vector是同步类(synchronized)，属于强同步类。因此开销就比ArrayList要大，访问要慢。正常情况下,大多数的Java程序员使用 ArrayList而不是Vector,因为同步完全可以由程序员自己来控制。Vector每次扩容请求其大小的2倍空间，而ArrayList是1.5倍。Vector还有一个子类Stack。</p>
+</li>
+</ul>
+<h2 id="Collection子接口：Set接口"><a href="#Collection子接口：Set接口" class="headerlink" title="Collection子接口：Set接口"></a>Collection子接口：Set接口</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>Set接口是Collection的子接口，set接口没有提供额外的方法。</li>
+<li>Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set集合中，则添加操作失败。</li>
+<li>Set 判断两个对象是否相同不是使用 == 运算符，而是根据 equals() 方法</li>
+</ul>
+<h3 id="Set主要实现类：HashSet"><a href="#Set主要实现类：HashSet" class="headerlink" title="Set主要实现类：HashSet"></a>Set主要实现类：HashSet</h3><p>HashSet 按 Hash 算法来存储集合中的元素，具有很好的存取、查找、删除性能。</p>
+<h4 id="HashSet特点"><a href="#HashSet特点" class="headerlink" title="HashSet特点"></a>HashSet特点</h4><ol>
+<li><p>无序性，不能保证元素的排列顺序</p>
+</li>
+<li><p>不可重复性，HashSet中不能有两个相同的元素</p>
+</li>
+<li><p>线程不安全</p>
+</li>
+<li><p>集合元素可以为null</p>
+<p>HashSet判断两个元素相同的标准：</p>
+</li>
+</ol>
+<p>两个对象通过 hashCode() 方法比较相等，并且两个对象的 equals() 方法返回值也相等。</p>
+<p><strong>注意：</strong></p>
+<p>对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Object obj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”。</p>
+<h4 id="向HashSet中添加元素的过程"><a href="#向HashSet中添加元素的过程" class="headerlink" title="向HashSet中添加元素的过程"></a>向HashSet中添加元素的过程</h4><p>​        首先会调用该对象的HashCode()方法，来得到该对象的HashCode值，然后根据HashCode的值，通过某种散列函数决定该对象在HashSet底层数组中的存储位置（这个散列函数会与底层数组的长度相计算得到在数组中的下标，并且这种散列函数计算还尽可能保证能均匀存储元素，越是散列分布，该散列函数设计的越好）。</p>
+<p>​        如果该位置没有存储其他元素，那么就直接添加成功；如果已经有元素了，则比较两个元素的HashCode值。</p>
+<p>​        如果两个元素的哈希值不相等，那么就可以通过链表的方式将添加的元素和原来有的元素链接起来；如果两个元素的哈希值相等，就要调用equals() 方法比较两个元素是否一样了。</p>
+<p>​        如果equals() 方法返回true，则添加失败，如果返回false，则添加成功，该元素通过链表的方式和原来链接的元素链接在一起。</p>
+<p>HashSet的底层实现实际上是HashMap，如下图所示：</p>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200618104823685.png" alt="image-20200618104823685" style="zoom:80%;" />
 
+<h3 id="Set实现类之二：LinkedHashSet"><a href="#Set实现类之二：LinkedHashSet" class="headerlink" title="Set实现类之二：LinkedHashSet"></a>Set实现类之二：LinkedHashSet</h3><h4 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h4><p>LinkedHashSet 是 HashSet 的子类</p>
+<p>LinkedHashSet 根据元素的 hashCode 值来决定元素的存储位置，但它同时使用双向链表维护元素的次序，<strong>这使得元素看起来是以插入顺序保存的</strong>。</p>
+<p>LinkedHashSet插入性能略低于 HashSet，但在迭代访问 Set 里的全部元素时有很好的性能。</p>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200618105842213.png" alt="image-20200618105842213" style="zoom:80%;" />
+
+<h3 id="Set实现类之三：TreeSet"><a href="#Set实现类之三：TreeSet" class="headerlink" title="Set实现类之三：TreeSet"></a>Set实现类之三：TreeSet</h3><h4 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h4><p>TreeSet 是 SortedSet 接口的实现类，TreeSet 可以确保集合元素处于排序状态。TreeSet底层使用红黑树结构存储数据。</p>
+<p>新增的方法如下： (了解) </p>
+<ul>
+<li>Comparator comparator() </li>
+<li>Object first() </li>
+<li>Object last() </li>
+<li>Object lower(Object e) </li>
+<li>Object higher(Object e) </li>
+<li>SortedSet subSet(fromElement, toElement) </li>
+<li>SortedSet headSet(toElement) </li>
+<li>SortedSet tailSet(fromElement)</li>
+</ul>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200618110742069.png" alt="image-20200618110742069" style="zoom:80%;" />
+
+<h4 id="自然排序"><a href="#自然排序" class="headerlink" title="自然排序"></a>自然排序</h4><p>TreeSet 会调用集合元素的 compareTo(Object obj) 方法来比较元素之间的大小关系，然后将集合元素按升序(默认情况)排列。</p>
+<p>注意：如果要把一个对象添加到TreeSet中，则该对象的类必须实现Comparable接口。实现 Comparable 的类必须实现 compareTo(Object obj) 方法，两个对象即通过 compareTo(Object obj) 方法的返回值来比较大小。</p>
+<p>向 TreeSet 中添加元素时，只有第一个元素无须比较compareTo()方法，后面添加的所有元素都会调用compareTo()方法进行比较。</p>
+<p>因为只有相同类的两个实例才能比较，所以向 TreeSet 中添加的应该是同一个类的对象。</p>
+<p>对于 TreeSet 集合而言，它判断两个对象是否相等的唯一标准是：两个对象通 过 compareTo(Object obj) 方法比较返回值。</p>
+<h4 id="定制排序"><a href="#定制排序" class="headerlink" title="定制排序"></a>定制排序</h4><p>TreeSet的自然排序要求元素所属的类实现Comparable接口，如果元素所属的类没有实现Comparable接口，或不希望按照升序(默认情况)的方式排列元素或希望按照其它属性大小进行排序，则考虑使用定制排序。定制排序，通过Comparator接口来实现。需要重写compare(T o1,T o2)方法。</p>
+<p>利用int compare(T o1,T o2)方法，比较o1和o2的大小：如果方法返回正整数，则表示o1大于o2；如果返回0，表示相等；返回负整数，表示o1小于o2。</p>
+<p>注意：</p>
+<ol>
+<li>要实现定制排序，需要将实现Comparator接口的实例作为形参传递给TreeSet的构造器。</li>
+<li>在这里仍然只能向TreeSet中添加类型相同的对象。否则发生ClassCastException异 常。</li>
+<li>使用定制排序判断两个元素相等的标准是：通过Comparator比较两个元素返回了0。</li>
+</ol>
+<p>面试题：</p>
+<p>其中Person类中重写了hashCode()和equal()方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HashSet set = <span class="keyword">new</span> HashSet();</span><br><span class="line">Person p1 = <span class="keyword">new</span> Person(<span class="number">1001</span>,<span class="string">"AA"</span>);</span><br><span class="line">Person p2 = <span class="keyword">new</span> Person(<span class="number">1002</span>,<span class="string">"BB"</span>);</span><br><span class="line">set.add(p1);</span><br><span class="line">set.add(p2);</span><br><span class="line">p1.name = <span class="string">"CC"</span>;</span><br><span class="line">set.remove(p1);</span><br><span class="line">System.out.println(set);<span class="comment">//输出两个</span></span><br><span class="line">set.add(<span class="keyword">new</span> Person(<span class="number">1001</span>,<span class="string">"CC"</span>));</span><br><span class="line">System.out.println(set);<span class="comment">//输出三个</span></span><br><span class="line">set.add(<span class="keyword">new</span> Person(<span class="number">1001</span>,<span class="string">"AA"</span>));</span><br><span class="line">System.out.println(set);<span class="comment">//输出四个</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Collection子接口：Map接口"><a href="#Collection子接口：Map接口" class="headerlink" title="Collection子接口：Map接口"></a>Collection子接口：Map接口</h2><p>Map接口继承树：</p>
+<img src="E:\TanXY\Pictures\typora\Java基础之集合框架\image-20200618153453173.png" alt="image-20200618153453173" style="zoom:67%;" />
     </div>
 
     
@@ -513,8 +591,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
               <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
@@ -589,7 +667,7 @@
       
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-集合框架概述"><span class="nav-text">Java 集合框架概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection接口"><span class="nav-text">Collection接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection接口中的方法"><span class="nav-text">Collection接口中的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator迭代器接口"><span class="nav-text">Iterator迭代器接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterator接口中的方法"><span class="nav-text">Iterator接口中的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection子接口：List接口"><span class="nav-text">Collection子接口：List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-1"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List接口中的方法"><span class="nav-text">List接口中的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#List的主要实现类：ArrayList"><span class="nav-text">List的主要实现类：ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List实现类之二：LinkedList"><span class="nav-text">List实现类之二：LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List-实现类之三：Vector"><span class="nav-text">List 实现类之三：Vector</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-集合框架概述"><span class="nav-text">Java 集合框架概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection接口"><span class="nav-text">Collection接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection接口中的方法"><span class="nav-text">Collection接口中的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator迭代器接口"><span class="nav-text">Iterator迭代器接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterator接口中的方法"><span class="nav-text">Iterator接口中的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection子接口：List接口"><span class="nav-text">Collection子接口：List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-1"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List接口中的方法"><span class="nav-text">List接口中的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List的主要实现类：ArrayList"><span class="nav-text">List的主要实现类：ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List实现类之二：LinkedList"><span class="nav-text">List实现类之二：LinkedList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-实现类之三：Vector"><span class="nav-text">List 实现类之三：Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-LinkedList-Vector的异同"><span class="nav-text">ArrayList&#x2F;LinkedList&#x2F;Vector的异同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection子接口：Set接口"><span class="nav-text">Collection子接口：Set接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-2"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set主要实现类：HashSet"><span class="nav-text">Set主要实现类：HashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet特点"><span class="nav-text">HashSet特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#向HashSet中添加元素的过程"><span class="nav-text">向HashSet中添加元素的过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set实现类之二：LinkedHashSet"><span class="nav-text">Set实现类之二：LinkedHashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述-3"><span class="nav-text">概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set实现类之三：TreeSet"><span class="nav-text">Set实现类之三：TreeSet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述-4"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自然排序"><span class="nav-text">自然排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定制排序"><span class="nav-text">定制排序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection子接口：Map接口"><span class="nav-text">Collection子接口：Map接口</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -668,13 +746,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">103k</span>
+    <span title="站点总字数">105k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:16</span>
+    <span title="站点阅读时长">4:24</span>
 
   <span class="post-meta-divider">|</span>
 
