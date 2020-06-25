@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.steventan.top/about/pages/movies.html</loc>
+    
+    <lastmod>2020-06-25T14:39:05.204Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.steventan.top/2020/06/25/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/</loc>
     
     <lastmod>2020-06-25T08:43:44.339Z</lastmod>
@@ -250,13 +257,6 @@
     <loc>https://blog.steventan.top/2020/03/28/Java%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</loc>
     
     <lastmod>2020-04-11T02:37:57.146Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.steventan.top/about/pages/movies.html</loc>
-    
-    <lastmod>2020-04-04T08:21:45.775Z</lastmod>
     
   </url>
   
