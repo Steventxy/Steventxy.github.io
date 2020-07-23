@@ -3650,8 +3650,8 @@ short --> int --> long --> float --> double</pre>
         <category>配置</category>
       </categories>
       <tags>
-        <tag>spring-boot</tag>
         <tag>idea</tag>
+        <tag>spring-boot</tag>
       </tags>
   </entry>
   <entry>
