@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Apache配置反向代理</title>
+    <url>/2020/07/23/Apache%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<blockquote>
+<p>为了让自己的spring boot项目能被域名直接访问，而不是IP:端口号的形式访问，需要用到反向代理，简单来讲就是把一个程序运行的地址映射到域名上，实现直接用域名访问。网上很多教程都是针对nignx的，而我用的是apache，也不想折腾把apache换成nignx，找了很久才找到一个可以用的，这里记录一下，方便下次使用。</p>
+</blockquote>
+<h1 id="1-开启Apache的代理模块"><a href="#1-开启Apache的代理模块" class="headerlink" title="1.开启Apache的代理模块"></a>1.开启Apache的代理模块</h1><p>在确保Apache安装好之后，通过<code>a2enmod proxy proxy_balancer proxy_http</code>开启Apache的代理模块。</p>
+<p>我用的是Ubuntu的Apache和centos下的Apache目录结构似乎有点不一样。</p>
+<a id="more"></a>
+
+<h1 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2.修改配置文件"></a>2.修改配置文件</h1><p>切换到 <code>/etc/apache2/sites-enabled</code> 目录下，打开需要修改网站对应的配置</p>
+<img src="https://blog.steventan.top/images/Apache配置反向代理/image-20200723085537548.png" alt="image-20200723085537548" style="zoom:80%;" />
+
+<p>没有的话就新建一个对应的配置文件，文件的名字是二级域名的前缀.conf，比如我的域名是steventan.top，</p>
+<p>那么test.conf对应的网站是test.steventan.top，这个好像也只是一个命名的习惯，不一样也没多大问题，这样主要是方便管理。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line"></span><br><span class="line">  ServerName autoclock.steventan.top <span class="comment">#这里填代理服务器的IP或域名</span></span><br><span class="line">  ProxyRequests off <span class="comment">#off表示开启反向代理  on表示开启正向代理</span></span><br><span class="line">  ProxyPass / http://localhost:8080/  <span class="comment">#被代理的网站，中间的那个/千万别少了，少了的话重启报错</span></span><br><span class="line">  ProxyPassReverse / http://localhost:8080/  <span class="comment">#被代理的网站</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># RewriteEngine on</span></span><br><span class="line">  <span class="comment"># RewriteCond   %&#123;HTTPS&#125; !=on</span></span><br><span class="line">  <span class="comment"># RewriteRule   ^(.*)  https://%&#123;SERVER_NAME&#125;$1 [L,R]</span></span><br><span class="line"></span><br><span class="line">  ErrorLog <span class="variable">$&#123;APACHE_LOG_DIR&#125;</span>/error.log</span><br><span class="line">  CustomLog <span class="variable">$&#123;APACHE_LOG_DIR&#125;</span>/access.log combined</span><br><span class="line"></span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面的配置是将本地的8080端口运行的程序映射到autoclock.steventan.top这个域名上，这就达到了我的目的，服务器上运行的spring boot项目，能通过域名直接在公网访问。</p>
+<h1 id="3-重启apache生效配置"><a href="#3-重启apache生效配置" class="headerlink" title="3.重启apache生效配置"></a>3.重启apache生效配置</h1><p>通过<code>service apache2 restart</code> 重启Apache，让配置文件生效。</p>
+]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>大二下学期总结</title>
     <url>/2020/07/09/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>大学时光转瞬即逝啊，一晃眼过去两年了，下半年马上就大三了，那些该面对的终究还是会过来。</p>
@@ -2133,8 +2160,8 @@ d --> e(通过 对象.属性 或 对象.方法 给属性赋值)</pre>
         <category>建站</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>服务器</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -3623,8 +3650,8 @@ short --> int --> long --> float --> double</pre>
         <category>配置</category>
       </categories>
       <tags>
-        <tag>idea</tag>
         <tag>spring-boot</tag>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -4127,8 +4154,8 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
         <category>建站</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>服务器</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
