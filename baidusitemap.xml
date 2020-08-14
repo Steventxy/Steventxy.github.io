@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.steventan.top/2020/08/14/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF/</loc>
+    <lastmod>2020-08-14</lastmod>
+  </url>  <url>
+    <loc>https://blog.steventan.top/2020/03/28/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2020-07-29</lastmod>
+  </url>  <url>
     <loc>https://blog.steventan.top/2020/07/23/Apache%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2020-07-23</lastmod>
+    <lastmod>2020-07-29</lastmod>
   </url>  <url>
     <loc>https://blog.steventan.top/2020/07/09/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-07-09</lastmod>
@@ -26,9 +32,6 @@
     <lastmod>2020-06-16</lastmod>
   </url>  <url>
     <loc>https://blog.steventan.top/2020/05/22/Linux%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2020-06-12</lastmod>
-  </url>  <url>
-    <loc>https://blog.steventan.top/2020/03/28/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-06-12</lastmod>
   </url>  <url>
     <loc>https://blog.steventan.top/2020/06/06/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/</loc>
