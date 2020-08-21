@@ -15,8 +15,10 @@
 </blockquote>
 <p>方法一：</p>
 <p>用哈希表映射，先把较短的那个数组遍历，存入哈希表中，键是数组中元素的值，值是数组中元素出现的次数<br>再遍历另外一个数组，从哈希表中找这个数组中的值，看是否存在，存在就将其存入新造的数组中，再将哈希表中该键对应的值减一，如果值减到了0，就将这个键移除去，否则将这个键对应的值减一，在存入哈希表中。</p>
+<a id="more"></a>
+
 <p>这个方法LeetCode上的一张图看的明明白白：</p>
-<p><img src="E:%5CTanXY%5CPictures%5Ctypora%5CLeetCode%E7%AC%AC%E4%B8%80%E5%A4%A9%5C350_fig1.gif" alt="fig1"></p>
+<p><img src="https://blog.steventan.top/images/LeetCode%E7%AC%AC%E4%B8%80%E5%A4%A9/350_fig1.gif" alt="fig1"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] intersect1(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">  <span class="keyword">if</span> (nums1.length &gt; nums2.length) &#123;</span><br><span class="line">    <span class="keyword">return</span> intersect1(nums2, nums1);</span><br><span class="line">  &#125;</span><br><span class="line">  Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> num : nums1) &#123;</span><br><span class="line">    <span class="keyword">int</span> count = map.getOrDefault(num, <span class="number">0</span>) + <span class="number">1</span>;</span><br><span class="line">    map.put(num, count);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[nums2.length];</span><br><span class="line">  <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> num : nums2) &#123;</span><br><span class="line">    <span class="keyword">int</span> count = map.getOrDefault(num, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      arr[index++] = num;</span><br><span class="line">      <span class="keyword">if</span> (count != <span class="number">1</span>) &#123;</span><br><span class="line">        map.put(num, --count);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        map.remove(num);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> Arrays.copyOfRange(arr, <span class="number">0</span>, index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>方法二：</p>
@@ -3728,8 +3730,8 @@ short --> int --> long --> float --> double</pre>
         <category>配置</category>
       </categories>
       <tags>
-        <tag>spring-boot</tag>
         <tag>idea</tag>
+        <tag>spring-boot</tag>
       </tags>
   </entry>
   <entry>
