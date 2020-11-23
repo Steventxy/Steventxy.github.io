@@ -7,15 +7,15 @@
 <meta name="generator" content="Hexo 4.2.0">
 
 <meta name="referrer" content="no-referrer">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/avatar.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
@@ -23,8 +23,8 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('https://blog.steventan.top').hostname,
-    root: '/',
+    hostname: new URL('http://192.168.123.1:81/blog').hostname,
+    root: '/blog/',
     scheme: 'Pisces',
     version: '7.7.1',
     exturl: false,
@@ -53,29 +53,29 @@
   <meta name="description" content="git是一个前几年兴起的很好用的版本管理工具，用了半年多了体验还是很不错了，也是现在比较主流的版本管理工具。现在分享一下git的基操，但是最好是要理解好这些命令的作用，否则后果可能很严重（手动滑稽），我自己就有过这样的经历。另外，最好是有Linux的命令基础，没有的话理解起来很吃力。  基本配置配置全局的邮箱和用户名12git config --global user.name&#x3D;&quot;云代码托管">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git的基本使用">
-<meta property="og:url" content="https://blog.steventan.top/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:url" content="http://192.168.123.1:81/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="这边风景独好">
 <meta property="og:description" content="git是一个前几年兴起的很好用的版本管理工具，用了半年多了体验还是很不错了，也是现在比较主流的版本管理工具。现在分享一下git的基操，但是最好是要理解好这些命令的作用，否则后果可能很严重（手动滑稽），我自己就有过这样的经历。另外，最好是有Linux的命令基础，没有的话理解起来很吃力。  基本配置配置全局的邮箱和用户名12git config --global user.name&#x3D;&quot;云代码托管">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/HjQNKBory3xwiJv.jpg">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mbg5o7HP3jOErcf.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/Wy3QFZUBHwsOLcJ.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/FWH2QwClGYJgdpt.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mEh4VgXdPOrCbkx.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/y25IoJunEg41TXW.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/PE3MsvfSURqHyc2.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/QDTdRA357Sqz8Jo.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/cINP5TOfSA2Qo83.png">
-<meta property="og:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/aDfrmI7inANe14X.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/HjQNKBory3xwiJv.jpg">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mbg5o7HP3jOErcf.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/Wy3QFZUBHwsOLcJ.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/FWH2QwClGYJgdpt.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mEh4VgXdPOrCbkx.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/y25IoJunEg41TXW.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/PE3MsvfSURqHyc2.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/QDTdRA357Sqz8Jo.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/cINP5TOfSA2Qo83.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/aDfrmI7inANe14X.png">
 <meta property="article:published_time" content="2020-03-14T07:20:15.000Z">
-<meta property="article:modified_time" content="2020-04-29T07:14:42.115Z">
+<meta property="article:modified_time" content="2020-09-12T05:38:09.202Z">
 <meta property="article:author" content="Steven Tan">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="开发工具">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/HjQNKBory3xwiJv.jpg">
+<meta name="twitter:image" content="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/HjQNKBory3xwiJv.jpg">
 
-<link rel="canonical" href="https://blog.steventan.top/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="http://192.168.123.1:81/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
@@ -129,7 +129,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/blog/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">这边风景独好</span>
         <span class="logo-line-after"><i></i></span>
@@ -153,27 +153,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -226,10 +226,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.steventan.top/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://192.168.123.1:81/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://blog.steventan.top/images/avatar.png">
+      <meta itemprop="image" content="/blog/./images/avatar.png">
       <meta itemprop="name" content="Steven Tan">
       <meta itemprop="description" content="有足够的积累，又一直在路上，才会有无限的可能。">
     </span>
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-29 15:14:42" itemprop="dateModified" datetime="2020-04-29T15:14:42+08:00">2020-04-29</time>
+                <time title="修改时间：2020-09-12 13:38:09" itemprop="dateModified" datetime="2020-09-12T13:38:09+08:00">2020-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,20 +264,20 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/git/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/git/" itemprop="url" rel="index">
                     <span itemprop="name">git</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="git的基本使用" title="阅读次数">
+            <span id="/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="git的基本使用" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -292,8 +292,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -322,7 +322,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <img src="https://blog.steventan.top/images/git的基本使用/HjQNKBory3xwiJv.jpg" alt="git.jpg" style="zoom:50%;" />
+        <img src="http://192.168.123.1:81/blog/images/git的基本使用/HjQNKBory3xwiJv.jpg" alt="git.jpg" style="zoom:50%;" />
 
 <blockquote>
 <p>git是一个前几年兴起的很好用的版本管理工具，用了半年多了体验还是很不错了，也是现在比较主流的版本管理工具。现在分享一下git的基操，但是最好是要理解好这些命令的作用，否则后果可能很严重（手动滑稽），我自己就有过这样的经历。另外，最好是有Linux的命令基础，没有的话理解起来很吃力。</p>
@@ -332,25 +332,25 @@
 <p>这个也可以在c盘用户的根目录下面打开<code>.gitconfig</code>文件进行配置</p>
 <a id="more"></a>
 
-<img src="https://blog.steventan.top/images/git的基本使用/mbg5o7HP3jOErcf.png" alt="image.png" style="zoom: 50%;" />
+<img src="http://192.168.123.1:81/blog/images/git的基本使用/mbg5o7HP3jOErcf.png" alt="image.png" style="zoom: 50%;" />
 
-<img src="https://blog.steventan.top/images/git的基本使用/Wy3QFZUBHwsOLcJ.png" alt="image.png" style="zoom: 50%;" />
+<img src="http://192.168.123.1:81/blog/images/git的基本使用/Wy3QFZUBHwsOLcJ.png" alt="image.png" style="zoom: 50%;" />
 
 <p><strong>命令里面不加global就只是对当前仓库的配置</strong></p>
 <h3 id="生成ssh秘钥对"><a href="#生成ssh秘钥对" class="headerlink" title="生成ssh秘钥对"></a>生成ssh秘钥对</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -f 秘钥名称 -C <span class="string">'注册邮箱'</span></span><br></pre></td></tr></table></figure>
 
 <p>在用户根目录下会生成一个.ssh的文件夹</p>
 <p>开始里面会有两个文件,后缀是<code>.pub</code>的是公钥,另一个是私钥</p>
-<img src="https://blog.steventan.top/images/git的基本使用/FWH2QwClGYJgdpt.png" alt="image.png" style="zoom: 50%;" />
+<img src="http://192.168.123.1:81/blog/images/git的基本使用/FWH2QwClGYJgdpt.png" alt="image.png" style="zoom: 50%;" />
 
 <p>用记事本或者其他的编辑器打开这个文件，复制其全部内容，以GitHub为例：点击<code>new ssh key</code></p>
-<p><img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mEh4VgXdPOrCbkx.png" alt=""></p>
+<p><img src="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/mEh4VgXdPOrCbkx.png" alt=""></p>
 <p>将其粘贴到Key的框框中，手动打码（嘿嘿嘿），然后点击add ssh key就大功告成了</p>
-<p><img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/y25IoJunEg41TXW.png" alt=""></p>
+<p><img src="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/y25IoJunEg41TXW.png" alt=""></p>
 <p>然后在git bash中输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/PE3MsvfSURqHyc2.png" alt=""></p>
+<p><img src="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/PE3MsvfSURqHyc2.png" alt=""></p>
 <p>如果是这样就表示，添加成功了（只要GitHub上没提示有问题，其实一般都没有问题，这一步可以跳过）</p>
 <h2 id="git上传GitHub的基本步骤"><a href="#git上传GitHub的基本步骤" class="headerlink" title="git上传GitHub的基本步骤"></a>git上传GitHub的基本步骤</h2><h3 id="第一步、创建一个仓库或者clone一个仓库"><a href="#第一步、创建一个仓库或者clone一个仓库" class="headerlink" title="第一步、创建一个仓库或者clone一个仓库"></a>第一步、创建一个仓库或者clone一个仓库</h3><p>从远程仓库clone项目</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 仓库地址</span><br></pre></td></tr></table></figure>
@@ -366,7 +366,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 
 <p><code>.</code>表示当前文件夹下面的所有文件和文件夹，但是踩过一个坑，<strong>git不会将空文件夹加入索引</strong>，要添加就要在那个空文件夹下面随便放一个文件可以是<code>.gitignore</code></p>
-<p>可以参考对应的官方文档：<img src="https://blog.steventan.top/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/QDTdRA357Sqz8Jo.png" alt=""></p>
+<p>可以参考对应的官方文档：<img src="http://192.168.123.1:81/blog/images/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/QDTdRA357Sqz8Jo.png" alt=""></p>
 <h3 id="第三步、将索引中的文件提交到本地的版本库"><a href="#第三步、将索引中的文件提交到本地的版本库" class="headerlink" title="第三步、将索引中的文件提交到本地的版本库"></a>第三步、将索引中的文件提交到本地的版本库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m<span class="string">'提交的信息'</span></span><br></pre></td></tr></table></figure>
 
 <p>引号里面一般是写这次提交修复了什么问题，或者增加了什么功能</p>
@@ -374,7 +374,7 @@
 
 <p>远程仓库在本地的名字随便取什么都行，不知道取什么名字的话就origin吧</p>
 <p>远程仓库的地址打开github的页面复制 </p>
-<img src="https://blog.steventan.top/images/git的基本使用/cINP5TOfSA2Qo83.png" alt="image.png" style="zoom:50%;" />
+<img src="http://192.168.123.1:81/blog/images/git的基本使用/cINP5TOfSA2Qo83.png" alt="image.png" style="zoom:50%;" />
 
 <h3 id="第五步、从远程仓库同步版本库信息"><a href="#第五步、从远程仓库同步版本库信息" class="headerlink" title="第五步、从远程仓库同步版本库信息"></a>第五步、从远程仓库同步版本库信息</h3><p><strong>如果是第一次建立仓库，远程仓库没有东西，可以跳过这步</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull 上一步自己给远程仓库取得名字 分支名</span><br></pre></td></tr></table></figure>
@@ -392,7 +392,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 版本哈希值</span><br></pre></td></tr></table></figure>
 
 <p>举个栗子：</p>
-<img src="https://blog.steventan.top/images/git的基本使用/aDfrmI7inANe14X.png" alt="image.png" style="zoom:67%;" />
+<img src="http://192.168.123.1:81/blog/images/git的基本使用/aDfrmI7inANe14X.png" alt="image.png" style="zoom:67%;" />
 
 
 
@@ -419,7 +419,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.steventan.top/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="git的基本使用">https://blog.steventan.top/2020/03/14/git的基本使用/</a>
+    <a href="http://192.168.123.1:81/blog/2020/03/14/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="git的基本使用">http://192.168.123.1:81/blog/2020/03/14/git的基本使用/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -431,8 +431,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
-              <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 开发工具</a>
+              <a href="/blog/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+              <a href="/blog/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 开发工具</a>
           </div>
 
         
@@ -441,11 +441,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8D%95%E7%89%87%E6%9C%BA%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%A8%A1%E5%9D%97/" rel="prev" title="蓝桥杯单片机超声波模块">
+    <a href="/blog/2020/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8D%95%E7%89%87%E6%9C%BA%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%A8%A1%E5%9D%97/" rel="prev" title="蓝桥杯单片机超声波模块">
       <i class="fa fa-chevron-left"></i> 蓝桥杯单片机超声波模块
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/15/spring-boot%E5%9C%A8IDEA%E4%B8%AD%E7%9A%84%E7%83%AD%E9%83%A8%E7%BD%B2/" rel="next" title="spring-boot在IDEA中的热部署">
+    <a href="/blog/2020/03/15/spring-boot%E5%9C%A8IDEA%E4%B8%AD%E7%9A%84%E7%83%AD%E9%83%A8%E7%BD%B2/" rel="next" title="spring-boot在IDEA中的热部署">
       spring-boot在IDEA中的热部署 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -517,7 +517,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Steven Tan"
-      src="https://blog.steventan.top/images/avatar.png">
+      src="/blog/./images/avatar.png">
   <p class="site-author-name" itemprop="name">Steven Tan</p>
   <div class="site-description" itemprop="description">有足够的积累，又一直在路上，才会有无限的可能。</div>
 </div>
@@ -527,20 +527,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
         <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
         <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
@@ -553,7 +553,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -630,7 +630,7 @@
     <span class="author" itemprop="copyrightHolder">Steven Tan</span>
 
     <span class="post-meta-divider">|</span>
-      <img src="https://blog.steventan.top/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
+      <img src="/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
   </div>
 
 
@@ -639,20 +639,20 @@
   </div>
 
   
-  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/blog/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
 
 
 
@@ -672,7 +672,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/blog/js/local-search.js"></script>
 
 
 

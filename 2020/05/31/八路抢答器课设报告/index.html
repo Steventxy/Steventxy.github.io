@@ -7,15 +7,15 @@
 <meta name="generator" content="Hexo 4.2.0">
 
 <meta name="referrer" content="no-referrer">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/avatar.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
@@ -23,8 +23,8 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('https://blog.steventan.top').hostname,
-    root: '/',
+    hostname: new URL('http://192.168.123.1:81/blog').hostname,
+    root: '/blog/',
     scheme: 'Pisces',
     version: '7.7.1',
     exturl: false,
@@ -53,27 +53,27 @@
   <meta name="description" content="好久没更新过博客了，之前一段时间及比较忙，快要期末了，考试要准备，课程设计要做，中间还水了个自动打卡的脚本，闲下来的时间比较少（可能是打游戏去了），就一直没更新吧，上一次更新是两三周之前，虽然不存在什么有人催更的问题（滑稽），但是自己心里还是不舒服，于是就来水一篇博客。  1、 基本功能 抢答器系统提供八路抢答，分别代表八支队伍，分别用按钮S1-S8表示，最先按下按钮的队伍对应的LED灯会亮起来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="八路抢答器课程设计报告">
-<meta property="og:url" content="https://blog.steventan.top/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:url" content="http://192.168.123.1:81/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="这边风景独好">
 <meta property="og:description" content="好久没更新过博客了，之前一段时间及比较忙，快要期末了，考试要准备，课程设计要做，中间还水了个自动打卡的脚本，闲下来的时间比较少（可能是打游戏去了），就一直没更新吧，上一次更新是两三周之前，虽然不存在什么有人催更的问题（滑稽），但是自己心里还是不舒服，于是就来水一篇博客。  1、 基本功能 抢答器系统提供八路抢答，分别代表八支队伍，分别用按钮S1-S8表示，最先按下按钮的队伍对应的LED灯会亮起来">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153300891.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153428970.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153526098.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153551489.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153558547.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153605422.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153611215.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153618898.png">
-<meta property="og:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153622958.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153300891.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153428970.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153526098.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153551489.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153558547.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153605422.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153611215.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153618898.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153622958.png">
 <meta property="article:published_time" content="2020-05-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-23T09:50:46.540Z">
+<meta property="article:modified_time" content="2020-09-12T05:38:09.225Z">
 <meta property="article:author" content="Steven Tan">
 <meta property="article:tag" content="数字与逻辑电路">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153300891.png">
+<meta name="twitter:image" content="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153300891.png">
 
-<link rel="canonical" href="https://blog.steventan.top/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/">
+<link rel="canonical" href="http://192.168.123.1:81/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/">
 
 
 <script id="page-configurations">
@@ -127,7 +127,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/blog/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">这边风景独好</span>
         <span class="logo-line-after"><i></i></span>
@@ -151,27 +151,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,10 +224,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.steventan.top/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/">
+    <link itemprop="mainEntityOfPage" href="http://192.168.123.1:81/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://blog.steventan.top/images/avatar.png">
+      <meta itemprop="image" content="/blog/./images/avatar.png">
       <meta itemprop="name" content="Steven Tan">
       <meta itemprop="description" content="有足够的积累，又一直在路上，才会有无限的可能。">
     </span>
@@ -254,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-23 17:50:46" itemprop="dateModified" datetime="2020-06-23T17:50:46+08:00">2020-06-23</time>
+                <time title="修改时间：2020-09-12 13:38:09" itemprop="dateModified" datetime="2020-09-12T13:38:09+08:00">2020-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,14 +262,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%97%E4%B8%8E%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E6%95%B0%E5%AD%97%E4%B8%8E%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/" itemprop="url" rel="index">
                     <span itemprop="name">数字与逻辑电路</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="八路抢答器课程设计报告" title="阅读次数">
+            <span id="/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/" class="post-meta-item leancloud_visitors" data-flag-title="八路抢答器课程设计报告" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -284,8 +284,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -326,7 +326,7 @@
 
 <h1 id="2、方案设计"><a href="#2、方案设计" class="headerlink" title="2、方案设计"></a>2、方案设计</h1><p>电路分为两个主要的模块——抢答模块和计时模块，报警电路穿插在这两个模块之间，配合两个电路的特点，能够达到报警的效果。</p>
 <p>具体结构框图如图1所示：</p>
-<img src="https://blog.steventan.top/images/八路抢答器课设报告/image-20200531153300891.png" alt="图1" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/八路抢答器课设报告/image-20200531153300891.png" alt="图1" style="zoom:80%;" />
 
 
 
@@ -335,7 +335,7 @@
 <p>当有一个队伍已经抢答成功，那么八个D触发器的输出经过两个四输入与非门之后，有一个与非的结果为高电平，再将两者或非，结果就为低电平，此时再有队伍按下抢答按钮就无效，LED灯的亮灭不会发生改变。</p>
 <p>D触发器的时钟输入是由八个按钮的电平相或得到，只要有一个队伍在抢答有效的时间内按下按钮，并且在此之前没有其他队伍按下抢答按钮，就会产生一个上升沿；若已有队伍抢答成功，再有队伍按下按钮，电平不会发生变化，时钟不会检测到上升沿。</p>
 <p>清零效果的实现主要是利用D触发器的 ~CLR端，清零按钮默认是高电平状态，当按下之后会出现一个低电平的信号，输送给 ~CLR端，达到清零效果。</p>
- <img src="https://blog.steventan.top/images/八路抢答器课设报告/image-20200531153428970.png" alt="图2" style="zoom:80%;" />
+ <img src="http://192.168.123.1:81/blog/images/八路抢答器课设报告/image-20200531153428970.png" alt="图2" style="zoom:80%;" />
 
 
 
@@ -344,7 +344,7 @@
 <p>计时模块的“开关”主要是用74LS73芯片中的JK触发器构成的一个T触发器来实现的，JK触发器的时钟信号是由前面的清零按钮控制，按下清零按钮之后会产生一个下降沿，触发器的输出发生翻转，也就模拟了开关状态的改变。当计时器十位数字为3时，也就是30秒的计时时间到了，74LS73这时Q1和Q2都为高电平，将其接到74LS00的与非门上面，与非的结果为0。再将这个与非的结果和上面JK触发器输出的电平相与得到计时模块的总开关，只要这两者有一个为低电平，总开关就是断开的，计时模块停止工作。比如：当计时器到了30秒的时候74LS73输出Q1和Q2与非的结果为0，此时，计时模块停止工作，数码管显示停留在30秒的时候。计时模块有一个LED指示灯，当“开关”接通时，指示灯亮，当计时到达30秒或者还未开始抢答时，指示灯熄灭。</p>
 <p>​    计时的时钟脉冲是由前面抢答模块的D触发器输出四个四个相与非，再将两个与非的结果或非和74LS73的Q1、Q2或非的结果以及一个1HZ的方波信号三个信号相与的结果，只要有一个条件不满足，计数器就会停止计数。比如：已有人抢答成功，那么第一个条件不满足，计时器停止计数；计时器计时到了30秒，那么第二个条件不满足，计数器停止计数。</p>
 <p>​    计时模块的报警电路有两部分，一个是计时时间到了30秒，蜂鸣器报警，另一个是抢答开始，蜂鸣器发出报警。第一部分蜂鸣器的高电平端口接到计时模块的电源上，低电平端口接到74LS73输出结果相与非后的端口，计时到了30秒时，74LS73输出结果相与非后的结果为0，高低电平端口有电位差，蜂鸣器发出报警声，同时计时模块的“开关”会断开，所以蜂鸣器的高电平端口也会变为低电平，所以蜂鸣器只会短暂报警。第二部分蜂鸣器的高电平端口接到计时模块的JK触发器的输出端，低电平端口接清零按钮的输出。初始状况蜂鸣器高低电平的电位差为-5V，在按下开始抢答按钮的一瞬间，点位差变成5V蜂鸣器会发出短暂报警声。</p>
- <img src="https://blog.steventan.top/images/八路抢答器课设报告/image-20200531153526098.png" alt="图3" style="zoom:80%;" />
+ <img src="http://192.168.123.1:81/blog/images/八路抢答器课设报告/image-20200531153526098.png" alt="图3" style="zoom:80%;" />
 
 <h1 id="4、主要元器件的选择"><a href="#4、主要元器件的选择" class="headerlink" title="4、主要元器件的选择"></a>4、主要元器件的选择</h1><p>此八路抢答系统主要由两块74LS175、两块74LS73一块74LS20、一块74LS00、一块74161芯片以及若干非门和与门组成。</p>
 <p>所有元器件列表：</p>
@@ -413,14 +413,14 @@
 </tr>
 </tbody></table>
 <p>74LS175引脚和逻辑功能表：</p>
-<p>   <img src="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153551489.png" alt="image-20200531153551489"></p>
-<p><img src="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153558547.png" alt="image-20200531153558547"></p>
+<p>   <img src="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153551489.png" alt="image-20200531153551489"></p>
+<p><img src="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153558547.png" alt="image-20200531153558547"></p>
 <p>74LS73引脚和逻辑图：</p>
-<p>   <img src="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153605422.png" alt="image-20200531153605422"></p>
-<p><img src="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153611215.png" alt="image-20200531153611215"></p>
+<p>   <img src="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153605422.png" alt="image-20200531153605422"></p>
+<p><img src="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153611215.png" alt="image-20200531153611215"></p>
 <p>74161引脚和逻辑图：</p>
-<p>   <img src="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153618898.png" alt="image-20200531153618898"></p>
-<p><img src="https://blog.steventan.top/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153622958.png" alt="image-20200531153622958"></p>
+<p>   <img src="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153618898.png" alt="image-20200531153618898"></p>
+<p><img src="http://192.168.123.1:81/blog/images/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/image-20200531153622958.png" alt="image-20200531153622958"></p>
 <h1 id="5、调试结果及分析"><a href="#5、调试结果及分析" class="headerlink" title="5、调试结果及分析"></a>5、调试结果及分析</h1><h2 id="5-1调试中存在的问题"><a href="#5-1调试中存在的问题" class="headerlink" title="5.1调试中存在的问题"></a>5.1调试中存在的问题</h2><p>1.多个队伍同时按下抢答按钮会显示都抢答成功</p>
 <p>造成这一结果的原因，一方面可能是仿真电路的时间步长和实际的时间步长不一致，仿真需要实时的计，算运行的比实际电路要慢很多，就造成了第一个按下的信号还没反馈回去，第二个按下按钮队伍的信号也一起发出来了，最后就出现多个队伍对应的LED亮起；另一方面可能是反馈回给按钮的信号延迟太高，比第一个按下按钮的队伍和第二个按下按钮的队伍的时间差还要长，也是导致第一次按下按钮信号没反馈回去，第二次的信号就发出去了。这种情况就是电路设计的问题了，但是受条件限制，无法搭建实际的电路，只能用仿真调试，具体的原因也无法进一步探究。</p>
 <p>2.蜂鸣器不响（只能响一个）</p>
@@ -445,7 +445,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.steventan.top/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/" title="八路抢答器课程设计报告">https://blog.steventan.top/2020/05/31/八路抢答器课设报告/</a>
+    <a href="http://192.168.123.1:81/blog/2020/05/31/%E5%85%AB%E8%B7%AF%E6%8A%A2%E7%AD%94%E5%99%A8%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A/" title="八路抢答器课程设计报告">http://192.168.123.1:81/blog/2020/05/31/八路抢答器课设报告/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -457,7 +457,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E5%AD%97%E4%B8%8E%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/" rel="tag"><i class="fa fa-tag"></i> 数字与逻辑电路</a>
+              <a href="/blog/tags/%E6%95%B0%E5%AD%97%E4%B8%8E%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/" rel="tag"><i class="fa fa-tag"></i> 数字与逻辑电路</a>
           </div>
 
         
@@ -466,11 +466,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/22/Linux%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" rel="prev" title="Linux中的进程管理">
+    <a href="/blog/2020/05/22/Linux%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" rel="prev" title="Linux中的进程管理">
       <i class="fa fa-chevron-left"></i> Linux中的进程管理
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/06/06/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/" rel="next" title="Java常用类">
+    <a href="/blog/2020/06/06/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/" rel="next" title="Java常用类">
       Java常用类 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -542,7 +542,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Steven Tan"
-      src="https://blog.steventan.top/images/avatar.png">
+      src="/blog/./images/avatar.png">
   <p class="site-author-name" itemprop="name">Steven Tan</p>
   <div class="site-description" itemprop="description">有足够的积累，又一直在路上，才会有无限的可能。</div>
 </div>
@@ -552,20 +552,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
         <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
         <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
@@ -578,7 +578,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -655,7 +655,7 @@
     <span class="author" itemprop="copyrightHolder">Steven Tan</span>
 
     <span class="post-meta-divider">|</span>
-      <img src="https://blog.steventan.top/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
+      <img src="/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
   </div>
 
 
@@ -664,20 +664,20 @@
   </div>
 
   
-  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/blog/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
 
 
 
@@ -697,7 +697,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/blog/js/local-search.js"></script>
 
 
 

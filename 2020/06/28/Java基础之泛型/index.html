@@ -7,15 +7,15 @@
 <meta name="generator" content="Hexo 4.2.0">
 
 <meta name="referrer" content="no-referrer">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/avatar.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
@@ -23,8 +23,8 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('https://blog.steventan.top').hostname,
-    root: '/',
+    hostname: new URL('http://192.168.123.1:81/blog').hostname,
+    root: '/blog/',
     scheme: 'Pisces',
     version: '7.7.1',
     exturl: false,
@@ -53,22 +53,22 @@
   <meta name="description" content="泛型的概念设计背景集合容器类在设计阶段&#x2F;声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection&lt;E&gt;，List&lt;E&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础之泛型">
-<meta property="og:url" content="https://blog.steventan.top/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/index.html">
+<meta property="og:url" content="http://192.168.123.1:81/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/index.html">
 <meta property="og:site_name" content="这边风景独好">
 <meta property="og:description" content="泛型的概念设计背景集合容器类在设计阶段&#x2F;声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection&lt;E&gt;，List&lt;E&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="e:/TanXY/Pictures/typora/Java基础之泛型/image-20200628145513962.png">
-<meta property="og:image" content="e:%5CTanXY%5CPictures%5Ctypora%5CJava%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B%5Cimage-20200628145525503.png">
-<meta property="og:image" content="e:%5CTanXY%5CPictures%5Ctypora%5CJava%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B%5Cimage-20200628145525503.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/image-20200628145513962.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/image-20200628145525503.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/image-20200628145525503.png">
 <meta property="article:published_time" content="2020-06-28T06:40:46.000Z">
-<meta property="article:modified_time" content="2020-06-28T09:04:30.279Z">
+<meta property="article:modified_time" content="2020-09-12T05:39:02.298Z">
 <meta property="article:author" content="Steven Tan">
 <meta property="article:tag" content="学习笔记">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="e:/TanXY/Pictures/typora/Java基础之泛型/image-20200628145513962.png">
+<meta name="twitter:image" content="http://192.168.123.1:81/blog/images/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/image-20200628145513962.png">
 
-<link rel="canonical" href="https://blog.steventan.top/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/">
+<link rel="canonical" href="http://192.168.123.1:81/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/">
 
 
 <script id="page-configurations">
@@ -122,7 +122,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/blog/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">这边风景独好</span>
         <span class="logo-line-after"><i></i></span>
@@ -146,27 +146,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -219,10 +219,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.steventan.top/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="http://192.168.123.1:81/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://blog.steventan.top/images/avatar.png">
+      <meta itemprop="image" content="/blog/./images/avatar.png">
       <meta itemprop="name" content="Steven Tan">
       <meta itemprop="description" content="有足够的积累，又一直在路上，才会有无限的可能。">
     </span>
@@ -241,30 +241,36 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-28 14:40:46 / 修改时间：17:04:30" itemprop="dateCreated datePublished" datetime="2020-06-28T14:40:46+08:00">2020-06-28</time>
+              <time title="创建时间：2020-06-28 14:40:46" itemprop="dateCreated datePublished" datetime="2020-06-28T14:40:46+08:00">2020-06-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-12 13:39:02" itemprop="dateModified" datetime="2020-09-12T13:39:02+08:00">2020-09-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Java基础之泛型" title="阅读次数">
+            <span id="/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Java基础之泛型" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -279,8 +285,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -319,8 +325,10 @@
 <li>解决元素存储的安全性问题，好比商品、药品标签，不会弄错。 </li>
 <li>解决获取数据元素时，需要类型强制转换的问题，好比不用每回拿商品、药品都要辨别。</li>
 </ol>
-<p><img src="E:\TanXY\Pictures\typora\Java基础之泛型\image-20200628145513962.png" alt="image-20200628145513962" style="zoom:80%;" /><img src="E:%5CTanXY%5CPictures%5Ctypora%5CJava%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B%5Cimage-20200628145525503.png" alt="image-20200628145525503"></p>
-<p><img src="E:%5CTanXY%5CPictures%5Ctypora%5CJava%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B%5Cimage-20200628145525503.png" alt="image-20200628145525503"></p>
+<img src="http://192.168.123.1:81/blog/images/Java基础之泛型/image-20200628145513962.png" alt="image-20200628145513962" style="zoom:80%;" />
+
+<p><img src="http://192.168.123.1:81/blog/images/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/image-20200628145525503.png" alt="image-20200628145525503"></p>
+<p><img src="http://192.168.123.1:81/blog/images/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/image-20200628145525503.png" alt="image-20200628145525503"></p>
 <p>Java泛型可以保证如果程序在编译时没有发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁、健壮。</p>
 <h1 id="在集合中使用泛型"><a href="#在集合中使用泛型" class="headerlink" title="在集合中使用泛型"></a>在集合中使用泛型</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();<span class="comment">//类型推断</span></span><br><span class="line">list.add(<span class="number">78</span>);</span><br><span class="line">list.add(<span class="number">88</span>);</span><br><span class="line">list.add(<span class="number">77</span>);</span><br><span class="line">list.add(<span class="number">66</span>);</span><br><span class="line"><span class="comment">//遍历方式一：</span></span><br><span class="line"><span class="keyword">for</span>(Integer i : list)&#123;</span><br><span class="line"><span class="comment">//不需要强转</span></span><br><span class="line">System.out.println(i);</span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//遍历方式二：</span></span><br><span class="line">Iterator&lt;Integer&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">  System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">Map&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String,Integer&gt;();</span><br><span class="line">map.put(<span class="string">"Tom1"</span>,<span class="number">34</span>);</span><br><span class="line">map.put(<span class="string">"Tom2"</span>,<span class="number">44</span>);</span><br><span class="line">map.put(<span class="string">"Tom3"</span>,<span class="number">33</span>);</span><br><span class="line">map.put(<span class="string">"Tom4"</span>,<span class="number">32</span>);</span><br><span class="line"><span class="comment">//添加失败</span></span><br><span class="line"><span class="comment">//map.put(33, "Tom");</span></span><br><span class="line">Set&lt;Entry&lt;String,Integer&gt;&gt; entrySet = map.entrySet();</span><br><span class="line">Iterator&lt;Entry&lt;String,Integer&gt;&gt; iterator = entrySet.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">  Entry&lt;String,Integer&gt; entry = iterator.next();</span><br><span class="line">  System.out.println(entry.getKey() + <span class="string">"---&gt;"</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -434,19 +442,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\06\16\Java基础之集合框架\" rel="bookmark">Java基础之集合框架</a></div>
+      <div class="popular-posts-title"><a href="\blog\2020\06\16\Java基础之集合框架\" rel="bookmark">Java基础之集合框架</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\06\16\Java枚举类\" rel="bookmark">Java枚举类</a></div>
+      <div class="popular-posts-title"><a href="\blog\2020\06\16\Java枚举类\" rel="bookmark">Java枚举类</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\06\06\Java常用类\" rel="bookmark">Java常用类</a></div>
+      <div class="popular-posts-title"><a href="\blog\2020\06\06\Java常用类\" rel="bookmark">Java常用类</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\05\17\Java基础之多线程\" rel="bookmark">Java基础之多线程</a></div>
+      <div class="popular-posts-title"><a href="\blog\2020\05\17\Java基础之多线程\" rel="bookmark">Java基础之多线程</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\05\06\Java基础知识总结（下）\" rel="bookmark">Java基础知识总结（下）</a></div>
+      <div class="popular-posts-title"><a href="\blog\2020\05\06\Java基础知识总结（下）\" rel="bookmark">Java基础知识总结（下）</a></div>
     </li>
   </ul>
 
@@ -459,7 +467,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.steventan.top/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/" title="Java基础之泛型">https://blog.steventan.top/2020/06/28/Java基础之泛型/</a>
+    <a href="http://192.168.123.1:81/blog/2020/06/28/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%B3%9B%E5%9E%8B/" title="Java基础之泛型">http://192.168.123.1:81/blog/2020/06/28/Java基础之泛型/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -471,8 +479,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/blog/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+              <a href="/blog/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
@@ -481,11 +489,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/25/%E3%80%8A%E6%91%94%E8%B7%A4%E5%90%A7%EF%BC%81%E7%88%B8%E7%88%B8%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" rel="prev" title="《摔跤吧！爸爸》观后感">
+    <a href="/blog/2020/06/25/%E3%80%8A%E6%91%94%E8%B7%A4%E5%90%A7%EF%BC%81%E7%88%B8%E7%88%B8%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" rel="prev" title="《摔跤吧！爸爸》观后感">
       <i class="fa fa-chevron-left"></i> 《摔跤吧！爸爸》观后感
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/07/09/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" rel="next" title="大二下学期总结">
+    <a href="/blog/2020/07/09/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" rel="next" title="大二下学期总结">
       大二下学期总结 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -557,7 +565,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Steven Tan"
-      src="https://blog.steventan.top/images/avatar.png">
+      src="/blog/./images/avatar.png">
   <p class="site-author-name" itemprop="name">Steven Tan</p>
   <div class="site-description" itemprop="description">有足够的积累，又一直在路上，才会有无限的可能。</div>
 </div>
@@ -567,20 +575,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
         <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
         <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
@@ -593,7 +601,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -670,7 +678,7 @@
     <span class="author" itemprop="copyrightHolder">Steven Tan</span>
 
     <span class="post-meta-divider">|</span>
-      <img src="https://blog.steventan.top/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
+      <img src="/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
   </div>
 
 
@@ -679,20 +687,20 @@
   </div>
 
   
-  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/blog/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
 
 
 
@@ -712,7 +720,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/blog/js/local-search.js"></script>
 
 
 

@@ -7,15 +7,15 @@
 <meta name="generator" content="Hexo 4.2.0">
 
 <meta name="referrer" content="no-referrer">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/avatar.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
@@ -23,8 +23,8 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('https://blog.steventan.top').hostname,
-    root: '/',
+    hostname: new URL('http://192.168.123.1:81/blog').hostname,
+    root: '/blog/',
     scheme: 'Pisces',
     version: '7.7.1',
     exturl: false,
@@ -53,28 +53,28 @@
   <meta name="description" content="文件基本权限首先看一下Linux中的文件权限，可以用ll命令或者带-l的ls命令查看   第一个字符代表文件的类型，然后是权限、链接数、所属用户、所属用户组、文件大小、最后修改时间、文件名 Linux中的文件权限一共有7种：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux中的权限管理">
-<meta property="og:url" content="https://blog.steventan.top/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:url" content="http://192.168.123.1:81/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="这边风景独好">
 <meta property="og:description" content="文件基本权限首先看一下Linux中的文件权限，可以用ll命令或者带-l的ls命令查看   第一个字符代表文件的类型，然后是权限、链接数、所属用户、所属用户组、文件大小、最后修改时间、文件名 Linux中的文件权限一共有7种：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515135526284.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515141738439.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515141537125.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142243765.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142524794.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142333848.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142801089.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png">
-<meta property="og:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143154536.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515135526284.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515141738439.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515141537125.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142243765.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142524794.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142333848.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142801089.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png">
+<meta property="og:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143154536.png">
 <meta property="article:published_time" content="2020-05-15T05:41:05.000Z">
-<meta property="article:modified_time" content="2020-05-15T06:56:57.104Z">
+<meta property="article:modified_time" content="2020-09-12T05:38:09.220Z">
 <meta property="article:author" content="Steven Tan">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515135526284.png">
+<meta name="twitter:image" content="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515135526284.png">
 
-<link rel="canonical" href="https://blog.steventan.top/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+<link rel="canonical" href="http://192.168.123.1:81/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -128,7 +128,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/blog/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">这边风景独好</span>
         <span class="logo-line-after"><i></i></span>
@@ -152,27 +152,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>时间线</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,10 +225,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.steventan.top/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://192.168.123.1:81/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://blog.steventan.top/images/avatar.png">
+      <meta itemprop="image" content="/blog/./images/avatar.png">
       <meta itemprop="name" content="Steven Tan">
       <meta itemprop="description" content="有足够的积累，又一直在路上，才会有无限的可能。">
     </span>
@@ -247,30 +247,36 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-05-15 13:41:05 / 修改时间：14:56:57" itemprop="dateCreated datePublished" datetime="2020-05-15T13:41:05+08:00">2020-05-15</time>
+              <time title="创建时间：2020-05-15 13:41:05" itemprop="dateCreated datePublished" datetime="2020-05-15T13:41:05+08:00">2020-05-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-12 13:38:09" itemprop="dateModified" datetime="2020-09-12T13:38:09+08:00">2020-09-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="linux中的权限管理" title="阅读次数">
+            <span id="/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="linux中的权限管理" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -285,8 +291,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -316,7 +322,7 @@
 
       
         <h1 id="文件基本权限"><a href="#文件基本权限" class="headerlink" title="文件基本权限"></a>文件基本权限</h1><p>首先看一下Linux中的文件权限，可以用ll命令或者带-l的ls命令查看</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515135526284.png" alt="image-20200515135526284" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515135526284.png" alt="image-20200515135526284" style="zoom:80%;" />
 
 <p>第一个字符代表文件的类型，然后是权限、链接数、所属用户、所属用户组、文件大小、最后修改时间、文件名</p>
 <p>Linux中的文件权限一共有7种：</p>
@@ -390,28 +396,28 @@
 <p>第二组是表示所属组（g表示）的权限，这里也是root，这里所属组对该文件没有任何权限</p>
 <p>第三组是表示其他人（o表示）的权限，这里也是没有任何权限的</p>
 <p>新创建的文件默认权限：</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515141738439.png" alt="image-20200515141738439" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515141738439.png" alt="image-20200515141738439" style="zoom:80%;" />
 
 <h1 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h1><p>Linux中修改权限用的是chmod命令</p>
 <p>具体用法见下图：</p>
 <h2 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h2><p>给所属组加上写的权限</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515141537125.png" alt="image-20200515141537125" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515141537125.png" alt="image-20200515141537125" style="zoom:80%;" />
 
 <p>也可以同时给所属用户和用户组还有其他用户加权限</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515142243765.png" alt="image-20200515142243765" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515142243765.png" alt="image-20200515142243765" style="zoom:80%;" />
 
 <p>如果是要给全部的三个组同时加权限可以直接用a代表ugo，是就是all</p>
-<p><img src="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142524794.png" alt="image-20200515142524794"></p>
+<p><img src="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515142524794.png" alt="image-20200515142524794"></p>
 <p>减权限，这里同理也可以用a代替ugo</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515142333848.png" alt="image-20200515142333848" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515142333848.png" alt="image-20200515142333848" style="zoom:80%;" />
 
 <h2 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h2><p>直接用代号赋予相应的权限，当要更改多个组的权限时，中间用逗号隔开</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515142801089.png" alt="image-20200515142801089" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515142801089.png" alt="image-20200515142801089" style="zoom:80%;" />
 
-<p><img src="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png" alt="image-20200515143020204"></p>
-<p><img src="https://blog.steventan.top/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png" alt="image-20200515143020204"></p>
+<p><img src="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png" alt="image-20200515143020204"></p>
+<p><img src="http://192.168.123.1:81/blog/images/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/image-20200515143020204.png" alt="image-20200515143020204"></p>
 <h2 id="方式三："><a href="#方式三：" class="headerlink" title="方式三："></a>方式三：</h2><p>用的比较多的其实是这一种</p>
-<img src="https://blog.steventan.top/images/Linux中的权限管理/image-20200515143154536.png" alt="image-20200515143154536" style="zoom:80%;" />
+<img src="http://192.168.123.1:81/blog/images/Linux中的权限管理/image-20200515143154536.png" alt="image-20200515143154536" style="zoom:80%;" />
 
 <p>这里的每个数字就是刚刚对应权限代表的二进制转换过来的，这里544转换为方式二就是：u=rx,g=r,o=r，x的权重为1，w的权重为2，r的权重为4，把每个组的所有权限的权重加起来就是方式三的数字了。</p>
 <p>这里再顺便介绍一个和权限相关的命令：</p>
@@ -429,7 +435,7 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\05\22\Linux中的进程管理\" rel="bookmark">Linux中的进程管理</a></div>
+      <div class="popular-posts-title"><a href="\blog\2020\05\22\Linux中的进程管理\" rel="bookmark">Linux中的进程管理</a></div>
     </li>
   </ul>
 
@@ -442,7 +448,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.steventan.top/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="linux中的权限管理">https://blog.steventan.top/2020/05/15/Linux中的权限管理/</a>
+    <a href="http://192.168.123.1:81/blog/2020/05/15/Linux%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="linux中的权限管理">http://192.168.123.1:81/blog/2020/05/15/Linux中的权限管理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -454,7 +460,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/blog/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           </div>
 
         
@@ -463,11 +469,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A0%A1%E9%AA%8C%E5%92%8C%E7%A4%BA%E4%BE%8B/" rel="prev" title="Internet校验和计算示例">
+    <a href="/blog/2020/05/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A0%A1%E9%AA%8C%E5%92%8C%E7%A4%BA%E4%BE%8B/" rel="prev" title="Internet校验和计算示例">
       <i class="fa fa-chevron-left"></i> Internet校验和计算示例
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/05/17/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="Java基础之多线程">
+    <a href="/blog/2020/05/17/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="Java基础之多线程">
       Java基础之多线程 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -539,7 +545,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Steven Tan"
-      src="https://blog.steventan.top/images/avatar.png">
+      src="/blog/./images/avatar.png">
   <p class="site-author-name" itemprop="name">Steven Tan</p>
   <div class="site-description" itemprop="description">有足够的积累，又一直在路上，才会有无限的可能。</div>
 </div>
@@ -549,20 +555,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
         <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
         <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
@@ -575,7 +581,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -652,7 +658,7 @@
     <span class="author" itemprop="copyrightHolder">Steven Tan</span>
 
     <span class="post-meta-divider">|</span>
-      <img src="https://blog.steventan.top/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
+      <img src="/images/emblem.png" style="display: inline-block;"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">湘ICP备-20006920号 </a>
   </div>
 
 
@@ -661,20 +667,20 @@
   </div>
 
   
-  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,0' opacity='0.7' zIndex='-1' count='120' src="/blog/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
 
 
 
@@ -694,7 +700,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/blog/js/local-search.js"></script>
 
 
 
