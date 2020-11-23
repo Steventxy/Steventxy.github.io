@@ -27,7 +27,7 @@
 
 <blockquote>
 <p>结语</p>
-<p>如果 nums2的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中。那么就无法高效地对 nums2进行排序，因此推荐使用方法一而不是方法二。在方法一中，\textit{nums}2nums2 只关系到查询操作，因此每次读取nums2中的一部分数据，并进行处理即可。</p>
+<p>如果 nums2的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中。那么就无法高效地对 nums2进行排序，因此推荐使用方法一而不是方法二。在方法一中，nums2 只关系到查询操作，因此每次读取nums2中的一部分数据，并进行处理即可。</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -4195,13 +4195,20 @@ I-->J[恢复CPU的状态信息]-->K[恢复中断钱的PWS,PC和CS]</pre>
 <li><p>创建Git裸仓库</p>
 <p>blog.git作为远程Git仓库，Hexo在本地生成的博客静态文件可以通过push与其同步。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir ~/blog.git &amp;&amp; <span class="built_in">cd</span> ~/blog.git</span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   </span><br><span class="line">2. 在hooks目录下新建一个脚本文件&#96;post-receive&#96;</span><br><span class="line"></span><br><span class="line">   &#96;&#96;&#96; bash</span><br><span class="line">   touch hooks&#x2F;post-receive</span><br></pre></td></tr></table></figure>
-
-<p><code>post-receive</code>脚本将在blog.git仓库接收到push时执行</p>
-<p>脚本非常简单，就是删除原有的/var/www/html/blog目录，然后从blog.git仓库clone新的博客静态文件</p>
-<p><code>vim hooks/post-receive</code> 将下面内容写入<code>post-receive</code>文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"> </span><br><span class="line">rm -rf /var/www/html/blog</span><br><span class="line">git <span class="built_in">clone</span> /root/blog.git /var/www/html/blog</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>在hooks目录下新建一个脚本文件<code>post-receive</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+<p>   <code>post-receive</code>脚本将在blog.git仓库接收到push时执行</p>
+<p>   脚本非常简单，就是删除原有的/var/www/html/blog目录，然后从blog.git仓库clone新的博客静态文件</p>
+<p>   <code>vim hooks/post-receive</code> 将下面内容写入<code>post-receive</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">        </span><br><span class="line">rm -rf /var/www/html/blog</span><br><span class="line">git <span class="built_in">clone</span> /root/blog.git /var/www/html/blog</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
 <li><p>给post-receive脚本执行权限</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x hooks/post-receive</span><br></pre></td></tr></table></figure>
 </li>
